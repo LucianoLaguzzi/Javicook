@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Login</title>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+
+
+
+
+    <script type="text/javascript" src="#{request.contextPath}/js/login.js"></script>
+
+</h:head>
+
+<body class="login">
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+<!-- Div de mensajes de error arriba a la derecha -->
+<c:if test="#{not empty flash.erroresLogin}">
+    <div id="error-container">
+        <i class="fa fa-exclamation-circle"></i>
+        <ui:repeat value="#{flash.erroresLogin}" var="message">
+            <p>#{message}</p>
+        </ui:repeat>
+    </div>
+    <ui:remove>
+        #{flash.erroresLogin.clear()}
+    </ui:remove>
+</c:if>
+
+<section class="login-section">
+    <h:form styleClass="login-form" ajax="true" pt:ajax="true">
+        <h:outputText value="Login" styleClass="login-title" />
+
+        <h:outputLabel value="Nombre de usuario:" for="nombre" />
+        <h:inputText id="nombre" value="#{usuarioBacking.usuario.nombre}" pt:placeholder="Inserte nombre de usuario"  styleClass="input-usuario" />
+        <h:message for="nombre" />
+
+        <h:outputLabel value="Contraseña:" for="contraseña" />
+        <h:inputSecret id="contraseña" value="#{usuarioBacking.usuario.contraseña}" pt:placeholder="Inserte contraseña" />
+        <h:message for="contraseña" />
+
+        <h:commandButton value="Iniciar sesión" action="#{usuarioBacking.iniciarSesion}" styleClass="boton-iniciar-sesion">
+            <f:ajax execute="@form" render="@form" />
+        </h:commandButton>
+
+
+
+        <div class="panel-links">
+            <h:commandLink value="Registrarse" action="#{usuarioBacking.redireccionarACrearUsuario}" styleClass="link" immediate="true" />
+        </div>
+    </h:form>
+</section>
+</body>
+</html>
