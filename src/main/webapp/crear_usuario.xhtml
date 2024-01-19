@@ -6,31 +6,41 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Recetas</title>
+    <title>Nuevo Usuario</title>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 </head>
 
-<body class="body-new">
-    <h1 class="titulo-registrar" > Registrar nuevo usuario </h1>
-    <h:form styleClass="user-form">
-        <div id="titulo-new-user" class="new-user-title">
-            <h:outputText value="Nuevo usuario"/>
-        </div>
+
+<body class="body-new-user">
+
+    <header class="titulo-registrar">
+        <h1> Registrar nuevo usuario</h1>
+    </header>
+
+    <section class="new-user-section">
+        <h:form styleClass="new-user-form">
+
+            <h2 class="new-user-title"> Registre sus datos </h2>
 
 
-        <h:outputLabel value="Nombre de usuario:" for="newUser" style="color: #ffdddd"/>
-        <h:inputText id="newUser" styleClass="inp-nuevo-usuario" pt:placeholder="Nombre de usuario"/>
+            <div class="entrada">
+            <h:inputText id="newUser" styleClass="inp-nuevo-usuario" pt:placeholder="Usuario"/>
+            </div>
 
-        <h:outputLabel value="Email:" for="newPass" style="color: #ffdddd"/>
-        <h:inputText id="newEmail" styleClass="inp-nuevo-email" pt:placeholder="Email"/>
+            <div class="entrada">
+                <h:inputText id="newPass" styleClass="inp-nueva-pass" pt:placeholder="Contraseña"/>
+            </div>
 
-        <h:outputLabel value="Contraseña:" for="newPass" style="color: #ffdddd"/>
-        <h:inputText id="newPass" styleClass="inp-nueva-pass" pt:placeholder="Contraseña"/>
+            <div class="entrada">
+            <h:inputText id="newEmail" styleClass="inp-nuevo-email" pt:placeholder="Email"/>
+            </div>
 
-        <div class="div-boton-new-user">
-        <h:commandButton value="Registrarse" action="#{usuarioBacking.registrarUsuario}" styleClass="boton-registrar-usuario"/>
-        </div>
-    </h:form>
+            <h:commandButton value="Registrarse" action="#{usuarioBacking.registrarUsuario}" styleClass="boton-registrar-usuario"/>
 
+            <span class="mensaje-ir-login">Ya tenes usuario? <h:commandLink value="Iniciar sesion" action="#{usuarioBacking.redireccionarALogin}" /></span>
+        </h:form>
+    </section>
 </body>
+
+
 </html>

@@ -12,18 +12,17 @@
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 
-
-
-
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,500;1,400&amp;family=Poppins:ital,wght@0,300;0,400;1,300&amp;display=swap" rel="stylesheet"/>
 
     <script type="text/javascript" src="#{request.contextPath}/js/login.js"></script>
 
 </h:head>
 
 <body class="login">
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
 
-<!-- Div de mensajes de error arriba a la derecha -->
+<!-- Div mensaje de error -->
 <c:if test="#{not empty flash.erroresLogin}">
     <div id="error-container">
         <i class="fa fa-exclamation-circle"></i>
@@ -34,20 +33,34 @@
     <ui:remove>
         #{flash.erroresLogin.clear()}
     </ui:remove>
+
+    <script>
+        ocultarMensajeDeError();
+    </script>
 </c:if>
+
+<!--Encabezado del login-->
+<header>
+    <h1>¡Bienvenido a JaviCook!</h1>
+    <p>Por favor, inicia sesión para continuar.</p>
+</header>
+
+
 
 <section class="login-section">
     <h:form styleClass="login-form" ajax="true" pt:ajax="true">
-        <h:outputText value="Login" styleClass="login-title" />
 
-        <h:outputLabel value="Nombre de usuario:" for="nombre" />
-        <h:inputText id="nombre" value="#{usuarioBacking.usuario.nombre}" pt:placeholder="Inserte nombre de usuario"  styleClass="input-usuario" />
-        <h:message for="nombre" />
+        <h2 class="login-title"> Login </h2>
 
-        <h:outputLabel value="Contraseña:" for="contraseña" />
-        <h:inputSecret id="contraseña" value="#{usuarioBacking.usuario.contraseña}" pt:placeholder="Inserte contraseña" />
-        <h:message for="contraseña" />
+        <div class="entrada">
+            <h:inputText id="nombre" value="#{usuarioBacking.usuario.nombre}" pt:placeholder="Usuario"  styleClass="input-usuario" />
+            <h:message for="nombre" />
+        </div>
 
+        <div class="entrada">
+            <h:inputSecret id="contraseña" value="#{usuarioBacking.usuario.contraseña}" pt:placeholder="Contraseña" />
+            <h:message for="contraseña" />
+        </div>
         <h:commandButton value="Iniciar sesión" action="#{usuarioBacking.iniciarSesion}" styleClass="boton-iniciar-sesion">
             <f:ajax execute="@form" render="@form" />
         </h:commandButton>
@@ -55,7 +68,7 @@
 
 
         <div class="panel-links">
-            <h:commandLink value="Registrarse" action="#{usuarioBacking.redireccionarACrearUsuario}" styleClass="link" immediate="true" />
+            <span class="mensaje-ir-registrar"> ¿No tenés usuario?  <h:commandLink value="Registrarse" action="#{usuarioBacking.redireccionarACrearUsuario}" styleClass="link" immediate="true" /> </span>
         </div>
     </h:form>
 </section>

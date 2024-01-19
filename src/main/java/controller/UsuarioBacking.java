@@ -85,6 +85,10 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
         return "crear_usuario.xhtml?faces-redirect=true";
     }
 
+    public String redireccionarALogin() {
+        return "login.xhtml?faces-redirect=true";
+    }
+
 
     public String cerrarSesion() {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
