@@ -1,5 +1,7 @@
 package model;
 
+import controller.UsuarioBacking;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -8,7 +10,8 @@ import java.io.Serializable;
 @NamedQueries({
         @NamedQuery(name = "Usuario.findAllActivos", query = "SELECT u FROM Usuario u WHERE u.estado = 'A'"),
         @NamedQuery(name = "Usuario.findAllNamedBy", query = "SELECT u FROM Usuario u WHERE u.estado = 'A'"),
-        @NamedQuery(name = "Usuario.findByNombreYContraseña", query = "SELECT u FROM Usuario u WHERE u.nombre = :nombre AND u.contraseña = :contraseña")
+        @NamedQuery(name = "Usuario.findByNombreYContraseña", query = "SELECT u FROM Usuario u WHERE u.nombre = :nombre AND u.contraseña = :contraseña"),
+        @NamedQuery(name = "Usuario.findByNombre", query = "SELECT u FROM Usuario u WHERE u.nombre = :nombre")
 
 })
 @SequenceGenerator(name = "SEQ_USU", initialValue = 1, allocationSize = 1)
@@ -31,6 +34,12 @@ public class Usuario extends AbstractEntity implements Serializable {
 
 
     public Usuario(){
+    }
+
+    public Usuario(String nombre, String contraseña, String email) {
+        this.nombre = nombre;
+        this.contraseña=contraseña;
+        this.email=email;
     }
 
 

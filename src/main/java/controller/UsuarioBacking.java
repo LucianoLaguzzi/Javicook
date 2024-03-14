@@ -34,6 +34,9 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
     private Usuario usuario;
 
     private List<String> erroresLogin = new ArrayList<>();
+    private List<String> erroresRegistro = new ArrayList<>();
+
+    private List<String> exitoRegistro = new ArrayList<>();
 
     public UsuarioBacking() {
         usuario = new Usuario();
@@ -63,6 +66,9 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
             errorMessage.setSeverity(FacesMessage.SEVERITY_ERROR);
             context.addMessage(null, errorMessage);
             flash.put("erroresLogin", erroresLogin); // Almacenar mensajes en flash
+            usuario.setNombre("");
+            usuario.setContraseña("");
+
             return "login.xhtml?faces-redirect=true";
         }
 
@@ -76,10 +82,11 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
             errorMessage.setSeverity(FacesMessage.SEVERITY_ERROR);
             context.addMessage(null, errorMessage);
             flash.put("erroresLogin", erroresLogin); // Almacenar mensajes en flash
+            usuario.setNombre("");
+            usuario.setContraseña("");
             return "login.xhtml?faces-redirect=true";
         }
     }
-
 
     public String redireccionarACrearUsuario() {
         return "crear_usuario.xhtml?faces-redirect=true";
@@ -89,7 +96,6 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
         return "login.xhtml?faces-redirect=true";
     }
 
-
     public String cerrarSesion() {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         System.out.println("Cerrando sesion...");
@@ -97,11 +103,76 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
     }
 
 
+    public String registrarUsuario() throws Exception {
+        erroresRegistro.clear();
+        exitoRegistro.clear();
 
-    public void agregarContacto() throws Exception {
-        System.out.println("Agregando Contacto");
-        usuarioDAO.create(usuario);
-        setEntity(new Usuario()); // para limpiar el formulario
+        FacesContext context = FacesContext.getCurrentInstance();
+        Flash flash = context.getExternalContext().getFlash();
+
+        if (usuario.getNombre() == null || usuario.getNombre().isEmpty() || usuario.getContraseña() == null || usuario.getContraseña().isEmpty()) {
+            erroresRegistro.add("Usuario y contraseña requeridos para registrarse");
+            System.out.println("No se ingreso usuario o contraseña!");
+//            FacesMessage errorMessage = new FacesMessage("Usuario y contraseña requeridos");
+//            errorMessage.setSeverity(FacesMessage.SEVERITY_ERROR);
+//            context.addMessage(null, errorMessage);
+            flash.put("erroresRegistro", erroresRegistro); // Almacenar mensajes en flash
+            usuario.setNombre("");
+            usuario.setContraseña("");
+            usuario.setEmail("");
+            return "crear_usuario.xhtml?faces-redirect=true";
+        }
+
+        try {
+//Voy a la base de datos para ver si el usuario a crear ya existe
+            Usuario verificarUsuario = usuarioDAO.findByNombre(usuario.getNombre());
+
+//Si existe:
+            if (verificarUsuario != null) {
+                erroresRegistro.clear();
+                System.out.println("El usuario a crear ya existe");
+                erroresRegistro.add("El usuario ingresado ya existe");
+//                FacesMessage message = new FacesMessage("Usuario ya existente");
+//                message.setSeverity(FacesMessage.SEVERITY_ERROR);
+//                context.addMessage(null, message);
+                flash.put("erroresRegistro", erroresRegistro); // Almacenar mensajes en flash
+                usuario.setNombre("");
+                usuario.setContraseña("");
+                usuario.setEmail("");
+                return "crear_usuario.xhtml?faces-redirect=true";
+            }
+//Si no existe, lo crea:
+        exitoRegistro.add("Usuario registrado con éxito");
+        System.out.println("Usuario creado!");
+//        FacesMessage message = new FacesMessage("Usuario creado con éxito");
+//        message.setSeverity(FacesMessage.SEVERITY_INFO);
+//        context.addMessage(null, message);
+
+        Usuario usuarioCreado = new Usuario(usuario.getNombre(),usuario.getContraseña(),usuario.getEmail());
+        usuarioDAO.create(usuarioCreado);
+        setEntity(new Usuario());
+
+        flash.put("exitoRegistro", exitoRegistro);
+        usuario.setNombre("");
+        usuario.setContraseña("");
+        usuario.setEmail("");
+        return "crear_usuario.xhtml?faces-redirect=true";
+
+
+        }catch (Exception e){
+            erroresRegistro.clear();
+            System.out.println("Error al registrar usuario");
+
+            erroresRegistro.add("Se produjo un error al crear el usuario");
+//            FacesMessage message = new FacesMessage("Error al crear el usuario");
+//            message.setSeverity(FacesMessage.SEVERITY_ERROR);
+//            context.addMessage(null, message);
+
+            flash.put("erroresRegistro", erroresRegistro); // Almacenar mensajes en flash
+        }
+
+        return "crear_usuario.xhtml?faces-redirect=true";
+
     }
 
 
@@ -150,4 +221,23 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
     public void setErroresLogin(List<String> erroresLogin) {
         this.erroresLogin = erroresLogin;
     }
+
+    public List<String> getErroresRegistro() {
+        return erroresRegistro;
+    }
+
+    public void setErroresRegistro(List<String> erroresRegistro) {
+        this.erroresRegistro = erroresRegistro;
+    }
+
+    public List<String> getExitoRegistro() {
+        return exitoRegistro;
+    }
+
+    public void setExitoRegistro(List<String> exitoRegistro) {
+        this.exitoRegistro = exitoRegistro;
+    }
+
+
+
 }

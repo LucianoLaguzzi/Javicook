@@ -21,6 +21,13 @@ public class UsuarioDAO extends AbstractEntityDAO<Usuario> {
         List<Usuario> usuarios = query.getResultList();
         return usuarios.isEmpty() ? null : usuarios.get(0);
     }
+    public Usuario findByNombre(String nombre) {
+        TypedQuery<Usuario> query = em.createNamedQuery("Usuario.findByNombre", Usuario.class);
+        query.setParameter("nombre", nombre);
+        List<Usuario> usuarios = query.getResultList();
+        return usuarios.isEmpty() ? null : usuarios.get(0);
+    }
+
 
     @Override
     public PersistentEntity findById(Long id) throws Exception {
