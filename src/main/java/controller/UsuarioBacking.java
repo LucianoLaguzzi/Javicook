@@ -10,10 +10,13 @@ import javax.ejb.EJB;
 
 
 import javax.faces.application.FacesMessage;
+import javax.faces.application.NavigationHandler;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
+import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -101,6 +104,7 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
         System.out.println("Cerrando sesion...");
         return "login.xhtml?faces-redirect=true";
     }
+
 
 
     public String registrarUsuario() throws Exception {

@@ -1,29 +1,86 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Recetas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="icon"  type="image/png" href="/JaviCook-1.0-SNAPSHOT/img/favicon.png" />
+    <!-- Si tienes un icono en formato ICO, puedes incluirlo también -->
+    <link rel="icon" type="image/x-icon" href="/JaviCook-1.0-SNAPSHOT/img/favicon.ico" />
+
+    <title>Javicook - Recetas</title>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,500;1,400&amp;family=Poppins:ital,wght@0,300;0,400;1,300&amp;family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+    <script type="text/javascript" src="#{request.contextPath}/js/login.js"></script>
+
+
+
 </h:head>
 
 
+<body class="body-main">
+    <h:form>
+        <div class="encabezado">
+            <!-- Menú de opciones -->
+            <h:panelGroup styleClass="barra-navegacion">
+                <img src="img/JaviCook_logo.png" alt="Logotipo" class ="logo-principal"/>
+                <c:if test="#{not empty usuarioBacking.usuario}">
+                    <h:outputText value="Bienvenido, #{usuarioBacking.usuario.nombre}!" styleClass="bienvenido-text" />
+                </c:if>
+                <span class="subtitulo"> Inspírate con nuestras recetas exclusivas </span>
+                    <!-- Imagen para cerrar sesion -->
 
-<body>
+                <h:graphicImage value="img/cubiertos-cruzados.png" styleClass="img-cerrar-sesion" title="Cerrar Sesión" onclick="cerrarSesion();"/>
+                <h:commandButton id="btnCerrarSesion" style="display:none;" action="#{usuarioBacking.cerrarSesion}" />
+            </h:panelGroup>
+        </div>
 
-<h:form>
-    <!-- Menú de opciones -->
-    <h:panelGroup styleClass="barra-navegacion">
-        <h:commandLink value="Cerrar sesión" action="#{usuarioBacking.cerrarSesion}" styleClass="boton-cerrar-sesion"/>
-        <h:outputText value="Bienvenido, #{usuarioBacking.usuario.nombre}!" styleClass="bienvenido-text" />
-    </h:panelGroup>
 
-    <!-- Sección de recetas existentes -->
-    <h2>Recetas existentes</h2>
+        <!-- Sección principal -->
+        <main class="principal">
 
-</h:form>
+            <section class="filtro">
+                <h2>Buscá tus recetas por ingredientes</h2>
+                <!-- Agrega aquí tus opciones de filtro -->
+                <div class="filtro-ing">
+                    <h:commandButton styleClass="boton-filtro" value="Buscar" />
+                    <h:inputText styleClass="text-filtro" pt:placeholder="Buscar por ingredientes..." />
+                </div>
+
+            </section>
+
+
+
+            <h2>Recetas existentes</h2>
+        </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </h:form>
+
 
 </body>
 </html>

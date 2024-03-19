@@ -1,25 +1,29 @@
 package controller;
 
+import dao.RecetaDAO;
 import datamodel.GenericDataModel;
+import model.Ingrediente;
 import model.Receta;
 import model.Usuario;
 
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.util.List;
+
 
 @ManagedBean(name="recetaBacking")
 @SessionScoped
 public class RecetaBacking  extends AbstractBacking<Receta>{
 
+    @EJB
+    RecetaDAO recetaDAO;
 
     private GenericDataModel<Receta> dataModel;
 
     private Receta receta;
-    private Receta NuevaReceta;
 
-    // Agrega la propiedad recetas y su correspondiente getter
-    private List<Receta> recetas;
+
 
     public RecetaBacking() {
         receta = new Receta();
@@ -39,21 +43,31 @@ public class RecetaBacking  extends AbstractBacking<Receta>{
     }
 
 
+
+//Logica para el backing de recetas:
+
+
+
+
+
+
     //Getters y Setters
-
-
-    public Receta getNuevaReceta() {
-        return NuevaReceta;
+    @Override
+    public GenericDataModel<Receta> getDataModel() {
+        return dataModel;
+    }
+    @Override
+    public void setDataModel(GenericDataModel<Receta> dataModel) {
+        this.dataModel = dataModel;
     }
 
-    public void setNuevaReceta(Receta nuevaReceta) {
-        NuevaReceta = nuevaReceta;
+    public Receta getReceta() {
+        return receta;
     }
 
-    public List<Receta> getRecetas() {
-        return recetas;
+    public void setReceta(Receta receta) {
+        this.receta = receta;
     }
-    public void setRecetas(List<Receta> recetas) {
-        this.recetas = recetas;
-    }
+
+
 }

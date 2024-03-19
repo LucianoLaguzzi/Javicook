@@ -110,7 +110,7 @@ header p {
     letter-spacing: 0.1em;
 }
 
-::placeholder{
+.entrada input::placeholder{
     color: #97fda9;
 }
 
@@ -137,18 +137,18 @@ input[type="text"]:focus, input[type="password"]:focus{
 }
 
 
-.boton-cerrar-sesion {
-    color: #fff ;
-    background-color: #c00 ;
-    border: none ;
-    padding: 10px 20px ;
-    cursor: pointer;
-    margin-left: auto ;
-}
-
 
 .bienvenido-text {
+    height: 73px;
     font-weight: bold;
+    font-family: 'Poppins';
+    margin-top: 40px;
+    margin-left: 60px;
+    font-size: 18px;
+    border-left: 2px solid whitesmoke;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
 }
 
 
@@ -283,7 +283,6 @@ h1.titulo-registrar{
     margin:-7px 0px 40px 0px;
     width: 100%;
     color: #69a383;
-
 }
 
 .new-user-title{
@@ -327,11 +326,100 @@ h1.titulo-registrar{
 
 
 /*Pantalla principal*/
+
+.body-main{
+    background-color: rgb(0 0 0 / 40%);
+}
+
 .barra-navegacion {
     display: flex ;
-    justify-content: space-between ;
+    justify-content: flex-start ;
     align-items: center;
     background-color: #333 ;
     color: #fff ;
     padding: 10px ;
+    position: relative;
+    height: 160px;
+    width: 100%;
+}
+
+.logo-principal{
+    width: 137px;
+    height: 127px;
+    margin-left: 30px;
+}
+/*.encabezado{*/
+/*    margin-bottom: 20px;*/
+/*    width: 100%;*/
+/*}*/
+
+.img-cerrar-sesion {
+    cursor: pointer;
+    position: relative;
+    margin-left: auto;
+    padding-right: 35px;
+    filter: invert(48%) sepia(29%) saturate(3026%) hue-rotate(36deg) brightness(152%) contrast(91%);
+}
+
+.subtitulo{
+    font-family: Montserrat;
+    font-size: 40px;
+    padding-left: 100px;
+}
+
+.principal{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filtro{
+    background: #bebebe;
+    margin-top: 20px;
+    border-radius: 30px;
+    width: 96%;
+}
+
+.filtro-ing{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 26px;
+}
+
+h2{
+    text-align: center;
+    padding-top: 14px;
+    margin-bottom: 16px;
+}
+
+.text-filtro{
+    padding: 10px;
+    border: none;
+    width: 40%;
+    font-size: 18px;
+    border-radius: 0 10px 10px 0;
+    letter-spacing: 0.1em;
+    border: none;
+    outline: none;
+
+}
+
+
+.boton-filtro{
+    padding: 10px 20px;
+    border: none;
+    width: 10%;
+    background-color: #ff5722;
+    font-size: 15px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 10px 0 0 10px;
+    transition: all 0.3s ease;
+}
+
+.boton-filtro:hover{
+    background: #e64a19;
 }
