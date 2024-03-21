@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -13,9 +14,12 @@
     <link rel="icon" type="image/x-icon" href="/JaviCook-1.0-SNAPSHOT/img/favicon.ico" />
 
     <title>Javicook - Recetas</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+<!--    CDN para que funcionen los iconos de fontawesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com"/>
@@ -55,33 +59,39 @@
                     <h:commandButton styleClass="boton-filtro" value="Buscar" />
                     <h:inputText styleClass="text-filtro" pt:placeholder="Buscar por ingredientes..." />
                 </div>
+            </section>
+
+            <section class="recetas">
+                <h2>Recetas disponibles</h2>
+
+                <!-- Si no hay recetas en la tabla -->
+                <h:panelGroup id="mensajeNoRecetas" rendered="#{not recetaBacking.hayRecetas}">
+                        <span class="mensaje-no-recetas">Aún no hay recetas disponibles. ¡Sé el primero en compartir la tuya!</span>
+                </h:panelGroup>
+
+                <!-- Si hay recetas -->
+                <h:panelGroup id="mensajeRecetas" rendered="#{recetaBacking.hayRecetas}">
+                    <p>Hay recetas disponibles</p>
+                </h:panelGroup>
+
+
+
+
+                <div class="div-agregar-receta">
+                    <a href="crear_receta.xhtml" class="add-recipe-btn">
+                        <i class="fa-solid fa-plus"></i> Agregar receta
+                    </a>
+                </div>
+
+
 
             </section>
 
 
 
-            <h2>Recetas existentes</h2>
+
         </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </h:form>
-
-
 </body>
 </html>
 

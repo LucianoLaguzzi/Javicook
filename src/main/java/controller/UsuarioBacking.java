@@ -1,44 +1,31 @@
 package controller;
 
-import dao.GenericDAO;
 import dao.UsuarioDAO;
 import datamodel.GenericDataModel;
 import model.Usuario;
-
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-
-
 import javax.faces.application.FacesMessage;
-import javax.faces.application.NavigationHandler;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
-import javax.servlet.http.HttpServletResponse;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
 
 
 @ManagedBean(name="usuarioBacking")
 @SessionScoped
 public class UsuarioBacking  extends AbstractBacking<Usuario>{
 
-
     @EJB
     UsuarioDAO usuarioDAO;
 
     private GenericDataModel<Usuario> dataModel;
-
     private Usuario usuario;
-
     private List<String> erroresLogin = new ArrayList<>();
     private List<String> erroresRegistro = new ArrayList<>();
-
     private List<String> exitoRegistro = new ArrayList<>();
 
     public UsuarioBacking() {

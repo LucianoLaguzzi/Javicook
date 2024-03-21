@@ -5,6 +5,13 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+
+@Entity
+@Table(name = "receta")
+@NamedQueries({
+        @NamedQuery(name = "Receta.findAll", query = "SELECT r FROM Receta r"),
+
+})
 @SequenceGenerator(name = "SEQ_REC", initialValue = 1, allocationSize = 1)
 public class Receta extends AbstractEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_REC")

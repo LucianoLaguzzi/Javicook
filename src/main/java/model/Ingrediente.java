@@ -4,6 +4,15 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
+
+@Entity
+@Table(name = "ingrediente")
+@NamedQueries({
+        @NamedQuery(name = "Ingrediente.findAll", query = "SELECT i FROM Ingrediente i"),
+
+})
+
+@SequenceGenerator(name = "SEQ_ING", initialValue = 1, allocationSize = 1)
 public class Ingrediente extends AbstractEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ING")
 
