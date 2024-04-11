@@ -10,9 +10,15 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-
+import java.util.Locale;
 
 
 @ManagedBean(name="usuarioBacking")
@@ -34,18 +40,24 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
     @PostConstruct
     @Override
     public void init() {
-
         newEntity();
 //      setEntityDAO(usuarioDAO);
         setDataModel(new GenericDataModel<>(getEntityDAO(), getEntity()));
         setInactivos(false);
         filtrarInactivos();
         erroresLogin = new ArrayList<>();
-
     }
 
 
     public String iniciarSesion() {
+
+
+
+        LocalDateTime fechaActual = LocalDateTime.now();
+        DateTimeFormatter formatoArgentino = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm", new Locale("es", "AR"));
+        String fechaYHora = fechaActual.format(formatoArgentino);
+        System.out.println(fechaYHora);
+
         erroresLogin.clear();
         FacesContext context = FacesContext.getCurrentInstance();
         Flash flash = context.getExternalContext().getFlash();
@@ -87,6 +99,7 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
     }
 
     public String cerrarSesion() {
+        System.out.println("Se entro al metodo");
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         System.out.println("Cerrando sesion...");
         return "login.xhtml?faces-redirect=true";

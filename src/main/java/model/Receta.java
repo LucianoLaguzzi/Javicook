@@ -2,6 +2,7 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -24,15 +25,17 @@ public class Receta extends AbstractEntity implements Serializable {
     @Column(name = "TITULO")
     private String titulo;
 
+    @ElementCollection
+    @CollectionTable(name = "PASOS_RECETA", joinColumns = @JoinColumn(name = "RECETA_ID"))
     @Column(name = "PASOS")
-    private String pasos;
+    private List<String> pasos;
 
     @Column(name = "IMAGEN")
     private String imagen;
 
-    @Temporal(TemporalType.TIMESTAMP)
+
     @Column(name = "FECHA")
-    private Date fecha;
+    private String fecha;
 
     @ManyToOne
     @JoinColumn(name = "ID_USUARIO", referencedColumnName = "ID")
@@ -47,12 +50,31 @@ public class Receta extends AbstractEntity implements Serializable {
     @Column(name = "VALORACION")
     private int valoracion;
 
-    @Column(name = "DIFUCULTAD")
+    @Column(name = "DIFICULTAD")
     private String dificultad;
 
     @Column(name = "TIEMPO_PREPARACION")
     private String tiempo_preparacion;
 
+    public Receta() {
+        pasos = new ArrayList<>();
+    }
+
+
+
+    public Receta(String titulo,Usuario usuario, List<String> pasos, String path, String fechaYHora,String categoria,String dificultad,List<Ingrediente>ingredientes) {
+        this.titulo = titulo;
+        this.usuario = usuario;
+        this.pasos = pasos;
+        System.out.println(pasos);
+        this.imagen = path;
+        System.out.println(path);
+        this.fecha = fechaYHora;
+        this.categoria = categoria;
+        this.dificultad = dificultad;
+        this.ingredientes = ingredientes;
+
+    }
 
 
 
@@ -71,10 +93,11 @@ public class Receta extends AbstractEntity implements Serializable {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
-    public String getPasos() {
+    public List<String> getPasos() {
         return pasos;
     }
-    public void setPasos(String pasos) {
+
+    public void setPasos(List<String> pasos) {
         this.pasos = pasos;
     }
 
@@ -86,11 +109,11 @@ public class Receta extends AbstractEntity implements Serializable {
         this.imagen = imagen;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

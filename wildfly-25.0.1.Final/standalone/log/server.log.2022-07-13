@@ -1,0 +1,462 @@
+2022-07-13 16:16:24,427 INFO  [org.jboss.modules] (main) JBoss Modules version 1.12.0.Final
+2022-07-13 16:16:25,881 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.13.Final
+2022-07-13 16:16:25,898 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final
+2022-07-13 16:16:26,139 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: WildFly Full 25.0.1.Final (WildFly Core 17.0.3.Final) starting
+2022-07-13 16:16:26,142 DEBUG [org.jboss.as.config] (MSC service thread 1-2) Configured system properties:
+	file.encoding = Cp1252
+	file.separator = \
+	http.nonProxyHosts = localhost,127.0.0.1,LAPTOP-E5RPR3KK
+	java.awt.headless = true
+	java.class.path = C:\Users\javit\Downloads\wildfly-25.0.1.Final\jboss-modules.jar
+	java.class.version = 59.0
+	java.home = C:\Program Files\Java\jdk-15
+	java.io.tmpdir = C:\Users\javit\AppData\Local\Temp\
+	java.library.path = C:\Program Files\Java\jdk-15\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\dotnet\;C:\Program Files\Java\jdk-15\bin;C:\Program Files\Git\cmd;C:\Users\javit\AppData\Local\Microsoft\WindowsApps;;.
+	java.net.preferIPv4Stack = true
+	java.runtime.name = Java(TM) SE Runtime Environment
+	java.runtime.version = 15+36-1562
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 15
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Oracle Corporation
+	java.vendor.url = https://java.oracle.com/
+	java.vendor.url.bug = https://bugreport.java.com/bugreport/
+	java.version = 15
+	java.version.date = 2020-09-15
+	java.vm.compressedOopsMode = 32-bit
+	java.vm.info = mixed mode, sharing
+	java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 15
+	java.vm.vendor = Oracle Corporation
+	java.vm.version = 15+36-1562
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	jboss.home.dir = C:\Users\javit\Downloads\wildfly-25.0.1.Final
+	jboss.host.name = laptop-e5rpr3kk
+	jboss.http.port = 8080
+	jboss.management.http.port = 9990
+	jboss.modules.dir = C:\Users\javit\Downloads\wildfly-25.0.1.Final\modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = laptop-e5rpr3kk
+	jboss.qualified.host.name = laptop-e5rpr3kk
+	jboss.server.base.dir = C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone
+	jboss.server.config.dir = C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\configuration
+	jboss.server.data.dir = C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\data
+	jboss.server.deploy.dir = C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\data\content
+	jboss.server.log.dir = C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\log
+	jboss.server.name = laptop-e5rpr3kk
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\tmp
+	jdk.debug = release
+	line.separator = 
+
+	logging.configuration = file:C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\configuration/logging.properties
+	module.path = C:\Users\javit\Downloads\wildfly-25.0.1.Final\modules
+	org.jboss.boot.log.file = C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\log\server.log
+	org.jboss.resolver.warning = true
+	os.arch = amd64
+	os.name = Windows 10
+	os.version = 10.0
+	path.separator = ;
+	program.name = standalone.bat
+	sun.arch.data.model = 64
+	sun.boot.library.path = C:\Program Files\Java\jdk-15\bin
+	sun.cpu.endian = little
+	sun.cpu.isalist = amd64
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = C:\Users\javit\Downloads\wildfly-25.0.1.Final\jboss-modules.jar -mp C:\Users\javit\Downloads\wildfly-25.0.1.Final\modules org.jboss.as.standalone -Djboss.home.dir=C:\Users\javit\Downloads\wildfly-25.0.1.Final -c standalone-full.xml
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = Cp1252
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = 
+	user.country = AR
+	user.dir = C:\Users\javit\Downloads\wildfly-25.0.1.Final\bin
+	user.home = C:\Users\javit
+	user.language = es
+	user.name = javito
+	user.script = 
+	user.timezone = America/Buenos_Aires
+	user.variant = 
+2022-07-13 16:16:26,146 DEBUG [org.jboss.as.config] (MSC service thread 1-2) VM Arguments: -Dprogram.name=standalone.bat -Xms128m -Xmx512m -Dhttp.nonProxyHosts=localhost,127.0.0.1,LAPTOP-E5RPR3KK -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djboss.management.http.port=9990 -Djboss.http.port=8080 --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED -Dorg.jboss.boot.log.file=C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\log\server.log -Dlogging.configuration=file:C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\configuration/logging.properties 
+2022-07-13 16:16:27,551 INFO  [org.wildfly.security] (ServerService Thread Pool -- 28) ELY00001: WildFly Elytron version 1.17.1.Final
+2022-07-13 16:16:29,046 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+2022-07-13 16:16:29,068 INFO  [org.xnio] (MSC service thread 1-3) XNIO version 3.8.4.Final
+2022-07-13 16:16:29,078 INFO  [org.xnio.nio] (MSC service thread 1-3) XNIO NIO Implementation Version 3.8.4.Final
+2022-07-13 16:16:29,202 INFO  [org.wildfly.extension.elytron.oidc._private] (ServerService Thread Pool -- 55) WFLYOIDC0001: Activating WildFly Elytron OIDC Subsystem
+2022-07-13 16:16:29,208 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 59) WFLYIO001: Worker 'default' has auto-configured to 16 IO threads with 128 max task threads based on your 8 available processors
+2022-07-13 16:16:29,223 INFO  [org.wildfly.extension.microprofile.config.smallrye] (ServerService Thread Pool -- 70) WFLYCONF0001: Activating MicroProfile Config Subsystem
+2022-07-13 16:16:29,229 INFO  [org.wildfly.extension.microprofile.jwt.smallrye] (ServerService Thread Pool -- 71) WFLYJWT0001: Activating MicroProfile JWT Subsystem
+2022-07-13 16:16:29,221 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 60) WFLYRS0016: RESTEasy version 4.7.2.Final
+2022-07-13 16:16:29,232 INFO  [org.wildfly.extension.health] (ServerService Thread Pool -- 56) WFLYHEALTH0001: Activating Base Health Subsystem
+2022-07-13 16:16:29,261 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 80) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+2022-07-13 16:16:29,269 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 58) WFLYCLINF0001: Activating Infinispan subsystem.
+2022-07-13 16:16:29,278 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 73) WFLYNAM0001: Activating Naming Subsystem
+2022-07-13 16:16:29,279 INFO  [org.wildfly.extension.microprofile.opentracing] (ServerService Thread Pool -- 72) WFLYTRACEXT0001: Activating MicroProfile OpenTracing Subsystem
+2022-07-13 16:16:29,284 INFO  [org.wildfly.iiop.openjdk] (ServerService Thread Pool -- 57) WFLYIIOP0001: Activating IIOP Subsystem
+2022-07-13 16:16:29,291 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 82) WFLYWS0002: Activating WebServices Extension
+2022-07-13 16:16:29,322 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 65) WFLYJSF0007: Activated the following Jakarta Server Faces Implementations: [main]
+2022-07-13 16:16:29,323 INFO  [org.wildfly.extension.metrics] (ServerService Thread Pool -- 69) WFLYMETRICS0001: Activating Base Metrics Subsystem
+2022-07-13 16:16:29,367 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0003: Undertow 2.2.12.Final starting
+2022-07-13 16:16:29,387 INFO  [org.jboss.as.connector] (MSC service thread 1-2) WFLYJCA0009: Starting Jakarta Connectors Subsystem (WildFly/IronJacamar 1.5.2.Final)
+2022-07-13 16:16:29,417 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 47) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+2022-07-13 16:16:29,442 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0018: Started Driver service with driver-name = h2
+2022-07-13 16:16:29,614 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-2) WFLYELY00023: KeyStore file 'C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\configuration\application.keystore' does not exist. Used blank.
+2022-07-13 16:16:29,618 INFO  [org.jboss.remoting] (MSC service thread 1-4) JBoss Remoting version 5.0.23.Final
+2022-07-13 16:16:29,724 INFO  [org.jboss.as.naming] (MSC service thread 1-1) WFLYNAM0003: Starting Naming Service
+2022-07-13 16:16:29,754 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-4) WFLYELY01084: KeyStore C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\configuration\application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
+2022-07-13 16:16:29,877 INFO  [org.jboss.as.ejb3] (MSC service thread 1-2) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 128 (per class), which is derived from thread worker pool sizing.
+2022-07-13 16:16:29,882 INFO  [org.jboss.as.ejb3] (MSC service thread 1-7) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 32 (per class), which is derived from the number of CPUs on this host.
+2022-07-13 16:16:29,885 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-4) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2022-07-13 16:16:30,006 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 81) WFLYUT0014: Creating file handler for path 'C:\Users\javit\Downloads\wildfly-25.0.1.Final/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2022-07-13 16:16:30,057 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0012: Started server default-server.
+2022-07-13 16:16:30,060 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) Queuing requests.
+2022-07-13 16:16:30,062 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0018: Host default-host starting
+2022-07-13 16:16:30,716 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2022-07-13 16:16:30,725 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2022-07-13 16:16:30,807 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-5) WFLYDS0013: Started FileSystemDeploymentService for directory C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\deployments
+2022-07-13 16:16:30,811 INFO  [org.jboss.as.patching] (MSC service thread 1-4) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+2022-07-13 16:16:30,816 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-2) WFLYMSGAMQ0001: AIO wasn't located on this platform, it will fall back to using pure Java NIO.
+2022-07-13 16:16:30,909 INFO  [org.jboss.as.ejb3] (MSC service thread 1-2) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+2022-07-13 16:16:31,023 INFO  [org.jboss.ws.common.management] (MSC service thread 1-6) JBWS022052: Starting JBossWS 5.4.4.Final (Apache CXF 3.4.4) 
+2022-07-13 16:16:31,032 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-5) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2022-07-13 16:16:31,271 INFO  [org.wildfly.iiop.openjdk] (MSC service thread 1-3) WFLYIIOP0009: CORBA ORB Service started
+2022-07-13 16:16:31,568 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221000: live Message Broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\data\activemq\journal,bindingsDirectory=C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\data\activemq\bindings,largeMessagesDirectory=C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\data\activemq\largemessages,pagingDirectory=C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\data\activemq\paging)
+2022-07-13 16:16:31,611 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221013: Using NIO Journal
+2022-07-13 16:16:31,726 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+2022-07-13 16:16:31,727 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221043: Protocol module found: [artemis-amqp-protocol]. Adding protocol support for: AMQP
+2022-07-13 16:16:31,727 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221043: Protocol module found: [artemis-hornetq-protocol]. Adding protocol support for: HORNETQ
+2022-07-13 16:16:31,728 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221043: Protocol module found: [artemis-stomp-protocol]. Adding protocol support for: STOMP
+2022-07-13 16:16:31,845 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221034: Waiting indefinitely to obtain live lock
+2022-07-13 16:16:31,845 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221035: Live Server Obtained live lock
+2022-07-13 16:16:32,220 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221003: Deploying ANYCAST queue jms.queue.ExpiryQueue on address jms.queue.ExpiryQueue
+2022-07-13 16:16:32,339 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221003: Deploying ANYCAST queue jms.queue.DLQ on address jms.queue.DLQ
+2022-07-13 16:16:32,346 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-7) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor-throughput acceptor
+2022-07-13 16:16:32,346 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-8) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor acceptor
+2022-07-13 16:16:32,346 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-3) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor-throughput acceptor
+2022-07-13 16:16:32,346 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-1) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor acceptor
+2022-07-13 16:16:32,656 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221007: Server is now live
+2022-07-13 16:16:32,657 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221001: Apache ActiveMQ Artemis Message Broker version 2.16.0 [default, nodeID=4d8d9e9b-02e0-11ed-b63d-9828a64993c4] 
+2022-07-13 16:16:32,683 INFO  [org.wildfly.extension.messaging-activemq] (ServerService Thread Pool -- 85) WFLYMSGAMQ0002: Bound messaging object to jndi name java:jboss/exported/jms/RemoteConnectionFactory
+2022-07-13 16:16:32,684 INFO  [org.wildfly.extension.messaging-activemq] (ServerService Thread Pool -- 86) WFLYMSGAMQ0002: Bound messaging object to jndi name java:/ConnectionFactory
+2022-07-13 16:16:32,816 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-2) WFLYJCA0007: Registered connection factory java:/JmsXA
+2022-07-13 16:16:32,916 INFO  [org.apache.activemq.artemis.ra] (MSC service thread 1-2) AMQ151007: Resource adaptor started
+2022-07-13 16:16:32,919 INFO  [org.jboss.as.connector.services.resourceadapters.ResourceAdapterActivatorService$ResourceAdapterActivator] (MSC service thread 1-2) IJ020002: Deployed: file://RaActivatoractivemq-ra
+2022-07-13 16:16:32,923 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-7) WFLYJCA0118: Binding connection factory named java:/JmsXA to alias java:jboss/DefaultJMSConnectionFactory
+2022-07-13 16:16:32,923 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-2) WFLYJCA0002: Bound Jakarta Connectors ConnectionFactory [java:/JmsXA]
+2022-07-13 16:16:33,198 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2022-07-13 16:16:33,202 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 25.0.1.Final (WildFly Core 17.0.3.Final) started in 9629ms - Started 338 of 579 services (353 services are lazy, passive or on-demand)
+2022-07-13 16:16:33,207 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2022-07-13 16:16:33,208 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2022-07-13 16:16:35,847 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0004: Found CRUDJEE-1.0.war in deployment directory. To trigger deployment create a file called CRUDJEE-1.0.war.dodeploy
+2022-07-13 16:16:35,890 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0027: Starting deployment of "CRUDJEE-1.0.war" (runtime-name: "CRUDJEE-1.0.war")
+2022-07-13 16:16:36,652 INFO  [org.jboss.as.jpa] (MSC service thread 1-7) WFLYJPA0002: Read persistence.xml for my_persistence_unit
+2022-07-13 16:16:36,815 INFO  [org.jipijapa] (MSC service thread 1-2) JIPIORMV53020253: Second level cache enabled for CRUDJEE-1.0.war#my_persistence_unit
+2022-07-13 16:16:37,013 INFO  [org.jboss.weld.deployer] (MSC service thread 1-6) WFLYWELD0003: Processing weld deployment CRUDJEE-1.0.war
+2022-07-13 16:16:37,266 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-6) HV000001: Hibernate Validator 6.0.22.Final
+2022-07-13 16:16:37,539 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 13) ISPN000128: Infinispan version: Infinispan 'Taedonggang' 12.1.7.Final
+2022-07-13 16:16:37,618 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 13) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'CRUDJEE-1.0.war#my_persistence_unit'
+2022-07-13 16:16:37,659 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 13) HHH000204: Processing PersistenceUnitInfo [
+	name: my_persistence_unit
+	...]
+2022-07-13 16:16:37,828 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 13) HHH000412: Hibernate Core {5.3.23.Final}
+2022-07-13 16:16:37,834 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 13) HHH000206: hibernate.properties not found
+2022-07-13 16:16:37,912 INFO  [io.jaegertracing.internal.JaegerTracer] (MSC service thread 1-6) No shutdown hook registered: Please call close() manually on application shutdown.
+2022-07-13 16:16:37,915 INFO  [org.wildfly.microprofile.opentracing.smallrye] (MSC service thread 1-6) WFLYTRAC0001: Tracer initialized: JaegerTracer(version=Java-1.6.0, serviceName=CRUDJEE-1.0.war, reporter=RemoteReporter(sender=org.wildfly.extension.microprofile.opentracing.spi.sender.WildFlySender@3e9d51a, closeEnqueueTimeout=1000), sampler=ConstSampler(decision=true, tags={sampler.type=const, sampler.param=true}), tags={hostname=LAPTOP-E5RPR3KK, jaeger.version=Java-1.6.0, ip=192.168.0.178}, zipkinSharedRpcSpan=false, expandExceptionLogs=false, useTraceId128Bit=false)
+2022-07-13 16:16:37,997 INFO  [org.jipijapa] (MSC service thread 1-8) JIPIORMV53020253: Second level cache enabled for CRUDJEE-1.0.war#my_persistence_unit
+2022-07-13 16:16:38,146 INFO  [org.jboss.weld.Version] (MSC service thread 1-8) WELD-000900: 3.1.8 (Final)
+2022-07-13 16:16:38,217 INFO  [org.infinispan.CONFIG] (MSC service thread 1-5) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2022-07-13 16:16:38,219 INFO  [org.infinispan.CONFIG] (MSC service thread 1-5) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2022-07-13 16:16:38,237 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 13) HCANN000001: Hibernate Commons Annotations {5.0.5.Final}
+2022-07-13 16:16:38,331 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 22) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.spi.marshalling.InfinispanProtoStreamMarshaller'
+2022-07-13 16:16:38,484 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 22) ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2022-07-13 16:16:38,542 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 22) WFLYCLINF0002: Started http-remoting-connector cache from ejb container
+2022-07-13 16:16:38,604 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 22) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'CRUDJEE-1.0.war#my_persistence_unit'
+2022-07-13 16:16:38,969 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 22) HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-07-13 16:16:39,093 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 22) Envers integration enabled? : true
+2022-07-13 16:16:41,113 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 22) RESTEASY002225: Deploying javax.ws.rs.core.Application: class mx.com.gm.crudjee.JAXRSConfiguration$Proxy$_$$_WeldClientProxy
+2022-07-13 16:16:41,186 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 22) WFLYUT0021: Registered web context: '/CRUDJEE-1.0' for server 'default-server'
+2022-07-13 16:16:41,318 INFO  [org.jboss.as.server] (DeploymentScanner-threads - 2) WFLYSRV0010: Deployed "CRUDJEE-1.0.war" (runtime-name : "CRUDJEE-1.0.war")
+2022-07-13 16:17:47,085 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 22) WFLYUT0022: Unregistered web context: '/CRUDJEE-1.0' from server 'default-server'
+2022-07-13 16:17:47,113 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 22) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'CRUDJEE-1.0.war#my_persistence_unit'
+2022-07-13 16:17:47,116 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 22) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@24ebbdb1
+2022-07-13 16:17:47,122 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 22) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'CRUDJEE-1.0.war#my_persistence_unit'
+2022-07-13 16:17:47,161 INFO  [org.infinispan.manager.DefaultCacheManager] (ServerService Thread Pool -- 22) Stopping cache manager null on null
+2022-07-13 16:17:47,163 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0028: Stopped deployment CRUDJEE-1.0.war (runtime-name: CRUDJEE-1.0.war) in 86ms
+2022-07-13 16:17:47,246 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "CRUDJEE-1.0.war" (runtime-name: "CRUDJEE-1.0.war")
+2022-07-13 16:17:51,449 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 2) WFLYDS0004: Found CRUDJEE-1.0.war in deployment directory. To trigger deployment create a file called CRUDJEE-1.0.war.dodeploy
+2022-07-13 16:17:51,456 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0027: Starting deployment of "CRUDJEE-1.0.war" (runtime-name: "CRUDJEE-1.0.war")
+2022-07-13 16:17:51,585 INFO  [org.jboss.as.jpa] (MSC service thread 1-1) WFLYJPA0002: Read persistence.xml for my_persistence_unit
+2022-07-13 16:17:51,620 INFO  [org.jipijapa] (MSC service thread 1-1) JIPIORMV53020253: Second level cache enabled for CRUDJEE-1.0.war#my_persistence_unit
+2022-07-13 16:17:51,624 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) WFLYWELD0003: Processing weld deployment CRUDJEE-1.0.war
+2022-07-13 16:17:51,635 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 22) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'CRUDJEE-1.0.war#my_persistence_unit'
+2022-07-13 16:17:51,636 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 22) HHH000204: Processing PersistenceUnitInfo [
+	name: my_persistence_unit
+	...]
+2022-07-13 16:17:51,788 INFO  [io.jaegertracing.internal.JaegerTracer] (MSC service thread 1-2) No shutdown hook registered: Please call close() manually on application shutdown.
+2022-07-13 16:17:51,789 INFO  [org.wildfly.microprofile.opentracing.smallrye] (MSC service thread 1-2) WFLYTRAC0001: Tracer initialized: JaegerTracer(version=Java-1.6.0, serviceName=CRUDJEE-1.0.war, reporter=RemoteReporter(sender=org.wildfly.extension.microprofile.opentracing.spi.sender.WildFlySender@af928f2, closeEnqueueTimeout=1000), sampler=ConstSampler(decision=true, tags={sampler.type=const, sampler.param=true}), tags={hostname=LAPTOP-E5RPR3KK, jaeger.version=Java-1.6.0, ip=192.168.0.178}, zipkinSharedRpcSpan=false, expandExceptionLogs=false, useTraceId128Bit=false)
+2022-07-13 16:17:51,796 INFO  [org.jipijapa] (MSC service thread 1-5) JIPIORMV53020253: Second level cache enabled for CRUDJEE-1.0.war#my_persistence_unit
+2022-07-13 16:17:51,969 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 22) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'CRUDJEE-1.0.war#my_persistence_unit'
+2022-07-13 16:17:51,972 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 22) HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-07-13 16:17:51,979 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 22) Envers integration enabled? : true
+2022-07-13 16:17:52,417 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 22) RESTEASY002225: Deploying javax.ws.rs.core.Application: class mx.com.gm.crudjee.JAXRSConfiguration$Proxy$_$$_WeldClientProxy
+2022-07-13 16:17:52,422 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 22) WFLYUT0021: Registered web context: '/CRUDJEE-1.0' for server 'default-server'
+2022-07-13 16:17:52,495 INFO  [org.jboss.as.server] (DeploymentScanner-threads - 1) WFLYSRV0010: Deployed "CRUDJEE-1.0.war" (runtime-name : "CRUDJEE-1.0.war")
+2022-07-13 16:51:53,581 INFO  [org.jboss.as.server] (management-handler-thread - 3) WFLYSRV0272: Suspending server
+2022-07-13 16:51:53,593 INFO  [org.jboss.as.ejb3] (management-handler-thread - 3) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+2022-07-13 16:51:53,601 INFO  [org.jboss.as.server] (Management Triggered Shutdown) WFLYSRV0241: Shutting down in response to management operation 'shutdown'
+2022-07-13 16:51:53,634 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-3) WFLYMAIL0002: Unbound mail session [java:jboss/mail/Default]
+2022-07-13 16:51:53,637 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-1) WFLYMSGAMQ0006: Unbound messaging object to jndi name java:jboss/exported/jms/RemoteConnectionFactory
+2022-07-13 16:51:53,658 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 94) WFLYUT0022: Unregistered web context: '/CRUDJEE-1.0' from server 'default-server'
+2022-07-13 16:51:53,676 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0019: Host default-host stopping
+2022-07-13 16:51:53,732 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-8) WFLYJCA0119: Unbinding connection factory named java:/JmsXA to alias java:jboss/DefaultJMSConnectionFactory
+2022-07-13 16:51:53,732 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-6) WFLYJCA0011: Unbound Jakarta Connectors ConnectionFactory [java:/JmsXA]
+2022-07-13 16:51:53,734 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 93) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'CRUDJEE-1.0.war#my_persistence_unit'
+2022-07-13 16:51:53,738 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 93) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@356bb014
+2022-07-13 16:51:53,741 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 95) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'CRUDJEE-1.0.war#my_persistence_unit'
+2022-07-13 16:51:53,742 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-5) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+2022-07-13 16:51:53,745 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 93) WFLYCLINF0003: Stopped http-remoting-connector cache from ejb container
+2022-07-13 16:51:53,749 INFO  [org.infinispan.manager.DefaultCacheManager] (ServerService Thread Pool -- 93) Stopping cache manager null on null
+2022-07-13 16:51:53,749 INFO  [org.infinispan.manager.DefaultCacheManager] (ServerService Thread Pool -- 91) Stopping cache manager null on null
+2022-07-13 16:51:53,756 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0019: Stopped Driver service with driver-name = h2
+2022-07-13 16:51:53,764 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0028: Stopped deployment CRUDJEE-1.0.war (runtime-name: CRUDJEE-1.0.war) in 145ms
+2022-07-13 16:51:53,772 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0008: Undertow HTTPS listener https suspending
+2022-07-13 16:51:53,773 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0007: Undertow HTTPS listener https stopped, was bound to 127.0.0.1:8443
+2022-07-13 16:51:53,992 INFO  [org.apache.activemq.artemis.ra] (ServerService Thread Pool -- 94) AMQ151003: resource adaptor stopped
+2022-07-13 16:51:54,156 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 94) AMQ221002: Apache ActiveMQ Artemis Message Broker version 2.16.0 [4d8d9e9b-02e0-11ed-b63d-9828a64993c4] stopped, uptime 35 minutes
+2022-07-13 16:51:54,157 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0008: Undertow HTTP listener default suspending
+2022-07-13 16:51:54,157 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2022-07-13 16:51:54,159 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0004: Undertow 2.2.12.Final stopping
+2022-07-13 16:51:54,175 INFO  [org.jboss.as] (MSC service thread 1-6) WFLYSRV0050: WildFly Full 25.0.1.Final (WildFly Core 17.0.3.Final) stopped in 559ms
+2022-07-13 16:54:13,113 INFO  [org.jboss.modules] (main) JBoss Modules version 1.12.0.Final
+2022-07-13 16:54:14,042 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.13.Final
+2022-07-13 16:54:14,057 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final
+2022-07-13 16:54:14,249 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: WildFly Full 25.0.1.Final (WildFly Core 17.0.3.Final) starting
+2022-07-13 16:54:14,251 DEBUG [org.jboss.as.config] (MSC service thread 1-2) Configured system properties:
+	file.encoding = Cp1252
+	file.separator = \
+	http.nonProxyHosts = localhost,127.0.0.1,LAPTOP-E5RPR3KK
+	java.awt.headless = true
+	java.class.path = C:\Users\javit\Downloads\wildfly-25.0.1.Final\jboss-modules.jar
+	java.class.version = 59.0
+	java.home = C:\Program Files\Java\jdk-15
+	java.io.tmpdir = C:\Users\javit\AppData\Local\Temp\
+	java.library.path = C:\Program Files\Java\jdk-15\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\dotnet\;C:\Program Files\Java\jdk-15\bin;C:\Program Files\Git\cmd;C:\Users\javit\AppData\Local\Microsoft\WindowsApps;;.
+	java.net.preferIPv4Stack = true
+	java.runtime.name = Java(TM) SE Runtime Environment
+	java.runtime.version = 15+36-1562
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 15
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Oracle Corporation
+	java.vendor.url = https://java.oracle.com/
+	java.vendor.url.bug = https://bugreport.java.com/bugreport/
+	java.version = 15
+	java.version.date = 2020-09-15
+	java.vm.compressedOopsMode = 32-bit
+	java.vm.info = mixed mode, sharing
+	java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 15
+	java.vm.vendor = Oracle Corporation
+	java.vm.version = 15+36-1562
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	jboss.home.dir = C:\Users\javit\Downloads\wildfly-25.0.1.Final
+	jboss.host.name = laptop-e5rpr3kk
+	jboss.http.port = 8080
+	jboss.management.http.port = 9990
+	jboss.modules.dir = C:\Users\javit\Downloads\wildfly-25.0.1.Final\modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = laptop-e5rpr3kk
+	jboss.qualified.host.name = laptop-e5rpr3kk
+	jboss.server.base.dir = C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone
+	jboss.server.config.dir = C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\configuration
+	jboss.server.data.dir = C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\data
+	jboss.server.deploy.dir = C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\data\content
+	jboss.server.log.dir = C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\log
+	jboss.server.name = laptop-e5rpr3kk
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\tmp
+	jdk.debug = release
+	line.separator = 
+
+	logging.configuration = file:C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\configuration/logging.properties
+	module.path = C:\Users\javit\Downloads\wildfly-25.0.1.Final\modules
+	org.jboss.boot.log.file = C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\log\server.log
+	org.jboss.resolver.warning = true
+	os.arch = amd64
+	os.name = Windows 10
+	os.version = 10.0
+	path.separator = ;
+	program.name = standalone.bat
+	sun.arch.data.model = 64
+	sun.boot.library.path = C:\Program Files\Java\jdk-15\bin
+	sun.cpu.endian = little
+	sun.cpu.isalist = amd64
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = C:\Users\javit\Downloads\wildfly-25.0.1.Final\jboss-modules.jar -mp C:\Users\javit\Downloads\wildfly-25.0.1.Final\modules org.jboss.as.standalone -Djboss.home.dir=C:\Users\javit\Downloads\wildfly-25.0.1.Final -c standalone-full.xml
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = Cp1252
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = 
+	user.country = AR
+	user.dir = C:\Users\javit\Downloads\wildfly-25.0.1.Final\bin
+	user.home = C:\Users\javit
+	user.language = es
+	user.name = javito
+	user.script = 
+	user.timezone = America/Buenos_Aires
+	user.variant = 
+2022-07-13 16:54:14,255 DEBUG [org.jboss.as.config] (MSC service thread 1-2) VM Arguments: -Dprogram.name=standalone.bat -Xms128m -Xmx512m -Dhttp.nonProxyHosts=localhost,127.0.0.1,LAPTOP-E5RPR3KK -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djboss.management.http.port=9990 -Djboss.http.port=8080 --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED -Dorg.jboss.boot.log.file=C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\log\server.log -Dlogging.configuration=file:C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\configuration/logging.properties 
+2022-07-13 16:54:15,526 INFO  [org.wildfly.security] (ServerService Thread Pool -- 28) ELY00001: WildFly Elytron version 1.17.1.Final
+2022-07-13 16:54:16,718 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0004: Found CRUDJEE-1.0.war in deployment directory. To trigger deployment create a file called CRUDJEE-1.0.war.dodeploy
+2022-07-13 16:54:16,865 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+2022-07-13 16:54:16,900 INFO  [org.xnio] (MSC service thread 1-4) XNIO version 3.8.4.Final
+2022-07-13 16:54:16,914 INFO  [org.xnio.nio] (MSC service thread 1-4) XNIO NIO Implementation Version 3.8.4.Final
+2022-07-13 16:54:16,984 INFO  [org.wildfly.extension.microprofile.jwt.smallrye] (ServerService Thread Pool -- 71) WFLYJWT0001: Activating MicroProfile JWT Subsystem
+2022-07-13 16:54:17,001 INFO  [org.wildfly.iiop.openjdk] (ServerService Thread Pool -- 57) WFLYIIOP0001: Activating IIOP Subsystem
+2022-07-13 16:54:17,009 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 60) WFLYRS0016: RESTEasy version 4.7.2.Final
+2022-07-13 16:54:17,028 INFO  [org.jboss.as.connector] (MSC service thread 1-1) WFLYJCA0009: Starting Jakarta Connectors Subsystem (WildFly/IronJacamar 1.5.2.Final)
+2022-07-13 16:54:17,032 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 47) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+2022-07-13 16:54:17,049 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 65) WFLYJSF0007: Activated the following Jakarta Server Faces Implementations: [main]
+2022-07-13 16:54:17,052 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) WFLYJCA0018: Started Driver service with driver-name = h2
+2022-07-13 16:54:17,067 INFO  [org.wildfly.extension.metrics] (ServerService Thread Pool -- 69) WFLYMETRICS0001: Activating Base Metrics Subsystem
+2022-07-13 16:54:17,115 INFO  [org.wildfly.extension.elytron.oidc._private] (ServerService Thread Pool -- 55) WFLYOIDC0001: Activating WildFly Elytron OIDC Subsystem
+2022-07-13 16:54:17,120 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 58) WFLYCLINF0001: Activating Infinispan subsystem.
+2022-07-13 16:54:17,133 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 80) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+2022-07-13 16:54:17,143 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 82) WFLYWS0002: Activating WebServices Extension
+2022-07-13 16:54:17,146 INFO  [org.wildfly.extension.health] (ServerService Thread Pool -- 56) WFLYHEALTH0001: Activating Base Health Subsystem
+2022-07-13 16:54:17,147 INFO  [org.wildfly.extension.microprofile.opentracing] (ServerService Thread Pool -- 72) WFLYTRACEXT0001: Activating MicroProfile OpenTracing Subsystem
+2022-07-13 16:54:17,178 INFO  [org.wildfly.extension.microprofile.config.smallrye] (ServerService Thread Pool -- 70) WFLYCONF0001: Activating MicroProfile Config Subsystem
+2022-07-13 16:54:17,188 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 73) WFLYNAM0001: Activating Naming Subsystem
+2022-07-13 16:54:17,438 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-6) WFLYELY00023: KeyStore file 'C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\configuration\application.keystore' does not exist. Used blank.
+2022-07-13 16:54:17,447 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-6) WFLYELY01084: KeyStore C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\configuration\application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
+2022-07-13 16:54:17,461 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0003: Undertow 2.2.12.Final starting
+2022-07-13 16:54:17,652 INFO  [org.jboss.as.naming] (MSC service thread 1-3) WFLYNAM0003: Starting Naming Service
+2022-07-13 16:54:17,658 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-2) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2022-07-13 16:54:17,659 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 81) WFLYUT0014: Creating file handler for path 'C:\Users\javit\Downloads\wildfly-25.0.1.Final/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2022-07-13 16:54:18,672 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 59) WFLYIO001: Worker 'default' has auto-configured to 16 IO threads with 128 max task threads based on your 8 available processors
+2022-07-13 16:54:18,677 INFO  [org.jboss.as.ejb3] (MSC service thread 1-2) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 32 (per class), which is derived from the number of CPUs on this host.
+2022-07-13 16:54:18,677 INFO  [org.jboss.as.ejb3] (MSC service thread 1-6) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 128 (per class), which is derived from thread worker pool sizing.
+2022-07-13 16:54:18,728 INFO  [org.jboss.as.patching] (MSC service thread 1-5) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+2022-07-13 16:54:18,731 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-6) WFLYDS0013: Started FileSystemDeploymentService for directory C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\deployments
+2022-07-13 16:54:18,788 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0027: Starting deployment of "CRUDJEE-1.0.war" (runtime-name: "CRUDJEE-1.0.war")
+2022-07-13 16:54:18,793 INFO  [org.jboss.remoting] (MSC service thread 1-5) JBoss Remoting version 5.0.23.Final
+2022-07-13 16:54:18,800 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0012: Started server default-server.
+2022-07-13 16:54:18,802 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) Queuing requests.
+2022-07-13 16:54:18,803 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0018: Host default-host starting
+2022-07-13 16:54:18,888 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2022-07-13 16:54:18,914 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2022-07-13 16:54:18,963 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-2) WFLYMSGAMQ0001: AIO wasn't located on this platform, it will fall back to using pure Java NIO.
+2022-07-13 16:54:18,985 INFO  [org.jboss.as.ejb3] (MSC service thread 1-7) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+2022-07-13 16:54:19,122 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221000: live Message Broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\data\activemq\journal,bindingsDirectory=C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\data\activemq\bindings,largeMessagesDirectory=C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\data\activemq\largemessages,pagingDirectory=C:\Users\javit\Downloads\wildfly-25.0.1.Final\standalone\data\activemq\paging)
+2022-07-13 16:54:19,192 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2022-07-13 16:54:19,231 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221013: Using NIO Journal
+2022-07-13 16:54:19,270 INFO  [org.jboss.ws.common.management] (MSC service thread 1-8) JBWS022052: Starting JBossWS 5.4.4.Final (Apache CXF 3.4.4) 
+2022-07-13 16:54:19,277 INFO  [org.wildfly.iiop.openjdk] (MSC service thread 1-1) WFLYIIOP0009: CORBA ORB Service started
+2022-07-13 16:54:19,473 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+2022-07-13 16:54:19,475 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221043: Protocol module found: [artemis-amqp-protocol]. Adding protocol support for: AMQP
+2022-07-13 16:54:19,476 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221043: Protocol module found: [artemis-hornetq-protocol]. Adding protocol support for: HORNETQ
+2022-07-13 16:54:19,477 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221043: Protocol module found: [artemis-stomp-protocol]. Adding protocol support for: STOMP
+2022-07-13 16:54:19,642 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221034: Waiting indefinitely to obtain live lock
+2022-07-13 16:54:19,643 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221035: Live Server Obtained live lock
+2022-07-13 16:54:20,415 INFO  [org.jboss.as.jpa] (MSC service thread 1-4) WFLYJPA0002: Read persistence.xml for my_persistence_unit
+2022-07-13 16:54:20,697 INFO  [org.jipijapa] (MSC service thread 1-6) JIPIORMV53020253: Second level cache enabled for CRUDJEE-1.0.war#my_persistence_unit
+2022-07-13 16:54:20,946 INFO  [org.jboss.weld.deployer] (MSC service thread 1-3) WFLYWELD0003: Processing weld deployment CRUDJEE-1.0.war
+2022-07-13 16:54:21,230 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-3) HV000001: Hibernate Validator 6.0.22.Final
+2022-07-13 16:54:21,257 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221003: Deploying ANYCAST queue jms.queue.ExpiryQueue on address jms.queue.ExpiryQueue
+2022-07-13 16:54:21,270 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221003: Deploying ANYCAST queue jms.queue.DLQ on address jms.queue.DLQ
+2022-07-13 16:54:21,276 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-1) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor-throughput acceptor
+2022-07-13 16:54:21,276 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-8) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor acceptor
+2022-07-13 16:54:21,276 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-2) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor acceptor
+2022-07-13 16:54:21,278 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-4) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor-throughput acceptor
+2022-07-13 16:54:21,606 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 85) ISPN000128: Infinispan version: Infinispan 'Taedonggang' 12.1.7.Final
+2022-07-13 16:54:21,687 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221007: Server is now live
+2022-07-13 16:54:21,689 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 84) AMQ221001: Apache ActiveMQ Artemis Message Broker version 2.16.0 [default, nodeID=4d8d9e9b-02e0-11ed-b63d-9828a64993c4] 
+2022-07-13 16:54:21,739 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 85) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'CRUDJEE-1.0.war#my_persistence_unit'
+2022-07-13 16:54:21,772 INFO  [org.wildfly.extension.messaging-activemq] (ServerService Thread Pool -- 86) WFLYMSGAMQ0002: Bound messaging object to jndi name java:/ConnectionFactory
+2022-07-13 16:54:21,783 INFO  [org.wildfly.extension.messaging-activemq] (ServerService Thread Pool -- 87) WFLYMSGAMQ0002: Bound messaging object to jndi name java:jboss/exported/jms/RemoteConnectionFactory
+2022-07-13 16:54:21,871 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 85) HHH000204: Processing PersistenceUnitInfo [
+	name: my_persistence_unit
+	...]
+2022-07-13 16:54:21,876 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-7) WFLYJCA0007: Registered connection factory java:/JmsXA
+2022-07-13 16:54:22,101 INFO  [org.apache.activemq.artemis.ra] (MSC service thread 1-7) AMQ151007: Resource adaptor started
+2022-07-13 16:54:22,102 INFO  [org.jboss.as.connector.services.resourceadapters.ResourceAdapterActivatorService$ResourceAdapterActivator] (MSC service thread 1-7) IJ020002: Deployed: file://RaActivatoractivemq-ra
+2022-07-13 16:54:22,131 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-5) WFLYJCA0002: Bound Jakarta Connectors ConnectionFactory [java:/JmsXA]
+2022-07-13 16:54:22,132 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-8) WFLYJCA0118: Binding connection factory named java:/JmsXA to alias java:jboss/DefaultJMSConnectionFactory
+2022-07-13 16:54:22,196 INFO  [org.infinispan.CONFIG] (MSC service thread 1-7) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2022-07-13 16:54:22,198 INFO  [org.infinispan.CONFIG] (MSC service thread 1-7) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2022-07-13 16:54:22,232 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 85) HHH000412: Hibernate Core {5.3.23.Final}
+2022-07-13 16:54:22,234 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 85) HHH000206: hibernate.properties not found
+2022-07-13 16:54:22,281 INFO  [io.jaegertracing.internal.JaegerTracer] (MSC service thread 1-3) No shutdown hook registered: Please call close() manually on application shutdown.
+2022-07-13 16:54:22,281 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 87) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.spi.marshalling.InfinispanProtoStreamMarshaller'
+2022-07-13 16:54:22,285 INFO  [org.wildfly.microprofile.opentracing.smallrye] (MSC service thread 1-3) WFLYTRAC0001: Tracer initialized: JaegerTracer(version=Java-1.6.0, serviceName=CRUDJEE-1.0.war, reporter=RemoteReporter(sender=org.wildfly.extension.microprofile.opentracing.spi.sender.WildFlySender@946bb66, closeEnqueueTimeout=1000), sampler=ConstSampler(decision=true, tags={sampler.type=const, sampler.param=true}), tags={hostname=LAPTOP-E5RPR3KK, jaeger.version=Java-1.6.0, ip=192.168.0.178}, zipkinSharedRpcSpan=false, expandExceptionLogs=false, useTraceId128Bit=false)
+2022-07-13 16:54:22,339 INFO  [org.jipijapa] (MSC service thread 1-7) JIPIORMV53020253: Second level cache enabled for CRUDJEE-1.0.war#my_persistence_unit
+2022-07-13 16:54:22,432 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 87) ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2022-07-13 16:54:22,445 INFO  [org.jboss.weld.Version] (MSC service thread 1-7) WELD-000900: 3.1.8 (Final)
+2022-07-13 16:54:22,488 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 87) WFLYCLINF0002: Started http-remoting-connector cache from ejb container
+2022-07-13 16:54:22,711 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 85) HCANN000001: Hibernate Commons Annotations {5.0.5.Final}
+2022-07-13 16:54:22,930 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 85) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'CRUDJEE-1.0.war#my_persistence_unit'
+2022-07-13 16:54:23,203 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 85) HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-07-13 16:54:23,316 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 85) Envers integration enabled? : true
+2022-07-13 16:54:26,073 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 85) RESTEASY002225: Deploying javax.ws.rs.core.Application: class mx.com.gm.crudjee.JAXRSConfiguration$Proxy$_$$_WeldClientProxy
+2022-07-13 16:54:26,153 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 85) WFLYUT0021: Registered web context: '/CRUDJEE-1.0' for server 'default-server'
+2022-07-13 16:54:26,354 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 48) WFLYSRV0010: Deployed "CRUDJEE-1.0.war" (runtime-name : "CRUDJEE-1.0.war")
+2022-07-13 16:54:26,496 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2022-07-13 16:54:26,500 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 25.0.1.Final (WildFly Core 17.0.3.Final) started in 14083ms - Started 488 of 669 services (357 services are lazy, passive or on-demand)
+2022-07-13 16:54:26,505 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2022-07-13 16:54:26,505 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2022-07-13 16:54:27,389 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 24) WFLYUT0022: Unregistered web context: '/CRUDJEE-1.0' from server 'default-server'
+2022-07-13 16:54:27,452 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 24) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'CRUDJEE-1.0.war#my_persistence_unit'
+2022-07-13 16:54:27,454 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 24) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@5ff765b0
+2022-07-13 16:54:27,461 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 24) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'CRUDJEE-1.0.war#my_persistence_unit'
+2022-07-13 16:54:27,517 INFO  [org.infinispan.manager.DefaultCacheManager] (ServerService Thread Pool -- 24) Stopping cache manager null on null
+2022-07-13 16:54:27,521 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0028: Stopped deployment CRUDJEE-1.0.war (runtime-name: CRUDJEE-1.0.war) in 138ms
+2022-07-13 16:54:27,686 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0009: Undeployed "CRUDJEE-1.0.war" (runtime-name: "CRUDJEE-1.0.war")
+2022-07-13 16:54:31,446 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0004: Found CRUDJEE-1.0.war in deployment directory. To trigger deployment create a file called CRUDJEE-1.0.war.dodeploy
+2022-07-13 16:54:31,461 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0027: Starting deployment of "CRUDJEE-1.0.war" (runtime-name: "CRUDJEE-1.0.war")
+2022-07-13 16:54:31,667 INFO  [org.jboss.as.jpa] (MSC service thread 1-2) WFLYJPA0002: Read persistence.xml for my_persistence_unit
+2022-07-13 16:54:31,711 INFO  [org.jipijapa] (MSC service thread 1-6) JIPIORMV53020253: Second level cache enabled for CRUDJEE-1.0.war#my_persistence_unit
+2022-07-13 16:54:31,715 INFO  [org.jboss.weld.deployer] (MSC service thread 1-6) WFLYWELD0003: Processing weld deployment CRUDJEE-1.0.war
+2022-07-13 16:54:31,730 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 24) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'CRUDJEE-1.0.war#my_persistence_unit'
+2022-07-13 16:54:31,731 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 24) HHH000204: Processing PersistenceUnitInfo [
+	name: my_persistence_unit
+	...]
+2022-07-13 16:54:31,881 INFO  [io.jaegertracing.internal.JaegerTracer] (MSC service thread 1-6) No shutdown hook registered: Please call close() manually on application shutdown.
+2022-07-13 16:54:31,882 INFO  [org.wildfly.microprofile.opentracing.smallrye] (MSC service thread 1-6) WFLYTRAC0001: Tracer initialized: JaegerTracer(version=Java-1.6.0, serviceName=CRUDJEE-1.0.war, reporter=RemoteReporter(sender=org.wildfly.extension.microprofile.opentracing.spi.sender.WildFlySender@95bdf0c, closeEnqueueTimeout=1000), sampler=ConstSampler(decision=true, tags={sampler.type=const, sampler.param=true}), tags={hostname=LAPTOP-E5RPR3KK, jaeger.version=Java-1.6.0, ip=192.168.0.178}, zipkinSharedRpcSpan=false, expandExceptionLogs=false, useTraceId128Bit=false)
+2022-07-13 16:54:31,887 INFO  [org.jipijapa] (MSC service thread 1-8) JIPIORMV53020253: Second level cache enabled for CRUDJEE-1.0.war#my_persistence_unit
+2022-07-13 16:54:31,966 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 24) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'CRUDJEE-1.0.war#my_persistence_unit'
+2022-07-13 16:54:31,968 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 24) HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-07-13 16:54:31,974 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 24) Envers integration enabled? : true
+2022-07-13 16:54:32,658 INFO  [org.jboss.resteasy.resteasy_jaxrs.i18n] (ServerService Thread Pool -- 20) RESTEASY002225: Deploying javax.ws.rs.core.Application: class mx.com.gm.crudjee.JAXRSConfiguration$Proxy$_$$_WeldClientProxy
+2022-07-13 16:54:32,663 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 20) WFLYUT0021: Registered web context: '/CRUDJEE-1.0' for server 'default-server'
+2022-07-13 16:54:32,784 INFO  [org.jboss.as.server] (DeploymentScanner-threads - 2) WFLYSRV0010: Deployed "CRUDJEE-1.0.war" (runtime-name : "CRUDJEE-1.0.war")
+2022-07-13 17:19:38,792 INFO  [org.jboss.as.server] (management-handler-thread - 2) WFLYSRV0272: Suspending server
+2022-07-13 17:19:38,798 INFO  [org.jboss.as.ejb3] (management-handler-thread - 2) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+2022-07-13 17:19:38,815 INFO  [org.jboss.as.server] (Management Triggered Shutdown) WFLYSRV0241: Shutting down in response to management operation 'shutdown'
+2022-07-13 17:19:38,832 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 20) WFLYUT0022: Unregistered web context: '/CRUDJEE-1.0' from server 'default-server'
+2022-07-13 17:19:38,868 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0019: Host default-host stopping
+2022-07-13 17:19:38,870 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-2) WFLYMAIL0002: Unbound mail session [java:jboss/mail/Default]
+2022-07-13 17:19:38,872 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-6) WFLYMSGAMQ0006: Unbound messaging object to jndi name java:jboss/exported/jms/RemoteConnectionFactory
+2022-07-13 17:19:38,876 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-7) WFLYJCA0119: Unbinding connection factory named java:/JmsXA to alias java:jboss/DefaultJMSConnectionFactory
+2022-07-13 17:19:38,877 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-7) WFLYJCA0011: Unbound Jakarta Connectors ConnectionFactory [java:/JmsXA]
+2022-07-13 17:19:38,880 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 91) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'CRUDJEE-1.0.war#my_persistence_unit'
+2022-07-13 17:19:38,881 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 91) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@c4b304
+2022-07-13 17:19:38,887 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 92) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'CRUDJEE-1.0.war#my_persistence_unit'
+2022-07-13 17:19:38,888 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+2022-07-13 17:19:38,891 INFO  [org.infinispan.manager.DefaultCacheManager] (ServerService Thread Pool -- 92) Stopping cache manager null on null
+2022-07-13 17:19:38,893 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 20) WFLYCLINF0003: Stopped http-remoting-connector cache from ejb container
+2022-07-13 17:19:38,893 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0019: Stopped Driver service with driver-name = h2
+2022-07-13 17:19:38,894 INFO  [org.infinispan.manager.DefaultCacheManager] (ServerService Thread Pool -- 94) Stopping cache manager null on null
+2022-07-13 17:19:38,973 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0028: Stopped deployment CRUDJEE-1.0.war (runtime-name: CRUDJEE-1.0.war) in 120ms
+2022-07-13 17:19:38,974 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0008: Undertow HTTPS listener https suspending
+2022-07-13 17:19:38,974 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0007: Undertow HTTPS listener https stopped, was bound to 127.0.0.1:8443
+2022-07-13 17:19:38,975 INFO  [org.apache.activemq.artemis.ra] (ServerService Thread Pool -- 93) AMQ151003: resource adaptor stopped
+2022-07-13 17:19:39,165 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 93) AMQ221002: Apache ActiveMQ Artemis Message Broker version 2.16.0 [4d8d9e9b-02e0-11ed-b63d-9828a64993c4] stopped, uptime 25 minutes
+2022-07-13 17:19:39,166 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0008: Undertow HTTP listener default suspending
+2022-07-13 17:19:39,167 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2022-07-13 17:19:39,168 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0004: Undertow 2.2.12.Final stopping
+2022-07-13 17:19:39,178 INFO  [org.jboss.as] (MSC service thread 1-1) WFLYSRV0050: WildFly Full 25.0.1.Final (WildFly Core 17.0.3.Final) stopped in 327ms

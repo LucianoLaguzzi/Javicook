@@ -11,7 +11,6 @@ import java.util.List;
         @NamedQuery(name = "Ingrediente.findAll", query = "SELECT i FROM Ingrediente i"),
 
 })
-
 @SequenceGenerator(name = "SEQ_ING", initialValue = 1, allocationSize = 1)
 public class Ingrediente extends AbstractEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ING")
@@ -35,9 +34,16 @@ public class Ingrediente extends AbstractEntity implements Serializable {
     private List<Receta> recetas;
 
 
-public Ingrediente(){
+    public Ingrediente() {
 
-}
+    }
+
+    public Ingrediente(String nombre, Receta receta){
+        this.nombre = nombre;
+//        this.recetas.
+
+    }
+
 
     @Override
     public Long getId() {

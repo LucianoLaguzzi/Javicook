@@ -8,8 +8,12 @@ import model.Usuario;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import java.util.ArrayList;
 
+@ManagedBean(name="ingredienteBacking")
+@SessionScoped
 public class IngredienteBacking extends AbstractBacking<Ingrediente>{
 
     @EJB

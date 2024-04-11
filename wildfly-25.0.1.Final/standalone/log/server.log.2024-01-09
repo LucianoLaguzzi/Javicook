@@ -1,0 +1,123 @@
+2024-01-09 00:01:07,652 INFO  [stdout] (default task-1) Iniciando sesión...
+2024-01-09 00:01:07,668 INFO  [stdout] (default task-1) Datos incorrectos, no es posible iniciar sesion
+2024-01-09 00:26:00,275 INFO  [stdout] (default task-1) Iniciando sesión...
+2024-01-09 00:26:00,275 INFO  [stdout] (default task-1) N0 se ingreso un usuario ni una contraseña
+2024-01-09 00:28:08,681 WARNING [javax.enterprise.resource.webcontainer.jsf.application] (default task-2) JSF1064: no se encuentra o sirve el recurso, jsf.js, desde la biblioteca, javax.faces.
+2024-01-09 00:28:08,683 WARNING [javax.enterprise.resource.webcontainer.jsf.application] (default task-2) : java.io.IOException: Se ha anulado una conexión establecida por el software en su equipo host.
+	at sun.nio.ch.SocketDispatcher.writev0(Native Method)
+	at sun.nio.ch.SocketDispatcher.writev(SocketDispatcher.java:55)
+	at sun.nio.ch.IOUtil.write(IOUtil.java:148)
+	at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:503)
+	at org.xnio.nio.NioSocketConduit.write(NioSocketConduit.java:162)
+	at io.undertow.server.protocol.http.HttpResponseConduit.write(HttpResponseConduit.java:652)
+	at io.undertow.conduits.ChunkedStreamSinkConduit.doWrite(ChunkedStreamSinkConduit.java:166)
+	at io.undertow.conduits.ChunkedStreamSinkConduit.write(ChunkedStreamSinkConduit.java:128)
+	at org.xnio.conduits.ConduitStreamSinkChannel.write(ConduitStreamSinkChannel.java:150)
+	at io.undertow.channels.DetachableStreamSinkChannel.write(DetachableStreamSinkChannel.java:240)
+	at io.undertow.server.HttpServerExchange$WriteDispatchChannel.write(HttpServerExchange.java:2192)
+	at io.undertow.servlet.spec.ServletOutputStreamImpl.writeBufferBlocking(ServletOutputStreamImpl.java:575)
+	at io.undertow.servlet.spec.ServletOutputStreamImpl.write(ServletOutputStreamImpl.java:151)
+	at java.nio.channels.Channels$WritableByteChannelImpl.write(Channels.java:458)
+	at com.sun.faces.application.resource.ResourceHandlerImpl.handleResourceRequest(ResourceHandlerImpl.java:318)
+	at javax.faces.webapp.FacesServlet.executeLifecyle(FacesServlet.java:704)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:451)
+	at io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:129)
+	at io.opentracing.contrib.jaxrs2.server.SpanFinishingFilter.doFilter(SpanFinishingFilter.java:52)
+	at io.undertow.servlet.core.ManagedFilter.doFilter(ManagedFilter.java:61)
+	at io.undertow.servlet.handlers.FilterHandler$FilterChainImpl.doFilter(FilterHandler.java:131)
+	at io.undertow.servlet.handlers.FilterHandler.handleRequest(FilterHandler.java:84)
+	at io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
+	at io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+	at io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+	at org.wildfly.elytron.web.undertow.server.ElytronRunAsHandler.lambda$handleRequest$1(ElytronRunAsHandler.java:68)
+	at org.wildfly.security.auth.server.FlexibleIdentityAssociation.runAsFunctionEx(FlexibleIdentityAssociation.java:103)
+	at org.wildfly.security.auth.server.Scoped.runAsFunctionEx(Scoped.java:161)
+	at org.wildfly.security.auth.server.Scoped.runAs(Scoped.java:73)
+	at org.wildfly.elytron.web.undertow.server.ElytronRunAsHandler.handleRequest(ElytronRunAsHandler.java:67)
+	at io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
+	at io.undertow.servlet.handlers.security.SSLInformationAssociationHandler.handleRequest(SSLInformationAssociationHandler.java:117)
+	at io.undertow.servlet.handlers.security.ServletAuthenticationCallHandler.handleRequest(ServletAuthenticationCallHandler.java:57)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.security.handlers.AbstractConfidentialityHandler.handleRequest(AbstractConfidentialityHandler.java:46)
+	at io.undertow.servlet.handlers.security.ServletConfidentialityConstraintHandler.handleRequest(ServletConfidentialityConstraintHandler.java:64)
+	at io.undertow.security.handlers.AbstractSecurityContextAssociationHandler.handleRequest(AbstractSecurityContextAssociationHandler.java:43)
+	at org.wildfly.elytron.web.undertow.server.servlet.CleanUpHandler.handleRequest(CleanUpHandler.java:38)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at org.wildfly.extension.undertow.security.jacc.JACCContextIdHandler.handleRequest(JACCContextIdHandler.java:61)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at org.wildfly.extension.undertow.deployment.GlobalRequestControllerHandler.handleRequest(GlobalRequestControllerHandler.java:68)
+	at io.undertow.servlet.handlers.SendErrorPageHandler.handleRequest(SendErrorPageHandler.java:52)
+	at io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+	at io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:280)
+	at io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
+	at io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
+	at io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+	at io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+	at org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+	at io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:260)
+	at io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
+	at io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
+	at io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
+	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+	at org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1280)
+	at java.lang.Thread.run(Thread.java:750)
+
+2024-01-09 00:41:59,125 INFO  [stdout] (default task-4) Iniciando sesión...
+2024-01-09 00:41:59,125 INFO  [stdout] (default task-4) N0 se ingreso un usuario ni una contraseña
+2024-01-09 01:04:30,803 INFO  [stdout] (default task-6) Iniciando sesión...
+2024-01-09 01:04:30,803 INFO  [stdout] (default task-6) N0 se ingreso un usuario ni una contraseña
+2024-01-09 01:04:35,473 INFO  [stdout] (default task-6) Iniciando sesión...
+2024-01-09 01:04:35,504 INFO  [stdout] (default task-6) Datos incorrectos, no es posible iniciar sesion
+2024-01-09 01:04:38,502 INFO  [stdout] (default task-6) Iniciando sesión...
+2024-01-09 01:04:38,502 INFO  [stdout] (default task-6) No se escribio una contraseña
+2024-01-09 01:10:10,867 INFO  [stdout] (default task-6) Iniciando sesión...
+2024-01-09 01:10:10,871 INFO  [stdout] (default task-6) Datos incorrectos, no es posible iniciar sesion
+2024-01-09 01:12:19,850 INFO  [stdout] (default task-6) Iniciando sesión...
+2024-01-09 01:12:19,850 INFO  [stdout] (default task-6) No se escribio una contraseña
+2024-01-09 01:12:26,244 INFO  [stdout] (default task-6) Iniciando sesión...
+2024-01-09 01:12:26,244 INFO  [stdout] (default task-6) No se escribio un nombre de usuario
+2024-01-09 01:12:29,967 INFO  [stdout] (default task-6) Iniciando sesión...
+2024-01-09 01:12:29,971 INFO  [stdout] (default task-6) Datos incorrectos, no es posible iniciar sesion
+2024-01-09 01:14:47,742 INFO  [stdout] (default task-6) Iniciando sesión...
+2024-01-09 01:14:47,743 INFO  [stdout] (default task-6) No se escribio una contraseña
+2024-01-09 01:14:51,033 INFO  [stdout] (default task-6) Iniciando sesión...
+2024-01-09 01:14:51,033 INFO  [stdout] (default task-6) No se escribio un nombre de usuario
+2024-01-09 01:16:12,797 INFO  [stdout] (default task-6) Iniciando sesión...
+2024-01-09 01:16:12,797 INFO  [stdout] (default task-6) No se escribio una contraseña
+2024-01-09 01:16:16,158 INFO  [stdout] (default task-6) Iniciando sesión...
+2024-01-09 01:16:16,158 INFO  [stdout] (default task-6) No se escribio un nombre de usuario
+2024-01-09 01:16:19,101 INFO  [stdout] (default task-6) Iniciando sesión...
+2024-01-09 01:16:19,106 INFO  [stdout] (default task-6) Datos incorrectos, no es posible iniciar sesion
+2024-01-09 01:16:24,940 INFO  [stdout] (default task-6) Iniciando sesión...
+2024-01-09 01:16:24,947 INFO  [stdout] (default task-6) Datos incorrectos, no es posible iniciar sesion
+2024-01-09 01:16:27,968 INFO  [stdout] (default task-6) Iniciando sesión...
+2024-01-09 01:16:27,969 INFO  [stdout] (default task-6) No se escribio una contraseña
+2024-01-09 01:20:24,488 INFO  [stdout] (default task-5) Iniciando sesión...
+2024-01-09 01:20:24,489 INFO  [stdout] (default task-5) No se escribio una contraseña
+2024-01-09 01:20:27,990 INFO  [stdout] (default task-5) Iniciando sesión...
+2024-01-09 01:20:27,998 INFO  [stdout] (default task-5) Datos incorrectos, no es posible iniciar sesion
+2024-01-09 01:20:31,520 INFO  [stdout] (default task-5) Iniciando sesión...
+2024-01-09 01:20:31,520 INFO  [stdout] (default task-5) No se escribio un nombre de usuario
+2024-01-09 01:20:34,228 INFO  [stdout] (default task-5) Iniciando sesión...
+2024-01-09 01:20:34,228 INFO  [stdout] (default task-5) No se escribio una contraseña
+2024-01-09 01:20:46,859 INFO  [stdout] (default task-5) Iniciando sesión...
+2024-01-09 01:20:46,865 INFO  [stdout] (default task-5) Datos incorrectos, no es posible iniciar sesion
+2024-01-09 01:32:07,370 INFO  [stdout] (default task-6) Iniciando sesión...
+2024-01-09 01:32:07,435 INFO  [stdout] (default task-6) Sesion iniciada correctamente...
+2024-01-09 01:32:11,733 INFO  [stdout] (default task-6) Cerrando sesion...
+2024-01-09 01:33:38,511 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) WFLYJCA0019: Stopped Driver service with driver-name = JaviCook-1.0-SNAPSHOT.war_com.mysql.cj.jdbc.Driver_8_0
+2024-01-09 01:33:38,517 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 81) WFLYUT0022: Unregistered web context: '/JaviCook-1.0-SNAPSHOT' from server 'default-server'
+2024-01-09 01:33:38,528 WARNING [javax.enterprise.resource.webcontainer.jsf.config] (ServerService Thread Pool -- 81) Unexpected state during contextDestroyed: no ConfigManager instance in current ServletContext but one is expected to exist.
+2024-01-09 01:33:38,602 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 108) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'JaviCook-1.0-SNAPSHOT#recetaDS'
+2024-01-09 01:33:38,608 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 108) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@2d862dad
+2024-01-09 01:33:38,618 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 108) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'JaviCook-1.0-SNAPSHOT#recetaDS'

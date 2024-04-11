@@ -2,8 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -21,18 +20,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+
+<!--    <link rel="preconnect" href="https://fonts.googleapis.com"/>-->
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com"/>-->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,500;1,400&amp;family=Poppins:ital,wght@0,300;0,400;1,300&amp;family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
-    <script type="text/javascript" src="#{request.contextPath}/js/login.js"></script>
 
 
 
+<!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
 </h:head>
 
 
 <body class="body-main">
-    <h:form>
+    <h:form enctype="multipart/form-data">
         <div class="encabezado">
             <!-- Menú de opciones -->
             <h:panelGroup styleClass="barra-navegacion">
@@ -44,7 +44,7 @@
                     <!-- Imagen para cerrar sesion -->
 
                 <h:graphicImage value="img/cubiertos-cruzados.png" styleClass="img-cerrar-sesion" title="Cerrar Sesión" onclick="cerrarSesion();"/>
-                <h:commandButton id="btnCerrarSesion" style="display:none;" action="#{usuarioBacking.cerrarSesion}" />
+                <h:commandButton id="btnCerrarSesion" styleClass="boton-cerrar-sesion" style="display:none;" action="#{usuarioBacking.cerrarSesion}" />
             </h:panelGroup>
         </div>
 
@@ -65,22 +65,132 @@
                 <h2>Recetas disponibles</h2>
 
                 <!-- Si no hay recetas en la tabla -->
-                <h:panelGroup id="mensajeNoRecetas" rendered="#{not recetaBacking.hayRecetas}">
+                <h:panelGroup id="mensajeNoRecetas" rendered="#{not recetaBacking.hayRecetas}" prependId="false">
                         <span class="mensaje-no-recetas">Aún no hay recetas disponibles. ¡Sé el primero en compartir la tuya!</span>
                 </h:panelGroup>
 
                 <!-- Si hay recetas -->
-                <h:panelGroup id="mensajeRecetas" rendered="#{recetaBacking.hayRecetas}">
+                <h:panelGroup id="mensajeRecetas" rendered="#{recetaBacking.hayRecetas}" prependId="false">
                     <p>Hay recetas disponibles</p>
                 </h:panelGroup>
 
-
-
-
                 <div class="div-agregar-receta">
-                    <a href="crear_receta.xhtml" class="add-recipe-btn">
-                        <i class="fa-solid fa-plus"></i> Agregar receta
+                    <a id="btnAbrirModalAgregarReceta" class="add-recipe-btn" onclick="abrirModal()">
+                        <i class="fas fa-plus"></i> Agregar receta
                     </a>
+                </div>
+
+
+
+                <!-- Modal para agregar recetas -->
+                <div id="modalAgregarReceta" class="modal">
+                    <div class="modal-content">
+                        <span class="close" title="Cerrar"><i class="fa-solid fa-xmark" onclick="cerrarModal()"></i></span>
+
+                        <h2 id="titulo-modal">Agregar nueva receta</h2>
+
+
+
+                        <!-- Formulario para agregar receta -->
+                        <h:form class="form-receta" id="form-receta" enctype="multipart/form-data" prependId="false">
+                            <div class="contenedor-receta">
+
+                                <div class="div-titulo-receta">
+                                    <h:outputLabel for="titulo-r" styleClass="label-titulo-receta" value="Nombre de la receta: "></h:outputLabel>
+                                    <h:inputText id="titulo-r" value="#{recetaBacking.receta.titulo}" pt:placeholder="Inserte nombre de la receta"  styleClass="receta-titulo" />
+                                </div>
+                                <div id="modalErrorTitulo" class="modal-error-titulo"></div>
+
+                                <!-- Campos de los pasos -->
+                                <div class="div-pasos-receta">
+                                    <div id="pasosPanel" class="pasos-panel">
+                                        <div class="paso">
+                                            <label for="paso1" class="label-pasos">Paso 1:</label>
+                                            <h:inputTextarea id="paso1" styleClass="text-area-pasos" pt:placeholder="Agregar paso..."  onchange="actualizarPasos()"></h:inputTextarea>
+                                        </div>
+                                    </div>
+                                    <div id="modalErrorPasos" class="modal-error-paso"></div>
+
+<!--                                    Aca agrego todos los pasos, en un input oculto-->
+                                    <input type="hidden" id="inputOculto" name="pasos"/>
+
+                                    <!-- Botón para agregar un nuevo paso -->
+                                    <a id="btnAgregarPaso" class="btn-agregar-paso" title="Agregar paso">
+                                        <i class="fas fa-plus"></i>
+                                    </a>
+                                </div>
+
+
+                                <div class="div-imagen">
+                                    <h:outputLabel for="imagen" styleClass="label-imagen-receta" value="Imagen de la receta:"></h:outputLabel>
+                                    <input type="file" id="imagen" name="file" accept="image/*" onchange="previewImage(event)" class="input-imagen"/>
+                                    <div class="imagen-preview">
+                                        <img id="previewImagen" class="preview-imagen" src="#" alt="Previesualización de la imagen"/>
+                                    </div>
+                                </div>
+
+                                <div class="div-dificultad">
+                                    <h:outputLabel for="dificultad" styleClass="label-dificultad" value="Seleccione la dificultad de la receta: "></h:outputLabel>
+                                    <h:selectOneMenu id="dificultad" value="#{recetaBacking.receta.dificultad}" styleClass="menu-dificultad">
+                                        <f:selectItem itemLabel="Seleccione..." itemValue="#{null}"/>
+                                        <f:selectItem itemValue="Fácil" itemLabel="Fácil"/>
+                                        <f:selectItem itemValue="Intermedio" itemLabel="Intermedio"/>
+                                        <f:selectItem itemValue="Difícil" itemLabel="Difícil"/>
+                                    </h:selectOneMenu>
+                                </div>
+                                <div id="modalErrorDificultad" class="modal-error-dificultad"></div>
+
+                                <div class="div-categoria">
+                                    <h:outputLabel for="categoria" styleClass="label-categoria" value="Seleccione la categoría de la receta: "></h:outputLabel>
+                                    <h:selectOneMenu id="categoria" value="#{recetaBacking.receta.categoria}" styleClass="menu-categoria">
+                                        <f:selectItem itemLabel="Seleccione..." itemValue="#{null}"/>
+                                        <f:selectItem itemValue="Desayuno/Merienda" itemLabel="Desayuno/Merienda"/>
+                                        <f:selectItem itemValue="Almuerzo/Cena" itemLabel="Almuerzo/Cena"/>
+                                        <f:selectItem itemValue="Brunch" itemLabel="Brunch"/>
+                                        <f:selectItem itemValue="Bebida/trago" itemLabel="Bebida/Trago"/>
+                                        <f:selectItem itemValue="Veggie" itemLabel="Veggie"/>
+                                        <f:selectItem itemValue="Guarnición" itemLabel="Guarnición"/>
+                                        <f:selectItem itemValue="Postre" itemLabel="Postre"/>
+                                    </h:selectOneMenu>
+                                </div>
+                                <div id="modalErrorCategoria" class="modal-error-categoria"></div>
+
+
+
+                                <div class="div-tiempo-preparacion">
+                                    <h:outputLabel for="tiempoPreparacion" styleClass="label-tiempo-preparacion" value="Tiempo de preparación (minutos): "></h:outputLabel>
+                                    <a id="btnQuitarTiempo" class="btn-quitar-tiempo" title="Quitar 1 minuto">
+                                        <i class="fas fa-minus"></i>
+                                    </a>
+                                    <h:inputText id="tiempoPreparacion" styleClass="input-tiempo-preparacion" value="#{recetaBacking.receta.tiempo_preparacion}" />
+                                    <a id="btnAgregarTiempo" class="btn-agregar-tiempo" title="Agregar 1 minuto">
+                                        <i class="fas fa-plus"></i>
+                                    </a>
+                                </div>
+                                <div id="modalErrorTiempoPreparacion" class="modal-error-tiempo-preparacion"></div>
+
+
+                                <div class="div-ingredientes">
+                                    <h:outputLabel styleClass="label-ingredientes" value="Ingredientes caracteristicos de la receta:"></h:outputLabel>
+                                    <input type="text" id="ingredientesInput" class="input-ingredientes" placeholder="Ingrese ingredientes esenciales de la receta..." name="ingredientes"/>
+                                </div>
+                                    <div class="p-aclaracion-ingrediente">
+                                        <p class="instruccion-ingrediente">Separe cada ingrediente por una coma ( , )</p>
+                                    </div>
+                                <div id="modalErrorIngredientes" class="modal-error-ingredientes"></div>
+
+
+
+                                <h:commandButton id="boton-enviar" styleClass="btn-guardar-receta" value="Guardar receta" action="#{recetaBacking.registrarReceta}" >
+                                </h:commandButton>
+
+                            </div>
+                        </h:form>
+                        <!-- ... -->
+
+
+
+                    </div>
                 </div>
 
 
@@ -91,7 +201,10 @@
 
 
         </main>
+
     </h:form>
+
+    <script type="text/javascript" src="#{request.contextPath}/js/index.js"></script>
 </body>
 </html>
 

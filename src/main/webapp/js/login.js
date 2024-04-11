@@ -6,10 +6,3 @@ function ocultarMensajeDeError() {
 }
 
 
-function cerrarSesion() {
-// Llama al método en el backing bean para cerrar sesión y redirigir
-    var boton = document.querySelector("[id$='btnCerrarSesion']");
-    boton.click();
-
-}
-
