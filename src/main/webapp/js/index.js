@@ -273,29 +273,23 @@ btnQuitarTiempo.addEventListener('click', decrementarTiempoPreparacion);
 
 
 
-
-
-// Función para obtener y almacenar los ingredientes en una lista
-// function obtenerIngredientes() {
-//     var ingredientesInput = document.querySelector('.input-ingredientes').value.trim();
-//     var ingredientesArray = ingredientesInput.split(',').map(function(ingrediente) {
-//         return ingrediente.trim();
-//     });
-//     // Aquí puedes hacer lo que necesites con la lista de ingredientes, como enviarla al backend
-//     console.log(ingredientesArray);
-// }
-//
-// // Agregar evento de cambio al campo de ingredientes para obtener los ingredientes al escribir
-// document.querySelector('.input-ingredientes').addEventListener('input', obtenerIngredientes);
-
-
-
-
 function obtenerIngredientes() {
     var ingredientesInput = document.querySelector('.input-ingredientes').value.trim();
     var ingredientesArray = ingredientesInput.split(',').map(function(ingrediente) {
         return { nombre: ingrediente.trim() }; // Puedes incluir más propiedades aquí según tus necesidades
     });
     console.log(ingredientesArray);
-    // Aquí puedes enviar ingredientesArray al backend, por ejemplo, a través de una solicitud AJAX
+}
+
+
+
+// Función para actualizar los ingredientes y cantidades
+function actualizarIngredientesCantidades() {
+    // Obtener el textarea de ingredientes y cantidades
+    const textarea = document.querySelector('.text-area-cantidad-ingrediente');
+    const inputOcultoIngredientesCantidades = document.querySelector('.inputOcultoIngredientesCantidades');
+    // Obtener el valor del textarea
+    const textoIngredientesCantidades = textarea.value;
+    // Actualizar el campo oculto con los ingredientes y cantidades
+    inputOcultoIngredientesCantidades.value = textoIngredientesCantidades;
 }

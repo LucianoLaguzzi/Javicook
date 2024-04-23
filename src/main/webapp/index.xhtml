@@ -62,17 +62,55 @@
             </section>
 
             <section class="recetas">
-                <h2>Recetas disponibles</h2>
-
+                <div class="titulo-section-recetas">
+                    <h2>Recetas disponibles</h2>
+                </div>
                 <!-- Si no hay recetas en la tabla -->
                 <h:panelGroup id="mensajeNoRecetas" rendered="#{not recetaBacking.hayRecetas}" prependId="false">
                         <span class="mensaje-no-recetas">Aún no hay recetas disponibles. ¡Sé el primero en compartir la tuya!</span>
                 </h:panelGroup>
 
+
+
+
+
+
+<!--====================================================  ZONA DE TRABAJO ========================================================================================
+ ======================================================================================================================================================== -->
+
                 <!-- Si hay recetas -->
-                <h:panelGroup id="mensajeRecetas" rendered="#{recetaBacking.hayRecetas}" prependId="false">
-                    <p>Hay recetas disponibles</p>
+
+
+<!--                <h:panelGroup id="mensajeRecetas" styleClass="panel-recetas" rendered="#{recetaBacking.hayRecetas}" prependId="false">-->
+<!--                    <p>Hay recetas disponibles</p>-->
+<!--                </h:panelGroup>-->
+
+
+
+
+                <h:panelGroup id="tarjetasRecetas" styleClass="panel-recetas" rendered="#{recetaBacking.hayRecetas}" prependId="false">
+                    <c:forEach items="#{recetaBacking.listaRecetas}" var="receta">
+                        <div class="tarjeta-receta">
+                            <img src="#{receta.imagen}" alt="#{receta.titulo}" />
+                            <h2>#{receta.titulo}</h2>
+                            <p>Categoría: #{receta.categoria}</p>
+                            <!-- Agrega más detalles de la receta si lo deseas -->
+                            <h:commandLink value="Ver más" action="#{recetaBacking.verReceta(receta.id)}" />
+                        </div>
+                    </c:forEach>
                 </h:panelGroup>
+
+
+
+
+
+
+<!--==================================================== FIN DE ZONA DE TRABAJO ====================================================================================
+======================================================================================================================================================== -->
+
+
+
+
 
                 <div class="div-agregar-receta">
                     <a id="btnAbrirModalAgregarReceta" class="add-recipe-btn" onclick="abrirModal()">
@@ -95,11 +133,27 @@
                         <h:form class="form-receta" id="form-receta" enctype="multipart/form-data" prependId="false">
                             <div class="contenedor-receta">
 
+                                <!-- Campos de titulo -->
                                 <div class="div-titulo-receta">
                                     <h:outputLabel for="titulo-r" styleClass="label-titulo-receta" value="Nombre de la receta: "></h:outputLabel>
                                     <h:inputText id="titulo-r" value="#{recetaBacking.receta.titulo}" pt:placeholder="Inserte nombre de la receta"  styleClass="receta-titulo" />
                                 </div>
                                 <div id="modalErrorTitulo" class="modal-error-titulo"></div>
+
+
+
+                                <!-- Campos de los ingredientes y sus cantidades -->
+                            <div class="div-cantidad-ingredientes-receta">
+                                <label for="cantidadIngrediente" class="label-cantidad-ingrediente">Ingredientes y cantidades:</label>
+                                <h:inputTextarea id="cantidadIngrediente" styleClass="text-area-cantidad-ingrediente" pt:placeholder="Ejemplo:&#10;Sal: 20gr &#10;Agua: 300cc" onchange="actualizarIngredientesCantidades()"></h:inputTextarea>
+                                <input type="hidden" class="inputOcultoIngredientesCantidades" name="cantidadIngrediente"/>
+
+
+                                <div class="p-aclaracion-cantidad-ingrediente">
+                                    <p class="instruccion-ingrediente-cantidad">Separe el ingrediente de la cantidad con 2 puntos (:)</p>
+                                </div>
+                            </div>
+
 
                                 <!-- Campos de los pasos -->
                                 <div class="div-pasos-receta">
@@ -116,7 +170,8 @@
 
                                     <!-- Botón para agregar un nuevo paso -->
                                     <a id="btnAgregarPaso" class="btn-agregar-paso" title="Agregar paso">
-                                        <i class="fas fa-plus"></i>
+                                        <i class="fas fa-plus"></i>  Paso
+
                                     </a>
                                 </div>
 
@@ -179,26 +234,21 @@
                                     </div>
                                 <div id="modalErrorIngredientes" class="modal-error-ingredientes"></div>
 
-
-
-                                <h:commandButton id="boton-enviar" styleClass="btn-guardar-receta" value="Guardar receta" action="#{recetaBacking.registrarReceta}" >
-                                </h:commandButton>
+                                    <h:commandButton id="boton-enviar" styleClass="btn-guardar-receta" value="Guardar receta" action="#{recetaBacking.registrarReceta}" />
 
                             </div>
                         </h:form>
-                        <!-- ... -->
-
-
+                        <!-- Fin modal -->
 
                     </div>
                 </div>
-
-
-
+<!--Fin seccion recetas-->
             </section>
 
+            <section class="footer-section">
 
-
+                asd
+            </section>
 
         </main>
 

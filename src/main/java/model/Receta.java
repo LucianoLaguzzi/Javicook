@@ -44,7 +44,12 @@ public class Receta extends AbstractEntity implements Serializable {
     @Column(name = "CATEGORIA")
     private String categoria;
 
-    @ManyToMany(mappedBy = "recetas")
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "receta_ingrediente",
+            joinColumns = @JoinColumn(name = "id_receta"),
+            inverseJoinColumns = @JoinColumn(name = "id_ingrediente")
+    )
     private List<Ingrediente> ingredientes;
 
     @Column(name = "VALORACION")
@@ -56,23 +61,33 @@ public class Receta extends AbstractEntity implements Serializable {
     @Column(name = "TIEMPO_PREPARACION")
     private String tiempo_preparacion;
 
+    @ElementCollection
+    @CollectionTable(name="RECETA_INGREDIENTES_CANTIDADES", joinColumns = @JoinColumn(name = "RECETA_ID"))
+    @Column(name="INGREDIENTE_CANTIDAD")
+    private List<String> ingredientesCantidades;
+
+
+
     public Receta() {
         pasos = new ArrayList<>();
+        ingredientes = new ArrayList<>();
+        ingredientesCantidades = new ArrayList<>();
     }
 
 
 
-    public Receta(String titulo,Usuario usuario, List<String> pasos, String path, String fechaYHora,String categoria,String dificultad,List<Ingrediente>ingredientes) {
+    public Receta(String titulo,List<String> ingredientesCantidades,Usuario usuario, List<String> pasos, String path, String fechaYHora,String categoria,String dificultad, String tiempo_preparacion) {
         this.titulo = titulo;
         this.usuario = usuario;
         this.pasos = pasos;
-        System.out.println(pasos);
         this.imagen = path;
         System.out.println(path);
         this.fecha = fechaYHora;
         this.categoria = categoria;
         this.dificultad = dificultad;
-        this.ingredientes = ingredientes;
+        this.ingredientes = new ArrayList<>();
+        this.tiempo_preparacion = tiempo_preparacion;
+        this.ingredientesCantidades=ingredientesCantidades;
 
     }
 
@@ -102,7 +117,20 @@ public class Receta extends AbstractEntity implements Serializable {
     }
 
     public String getImagen() {
-        return imagen;
+        // Ruta completa de la imagen
+        String rutaCompleta = imagen;
+        // Parte de la ruta que deseas mantener
+        String parteDeseada = "img/fotos/";
+        // Obtener la posición de la parte deseada en la ruta completa
+        int indiceInicio = rutaCompleta.indexOf(parteDeseada);
+        // Verificar si la parte deseada se encuentra en la ruta completa
+        if (indiceInicio != -1) {
+            // Devolver la parte relativa de la ruta
+            return rutaCompleta.substring(indiceInicio);
+        } else {
+            // Si la parte deseada no se encuentra, devolver la ruta completa sin cambios
+            return imagen;
+        }
     }
 
     public void setImagen(String imagen) {
@@ -163,6 +191,13 @@ public class Receta extends AbstractEntity implements Serializable {
 
     public void setTiempo_preparacion(String tiempo_preparacion) {
         this.tiempo_preparacion = tiempo_preparacion;
+    }
+
+    public List<String> getIngredientesCantidades() {
+        return ingredientesCantidades;
+    }
+    public void setIngredientesCantidades(List<String> ingredientesCantidades) {
+        this.ingredientesCantidades = ingredientesCantidades;
     }
 
     @Override

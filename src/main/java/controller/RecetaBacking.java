@@ -46,6 +46,8 @@ public class RecetaBacking  extends AbstractBacking<Receta>{
 
     private String pathFinal = "";
 
+    private List<String> ingredientesCantidades = new ArrayList<>();
+
 
     public RecetaBacking() {
         receta = new Receta();
@@ -103,6 +105,13 @@ public void registrarReceta() throws Exception {
         Usuario usuarioAutenticado = (Usuario) session.getAttribute("usuario");
         if (usuarioAutenticado != null) {
 
+
+
+            //Cantidades e ingredientes
+            String[] cantidadesArray = request.getParameterValues("cantidadIngrediente");
+            List<String> cantidades = (cantidadesArray != null) ? Arrays.asList(cantidadesArray) : new ArrayList<>();
+
+
             // Obtener los pasos
             String[] pasosArray = request.getParameterValues("pasos");
             List<String> pasos = (pasosArray != null) ? Arrays.asList(pasosArray) : new ArrayList<>();
@@ -149,50 +158,54 @@ public void registrarReceta() throws Exception {
             //Dificultad
             String dificultad = receta.getDificultad();
 
-
-
-
-
-
-
-
+            //Tiempo de preparacion
+            String tiempo_preparacion = receta.getTiempo_preparacion();
 
 
             //Ingredientes
             String ingredientesString = request.getParameter("ingredientes");
-            String[] nombresIngredientes = (ingredientesString != null) ? ingredientesString.split(",") : new String[0];
-
-            // Crear una lista de objetos de tipo Ingrediente
-            List<Ingrediente> ingredientes = new ArrayList<>();
-            for (String nombre : nombresIngredientes) {
-                Ingrediente nuevoIngrediente = new Ingrediente(nombre,receta);
-                ingredienteDAO.create(nuevoIngrediente);
-                ingredientes.add(nuevoIngrediente);
-            }
-
-            // Ahora tienes una lista de objetos Ingrediente que puedes usar en tu lógica de negocio
-            System.out.println("Lista de ingredientes recibidos: " + ingredientes);
-
-
-
-
-
+            String[] nombresIngredientes = (ingredientesString != null) ? ingredientesString.toLowerCase().split(",") : new String[0];
 
             if ((receta.getTitulo() != null) || (!receta.getTitulo().equals(""))) {
-                    Receta nuevaReceta = new Receta(receta.getTitulo(), usuarioAutenticado, pasos, pathFinal, fechaYHora,categoria,dificultad,ingredientes);
-                    recetaDAO.create(nuevaReceta);
-                    receta = new Receta();
+                    Receta nuevaReceta = new Receta(receta.getTitulo(),cantidades, usuarioAutenticado, pasos, pathFinal, fechaYHora,categoria,dificultad,tiempo_preparacion);
 
-                    RecetaBacking recetaBacking = context.getApplication().evaluateExpressionGet(context, "#{recetaBacking}", RecetaBacking.class);
-                    recetaBacking.actualizarListaRecetas();
+                recetaDAO.create(nuevaReceta);
+
+                // Crear una lista de objetos de tipo Ingrediente
+                List<Ingrediente> ingredientes = new ArrayList<>();
+                for (String nombre : nombresIngredientes) {
+                    Ingrediente ingredienteExistente = ingredienteDAO.findByNombre(nombre);
+                    // Si el ingrediente existe, añadirlo a la lista de ingredientes de la receta
+                    // Si no existe, crear uno nuevo y añadirlo a la lista de ingredientes de la receta
+                    if (ingredienteExistente != null) {
+                        ingredientes.add(ingredienteExistente);
+                    } else {
+                        Ingrediente nuevoIngrediente = new Ingrediente(nombre);
+                        ingredienteDAO.create(nuevoIngrediente);
+                        ingredientes.add(nuevoIngrediente);
+                    }
                 }
+                // Ahora tienes una lista de objetos Ingrediente que puedes usar en tu lógica de negocio
+                System.out.println("Lista de ingredientes recibidos: " + ingredientes);
+                // Asignar los ingredientes a la receta
+                nuevaReceta.setIngredientes(ingredientes);
+                // Actualizar la receta con la lista de ingredientes
+                recetaDAO.update(nuevaReceta);
+
+                receta = new Receta();
+
+                RecetaBacking recetaBacking = context.getApplication().evaluateExpressionGet(context, "#{recetaBacking}", RecetaBacking.class);
+                recetaBacking.actualizarListaRecetas();
+                }
+
 
         }else{
             System.out.println("No hay usuario activo");
         }
 
     }catch (Exception e){
-        System.out.println(e);
+        e.printStackTrace();
+        System.out.println("Error");
     }
     finally {
         ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
@@ -240,5 +253,13 @@ public void registrarReceta() throws Exception {
 
     public void setHayRecetas(boolean hayRecetas) {
         this.hayRecetas = hayRecetas;
+    }
+
+    public List<String> getIngredientesCantidades() {
+        return ingredientesCantidades;
+    }
+
+    public void setIngredientesCantidades(List<String> ingredientesCantidades) {
+        this.ingredientesCantidades = ingredientesCantidades;
     }
 }

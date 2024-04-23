@@ -2,15 +2,18 @@ package model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 
 @Entity
 @Table(name = "ingrediente")
 @NamedQueries({
-        @NamedQuery(name = "Ingrediente.findAll", query = "SELECT i FROM Ingrediente i"),
+        @NamedQuery(name = "Ingrediente.findAllActivos", query = "SELECT i FROM Ingrediente i"),
+        @NamedQuery(name = "Ingrediente.findByNombre", query = "SELECT i FROM Ingrediente i WHERE i.nombre = :nombre"),
 
 })
+
 @SequenceGenerator(name = "SEQ_ING", initialValue = 1, allocationSize = 1)
 public class Ingrediente extends AbstractEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ING")
@@ -22,15 +25,8 @@ public class Ingrediente extends AbstractEntity implements Serializable {
     @Column(name = "NOMBRE")
     private String nombre;
 
-    @Column(name = "CANTIDAD")
-    private String cantidad;
 
-    @ManyToMany
-    @JoinTable(
-            name = "receta_ingrediente",
-            joinColumns = @JoinColumn(name = "id_ingrediente"),
-            inverseJoinColumns = @JoinColumn(name = "id_receta")
-    )
+    @ManyToMany(mappedBy = "ingredientes", cascade = CascadeType.ALL)
     private List<Receta> recetas;
 
 
@@ -38,9 +34,9 @@ public class Ingrediente extends AbstractEntity implements Serializable {
 
     }
 
-    public Ingrediente(String nombre, Receta receta){
+    public Ingrediente(String nombre){
         this.nombre = nombre;
-//        this.recetas.
+        this.recetas = new ArrayList<>(); // Inicializa la lista de recetas
 
     }
 
@@ -58,12 +54,6 @@ public class Ingrediente extends AbstractEntity implements Serializable {
     }
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-    public String getCantidad() {
-        return cantidad;
-    }
-    public void setCantidad(String cantidad) {
-        this.cantidad = cantidad;
     }
     public List<Receta> getRecetas() {
         return recetas;
