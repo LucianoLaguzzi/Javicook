@@ -48,6 +48,9 @@ public class RecetaBacking  extends AbstractBacking<Receta>{
 
     private List<String> ingredientesCantidades = new ArrayList<>();
 
+    private int cantidadRecetasCargadas = 0; // Inicializa la cantidad de recetas cargadas
+    private int cantidadRecetasPorLote = 7; // Establece la cantidad de recetas por lote
+
 
     public RecetaBacking() {
         receta = new Receta();
@@ -59,6 +62,7 @@ public class RecetaBacking  extends AbstractBacking<Receta>{
         setDataModel(new GenericDataModel<>(getEntityDAO(), getEntity()));
         setInactivos(false);
         filtrarInactivos();
+        cantidadRecetasCargadas = 0;
         obtenerRecetas();
     }
 
@@ -73,7 +77,7 @@ public class RecetaBacking  extends AbstractBacking<Receta>{
 
     public void obtenerRecetas() {
         try {
-            listaRecetas = recetaDAO.findAll(Receta.class);
+            listaRecetas = recetaDAO.findRange(cantidadRecetasCargadas, cantidadRecetasPorLote);
             if (!listaRecetas.isEmpty()) {
                 System.out.println("Hay recetas disponibles");
                 hayRecetas= true;
@@ -88,7 +92,11 @@ public class RecetaBacking  extends AbstractBacking<Receta>{
     }
 
 
-
+    // Método para cargar más recetas cuando se presiona el botón "Ver +"
+    public void cargarMasRecetas() {
+        cantidadRecetasPorLote += cantidadRecetasPorLote; // Incrementa la cantidad de recetas cargadas
+        obtenerRecetas(); // Vuelve a obtener las recetas para cargar el siguiente lote
+    }
 
 
 
@@ -215,6 +223,13 @@ public void registrarReceta() throws Exception {
 
     public void actualizarListaRecetas() {
         obtenerRecetas();
+    }
+
+
+
+    public String verDetallesReceta(int idReceta) {
+        // Lógica para cargar los detalles de la receta con el ID proporcionado
+        return "detalle_receta?faces-redirect=true&idReceta=" + idReceta;
     }
 
 

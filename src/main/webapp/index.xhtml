@@ -71,45 +71,37 @@
                 </h:panelGroup>
 
 
-
-
-
-
-<!--====================================================  ZONA DE TRABAJO ========================================================================================
- ======================================================================================================================================================== -->
-
-                <!-- Si hay recetas -->
-
-
-<!--                <h:panelGroup id="mensajeRecetas" styleClass="panel-recetas" rendered="#{recetaBacking.hayRecetas}" prependId="false">-->
-<!--                    <p>Hay recetas disponibles</p>-->
-<!--                </h:panelGroup>-->
-
-
-
-
+                <!-- Si hay recetas en la tabla -->
                 <h:panelGroup id="tarjetasRecetas" styleClass="panel-recetas" rendered="#{recetaBacking.hayRecetas}" prependId="false">
                     <c:forEach items="#{recetaBacking.listaRecetas}" var="receta">
                         <div class="tarjeta-receta">
-                            <img src="#{receta.imagen}" alt="#{receta.titulo}" />
+                            <div class="imagen-contenedor">
+                                <img src="#{receta.imagen}" alt="#{receta.titulo}" />
+                                <div class="info-imagen">
+                                    <span class="nombre-usuario">#{receta.usuario.nombre}</span>
+                                    <span class="fecha-subida">#{receta.fecha}</span>
+                                </div>
+                            </div>
                             <h2>#{receta.titulo}</h2>
                             <p>Categoría: #{receta.categoria}</p>
+                            <p><span class="tiempo">Tiempo de preparación: #{receta.tiempo_preparacion}'</span><i class="far fa-clock"></i> <span class="dificultad-#{receta.dificultad.toLowerCase()}">#{receta.dificultad}</span></p>
+                            <div class="valoracion">
+                                <i class="far fa-star" onclick="valorarReceta(1)"></i>
+                                <i class="far fa-star" onclick="valorarReceta(2)"></i>
+                                <i class="far fa-star" onclick="valorarReceta(3)"></i>
+                                <i class="far fa-star" onclick="valorarReceta(4)"></i>
+                                <i class="far fa-star" onclick="valorarReceta(5)"></i>
+                            </div>
                             <!-- Agrega más detalles de la receta si lo deseas -->
-                            <h:commandLink value="Ver más" action="#{recetaBacking.verReceta(receta.id)}" />
+                            <h:link value="Ver más" outcome="detalle_receta">
+                                <f:param name="idReceta" value="#{receta.id}" />
+                            </h:link>
                         </div>
                     </c:forEach>
+                    <div id="verMasRecetas">
+                        <h:commandButton class="ver-mas-recetas" value="Ver más recetas..." rendered="#{recetaBacking.hayRecetas}" action="#{recetaBacking.cargarMasRecetas}"  />
+                    </div>
                 </h:panelGroup>
-
-
-
-
-
-
-<!--==================================================== FIN DE ZONA DE TRABAJO ====================================================================================
-======================================================================================================================================================== -->
-
-
-
 
 
                 <div class="div-agregar-receta">
@@ -117,7 +109,6 @@
                         <i class="fas fa-plus"></i> Agregar receta
                     </a>
                 </div>
-
 
 
                 <!-- Modal para agregar recetas -->

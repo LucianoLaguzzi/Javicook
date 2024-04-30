@@ -293,3 +293,18 @@ function actualizarIngredientesCantidades() {
     // Actualizar el campo oculto con los ingredientes y cantidades
     inputOcultoIngredientesCantidades.value = textoIngredientesCantidades;
 }
+
+
+
+function valorarReceta(valoracion) {
+    const estrellas = document.querySelectorAll('.valoracion i');
+    estrellas.forEach((estrella, index) => {
+        if (index < valoracion) {
+            estrella.classList.remove('far');
+            estrella.classList.add('fas');
+        } else {
+            estrella.classList.remove('fas');
+            estrella.classList.add('far');
+        }
+    });
+}
