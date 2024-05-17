@@ -8,7 +8,10 @@ import model.Receta;
 import model.Usuario;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.Asynchronous;
 import javax.ejb.EJB;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
@@ -100,7 +103,7 @@ public class RecetaBacking  extends AbstractBacking<Receta>{
 
 
 
-
+@Asynchronous
 //Logica para guardar las recetas
 public void registrarReceta() throws Exception {
     try {
@@ -213,7 +216,7 @@ public void registrarReceta() throws Exception {
 
     }catch (Exception e){
         e.printStackTrace();
-        System.out.println("Error");
+        System.out.println("Error" + e.getMessage());
     }
     finally {
         ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();

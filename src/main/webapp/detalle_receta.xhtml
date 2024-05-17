@@ -9,6 +9,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+        <f:metadata>
+            <f:event listener="#{detalleRecetaBacking.init()}" type="preRenderView" />
+        </f:metadata>
+
         <link rel="icon"  type="image/png" href="/JaviCook-1.0-SNAPSHOT/img/favicon.png" />
         <!-- Si tienes un icono en formato ICO, puedes incluirlo también -->
         <link rel="icon" type="image/x-icon" href="/JaviCook-1.0-SNAPSHOT/img/favicon.ico" />
@@ -26,36 +30,127 @@
     </h:head>
 
     <body class="body-detalles">
+        <h:form enctype="multipart/form-data">
+            <div class="encabezado">
+                <!-- Menú de opciones -->
+                <h:panelGroup styleClass="barra-navegacion">
+                    <img src="img/JaviCook_logo.png" alt="Logotipo" class ="logo-principal"/>
+                    <c:if test="#{not empty usuarioBacking.usuario}">
+                        <h:outputText value="Bienvenido, #{usuarioBacking.usuario.nombre}!" styleClass="bienvenido-text" />
+                    </c:if>
+                    <span class="subtitulo-detalle-receta"> Detalles de la receta </span>
+                    <!-- Imagen para cerrar sesion -->
 
-        <main class="principal">
-            <section class="tarjeta-grande">
-
-                <h:panelGroup styleClass="panel-detalles">
-                    <img src="#{detalleRecetaBacking.receta.imagen}" alt="#{receta.titulo}" />
-                    <div class="div-detalles-titulo">
-                        <h:outputText styleClass="detalles-titulo" value="#{detalleRecetaBacking.tituloAMayuscula(detalleRecetaBacking.receta.titulo)}" />
-                    </div>
-
-                    <h1>Detalles de la Receta:</h1>
-
-                    <div class="detalles-cantidades">
-                        <p> Ingredientes:</p>
-                        <h:outputText value="#{detalleRecetaBacking.formatIngredientes(detalleRecetaBacking.obtenerCantidadesIngredientes(detalleRecetaBacking.receta.id).get(0))}" escape="false" />
-
-                    </div>
-                    <!-- Agrega más detalles de la receta aquí -->
-                    <!-- Por ejemplo, imagen, ingredientes, pasos, etc. -->
-
-                    <h:outputLink styleClass="link" value="#{request.contextPath}/index.xhtml">Ver otras recetas</h:outputLink>
+                    <h:graphicImage value="img/cubiertos-cruzados.png" styleClass="img-cerrar-sesion" title="Cerrar Sesión" onclick="cerrarSesion();"/>
+                    <h:commandButton id="btnCerrarSesion2" styleClass="boton-cerrar-sesion2" style="display:none;" action="#{detalleRecetaBacking.cerrarSesion()}" />
                 </h:panelGroup>
+            </div>
 
 
-            </section>
+            <main class="principal">
+                <section class="tarjeta-grande">
 
-        </main>
+                    <h:panelGroup styleClass="panel-detalles">
+                        <div class="div-detalles-titulo">
+                            <h:outputText styleClass="detalles-titulo" value="#{detalleRecetaBacking.tituloAMayuscula(detalleRecetaBacking.receta.titulo)}" />
+                        </div>
+                        <div class="imagen-contenedor">
+                            <img src="#{detalleRecetaBacking.receta.imagen}" alt="#{detalleRecetaBacking.receta.titulo}" />
+                            <div class="detalles-usuario-fecha">
+                                <span class="detalles-nombre-usuario">#{detalleRecetaBacking.receta.usuario.nombre}</span>
+                                <span class="detalles-fecha-subida">#{detalleRecetaBacking.receta.fecha}</span>
+                            </div>
+                        </div>
+
+                        <p class="detalles-tiempo-dificultad">
+                            <span>Tiempo de preparación: #{detalleRecetaBacking.receta.tiempo_preparacion}'<i class="far fa-clock"/></span>
+                            <span class="detalles-dificultad-#{detalleRecetaBacking.receta.dificultad.toLowerCase()}">#{detalleRecetaBacking.receta.dificultad}</span>
+                        </p>
+
+                        <div class="detalles-categoria">
+                        <p>Categoría:</p>
+                        <h:outputText styleClass="texto-categoria" value="#{detalleRecetaBacking.receta.categoria}" escape="false" ></h:outputText>
+                        </div>
+
+                        <div class="detalles-cantidades">
+                            <p> Ingredientes</p>
+                            <h:outputText styleClass="valores-cantidad" value="#{detalleRecetaBacking.formatIngredientes(detalleRecetaBacking.obtenerCantidadesIngredientes(detalleRecetaBacking.receta.id).get(0))}" escape="false" />
+                        </div>
+
+                        <hr class="divider"/>
+
+                        <div class="detalles-pasos">
+                            <p> Pasos</p>
+                            <h:outputText styleClass="paso-texto" value="#{pasosRecetaBacking.formatPasos(pasosRecetaBacking.obtenerPasosReceta(pasosRecetaBacking.receta.id).get(0))}" escape="false" />
+                        </div>
+
+                    <hr class="divider"/>
+
+                        <h:outputText styleClass="titulo-valoracion" value="Tu valoracion para esta receta" />
+
+                        <div class="detalles-valoracion">
+                            <c:forEach var="i" begin="1" end="5">
+                                <h:commandLink action="#{detalleRecetaBacking.valorarReceta(i)}">
+                                    <i class="fa#{detalleRecetaBacking.getValoracionUsuario() >= i ? 's' : 'r'} fa-star"></i>
+                                </h:commandLink>
+                            </c:forEach>
+                        </div>
+
+                    <hr class="divider"/>
 
 
 
+
+
+
+
+
+
+
+
+
+
+                        <div class="detalles-comentarios">
+                            <i class="far fa-comment-alt"></i>
+                            <h:outputText value="Comentarios"></h:outputText>
+                        </div>
+
+                        <div class="input-comentarios">
+                            <h:inputText styleClass="input-comentario" pt:placeholder="Agregar comentario..." value="#{detalleRecetaBacking.nuevoComentario}" />
+                            <h:commandButton styleClass="boton-comentario" value="Enviar" action="#{detalleRecetaBacking.agregarComentario}" title="Enviar" onclick="mostrarMensajeConfirmacion()"/>
+                        </div>
+                        <div class="comentarios-usuarios">
+                            <ui:repeat var="comentario" value="#{detalleRecetaBacking.comentarios}">
+                                <div class="contenedores-spam">
+                                    <span class="usuario-comentario">#{comentario.usuario.nombre}</span>
+                                    <span class="comentario-fecha">#{detalleRecetaBacking.obtenerFechaComentario(comentario)}</span>
+                                    <span class="texto-comentario">#{comentario.comentario}</span>
+                                </div>
+                            </ui:repeat>
+                        </div>
+
+
+                        <div id="mensaje-confirmacion" class="mensaje-confirmacion" style="display: none;">
+                            <p>¡El comentario se ha agregado correctamente!</p>
+                            <div class="spinner-container">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p class="procesando">Procesando...</p>
+                            </div>
+                        </div>
+
+                        <h:outputLink styleClass="link" value="#{request.contextPath}/index.xhtml">Ver otras recetas
+                            <i class="fa-solid fa-rotate-left"></i>
+                        </h:outputLink>
+
+
+
+                    </h:panelGroup>
+
+                </section>
+            </main>
+
+
+        </h:form>
         <script type="text/javascript" src="#{request.contextPath}/js/detalles.js"></script>
     </body>
 </html>

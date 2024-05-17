@@ -8,6 +8,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
+    <f:metadata>
+        <f:event listener="#{recetaBacking.init()}" type="preRenderView" />
+    </f:metadata>
+
     <link rel="icon"  type="image/png" href="/JaviCook-1.0-SNAPSHOT/img/favicon.png" />
     <!-- Si tienes un icono en formato ICO, puedes incluirlo también -->
     <link rel="icon" type="image/x-icon" href="/JaviCook-1.0-SNAPSHOT/img/favicon.ico" />
@@ -85,19 +89,29 @@
                             <h2>#{receta.titulo}</h2>
                             <p>Categoría: #{receta.categoria}</p>
                             <p><span class="tiempo">Tiempo de preparación: #{receta.tiempo_preparacion}'</span><i class="far fa-clock"></i> <span class="dificultad-#{receta.dificultad.toLowerCase()}">#{receta.dificultad}</span></p>
+
+
                             <div class="valoracion">
-                                <i class="far fa-star" onclick="valorarReceta(1)"></i>
-                                <i class="far fa-star" onclick="valorarReceta(2)"></i>
-                                <i class="far fa-star" onclick="valorarReceta(3)"></i>
-                                <i class="far fa-star" onclick="valorarReceta(4)"></i>
-                                <i class="far fa-star" onclick="valorarReceta(5)"></i>
+                                <p> Valoracion Promedio </p>
+                                <div class="estrellas">
+                                    <i class="fa#{receta.valoracion >= 1 ? 's' : 'r'} fa-star"></i>
+                                    <i class="fa#{receta.valoracion >= 2 ? 's' : 'r'} fa-star"></i>
+                                    <i class="fa#{receta.valoracion >= 3 ? 's' : 'r'} fa-star"></i>
+                                    <i class="fa#{receta.valoracion >= 4 ? 's' : 'r'} fa-star"></i>
+                                    <i class="fa#{receta.valoracion >= 5 ? 's' : 'r'} fa-star"></i>
+                                </div>
                             </div>
-                            <!-- Agrega más detalles de la receta si lo deseas -->
-                            <h:link value="Ver más" outcome="detalle_receta">
-                                <f:param name="idReceta" value="#{receta.id}" />
-                            </h:link>
+
+
+
+                                <!-- Lleva a la pagina de la receta seleccionada -->
+                                <h:link value="Ver más" outcome="detalle_receta">
+                                    <f:param name="idReceta" value="#{receta.id}" />
+                                </h:link>
+
                         </div>
                     </c:forEach>
+
                     <div id="verMasRecetas">
                         <h:commandButton class="ver-mas-recetas" value="Ver más recetas..." rendered="#{recetaBacking.hayRecetas}" action="#{recetaBacking.cargarMasRecetas}"  />
                     </div>

@@ -323,7 +323,7 @@ h1.titulo-registrar{
     display: flex ;
     justify-content: flex-start ;
     align-items: center;
-    background-color: #333 ;
+    background-color: #000;
     color: #fff ;
     padding: 10px ;
     position: relative;
@@ -331,10 +331,16 @@ h1.titulo-registrar{
     width: 100%;
 }
 
+.encabezado{
+    position: sticky;
+    top: 0;
+    z-index: 12;
+}
+
 .logo-principal{
-    width: 137px;
-    height: 127px;
-    margin-left: 30px;
+    width: 191px;
+    height: 150px;
+    margin-left: 10px;
 }
 
 .img-cerrar-sesion {
@@ -343,12 +349,16 @@ h1.titulo-registrar{
     margin-left: auto;
     padding-right: 35px;
     filter: invert(48%) sepia(29%) saturate(3026%) hue-rotate(36deg) brightness(152%) contrast(91%);
+    z-index: 10;
 }
 
 .subtitulo{
     font-family: Montserrat;
     font-size: 40px;
-    padding-left: 100px;
+    display: flex;
+    width: 60%;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .principal{
@@ -932,7 +942,6 @@ h2{
     flex-direction: column;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
     transition: all 0.4s ease;
-    cursor: pointer;
     height: 650px;
     width: 100%;
     position: relative;
@@ -985,6 +994,7 @@ h2{
     margin-left: 5px;
     text-align: center;
     color: burlywood;
+    cursor: pointer;
 }
 
 .ver-mas-recetas{
@@ -1062,17 +1072,24 @@ span.fecha-subida{
 
 .valoracion{
     display: flex;
-    justify-content: center;
-    flex-direction: row;
-    gap: 7px;
+    flex-direction: column;
     font-size: 25px;
     margin: 15px;
+    align-items: center;
 }
 
 
 /*Pagina de detalles de la receta seleccionada*/
 body.body-detalles{
     background-color: rgb(0 0 0 / 40%);
+}
+
+.subtitulo-detalle-receta{
+    font-family: Montserrat;
+    font-size: 40px;
+    display: flex;
+    width: 50%;
+    justify-content: center;
 }
 
 .tarjeta-grande{
@@ -1088,7 +1105,7 @@ body.body-detalles{
 
 .panel-detalles{
     display: grid;
-    gap: 5px;
+    /*gap: 5px;*/
     padding: 20px;
     justify-content: center;
     justify-items: center;
@@ -1096,20 +1113,21 @@ body.body-detalles{
 }
 
 .panel-detalles img{
-    width: 70%;
+    width: 100%;
     height: auto;
+    max-width: 1000px;
     border-radius: 40px;
     outline: 1px solid white;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 }
 
 .div-detalles-titulo{
-margin-bottom: 15px;
+margin-bottom: 10px;
 }
 
 .detalles-titulo{
     color: #fed5aa;
-    font-size: 25px;
+    font-size: 35px;
     font-family: Montserrat;
 }
 
@@ -1121,9 +1139,327 @@ margin-bottom: 15px;
     justify-content: space-around;
     align-items: flex-start;
     gap: 5px;
-    margin-left: 100px;
+    font-size: 20px;
+    margin-top: 10px;
 }
 
 .detalles-cantidades p{
     color: #fed5aa;
+    font-size: 23px !important;
+}
+.valores-cantidad{
+    margin-left: 15px;
+}
+
+.divider {
+    border: 2px solid #4e4949;
+    margin: 15px;
+    width: 98%;
+    border-radius: 5px;
+}
+
+
+.detalles-pasos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 5px;
+    font-size: 18px;
+}
+
+
+.detalles-pasos p{
+    color: #fed5aa;
+    font-size: 23px !important;
+}
+
+.numero-paso {
+    display: inline-block;
+    width: 1.5em;
+    text-align: center;
+    margin-right: 0.5em;
+    border-radius: 15px;
+    background-color: #fb8d3c;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.paso-texto{
+    color: white;
+}
+
+
+.detalles-tiempo-dificultad{
+    color: orange;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 3px;
+    font-size: 18px;
+    align-items: flex-start;
+    justify-content: space-around;
+    gap: 50%;
+}
+
+.detalles-tiempo-dificultad span i {
+    margin-left: 10px;
+}
+
+.detalles-dificultad-fácil{
+    color: white;
+    background: #088908;
+    padding: 10px;
+    border-radius: 16px;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    text-shadow: 1px 1px black;
+    outline: 1px solid black;
+}
+
+.detalles-dificultad-intermedio{
+    color:white;
+    background: #c6c611;
+    padding: 10px;
+    border-radius: 16px;
+    width: 12%;
+    display: flex;
+    justify-content: center;
+    text-shadow: 1px 1px black;
+    outline: 1px solid black;
+}
+
+.detalles-dificultad-difícil{
+    color:white;
+    background: #da1c1c;
+    padding: 10px;
+    border-radius: 16px;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    text-shadow: 1px 1px black;
+    outline: 1px solid black;
+}
+
+.detalles-usuario-fecha{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+.detalles-usuario-fecha span{
+    display: block;
+    color: white;
+    padding: 5px;
+    width: 100%;
+    font-weight: bold;
+    font-family: 'Poppins';
+    text-shadow: 2px 2px 2px #000000;
+}
+
+span.detalles-nombre-usuario{
+text-align: left;
+margin-left: 20px;
+}
+
+span.detalles-fecha-subida{
+    text-align: right;
+    margin-right: 20px;
+}
+
+
+.detalles-categoria{
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    margin: 15px;
+    font-size: 20px;
+    align-items: center;
+    justify-self: left;
+    background-color: #504a4a;
+    padding: 6px;
+    border-radius: 15px;
+    justify-content: flex-start;
+    outline: 1px solid #7c7c7c;
+}
+
+.detalles-categoria p{
+    color: #aea6a0;
+    font-size: 23px !important;
+    margin-right: 10px;
+}
+
+
+.detalles-comentarios{
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    gap: 10px;
+    font-size: 23px;
+    padding-bottom: 7px;
+}
+
+.input-comentarios{
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+.titulo-valoracion{
+    font-size: 20px;
+    font-family: Montserrat;
+    margin-bottom: 15px;
+}
+
+.detalles-valoracion{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    font-size: 30px;
+}
+
+.detalles-valoracion i{
+    cursor: pointer;
+}
+
+.valoracion p{
+    font-size: 16px !important;
+    margin-bottom: 0px !important;
+}
+
+.fa-star {
+    color: #ffae00; /* Cambia el color de las estrellas de valoracion */
+}
+
+.comentarios-usuarios{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 20px;
+    gap: 14px;
+    margin-bottom: 30px;
+}
+
+.input-comentario{
+    border: none;
+    outline: none;
+    width: 90%;
+    font-size: 18px;
+    border-radius: 10px 0px 0px 10px;
+    padding-left: 10px;
+    height: 30px;
+}
+
+.input-comentario::placeholder {
+    padding-left: 4px;
+    color: #6d6d6d;
+}
+
+.boton-comentario{
+    border: none;
+    outline: none;
+    background-color: #e64a19;
+    cursor: pointer;
+    width: 8%;
+    font-size: 18px;
+    border-radius: 0px 10px 10px 0px;
+    padding-left: 10px;
+    height: 30px;
+    font-family: 'Poppins';
+}
+
+.iconoenviar {
+    position: absolute; /* Establece la posición absoluta para que el icono esté posicionado dentro del botón */
+    top: 0; /* Alinea el icono en la parte superior del botón */
+    right: 0; /* Alinea el icono en el extremo derecho del botón */
+    width: 2em; /* Ancho del icono */
+    height: 2em; /* Alto del icono */
+    line-height: 2em; /* Alinea el contenido verticalmente */
+    text-align: center; /* Centra el icono horizontalmente */
+    color: white; /* Color del icono */
+}
+
+.boton-comentario:hover {
+    filter: brightness(85%); /* Reduce el brillo al pasar sobre el botón */
+}
+
+.boton-comentario:active {
+    filter: brightness(70%); /* Reduce aún más el brillo cuando el botón está presionado */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5); /* Agrega una sombra interna cuando el botón está presionado */
+}
+
+.usuario-comentario{
+    font-weight: bold;
+    color: #FFA500;
+    font-family: 'Montserrat';
+}
+
+.contenedores-spam{
+    display: flex;
+    flex-direction: column;
+}
+
+.comentario-fecha{
+    color: #7c7676b8;
+    font-size: 12px;
+}
+
+.texto-comentario{
+    margin-left: 7px;
+}
+
+.mensaje-confirmacion {
+    background-color: #12883b82;
+    color: white;
+    padding: 15px;
+    position: fixed;
+    bottom: 32%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 36%;
+    height: 34%;
+    align-content: center;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    animation: fadeInOut 2s ease-in-out forwards;
+}
+
+.fa-spinner {
+    animation: spin 1.3s linear infinite !important;
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: #efa111;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spinner-container {
+    margin-top: 80px;
+}
+
+
+.mensaje-confirmacion > p {
+    font-size: 24px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+}
+
+.procesando{
+    color: #efa1118a;
 }

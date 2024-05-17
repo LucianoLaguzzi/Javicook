@@ -99,7 +99,7 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
     }
 
     public String cerrarSesion() {
-        System.out.println("Se entro al metodo");
+        System.out.println("Se entro al metodo cerrar sesion del usuario backing");
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         System.out.println("Cerrando sesion...");
         return "login.xhtml?faces-redirect=true";

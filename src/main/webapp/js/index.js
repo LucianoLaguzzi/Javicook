@@ -1,5 +1,5 @@
 function cerrarSesion() {
-    console.log("se entro al metodo cerrar sesion")
+    console.log("se entro al metodo cerrar sesion del index")
     let boton = document.querySelector('.boton-cerrar-sesion');
     boton.click();
 

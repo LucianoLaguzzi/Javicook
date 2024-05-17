@@ -11,7 +11,7 @@ import java.io.Serializable;
         @NamedQuery(name = "Usuario.findAllActivos", query = "SELECT u FROM Usuario u WHERE u.estado = 'A'"),
         @NamedQuery(name = "Usuario.findAllNamedBy", query = "SELECT u FROM Usuario u WHERE u.estado = 'A'"),
         @NamedQuery(name = "Usuario.findByNombreYContraseña", query = "SELECT u FROM Usuario u WHERE u.nombre = :nombre AND u.contraseña = :contraseña"),
-        @NamedQuery(name = "Usuario.findByNombre", query = "SELECT u FROM Usuario u WHERE u.nombre = :nombre")
+        @NamedQuery(name = "Usuario.findByNombre", query = "SELECT u FROM Usuario u WHERE u.nombre = :nombre"),
 
 })
 @SequenceGenerator(name = "SEQ_USU", initialValue = 1, allocationSize = 1)

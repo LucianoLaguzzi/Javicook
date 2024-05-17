@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 
 @Entity
@@ -68,10 +69,12 @@ public class Receta extends AbstractEntity implements Serializable {
 
 
 
+
     public Receta() {
         pasos = new ArrayList<>();
         ingredientes = new ArrayList<>();
         ingredientesCantidades = new ArrayList<>();
+
     }
 
 
@@ -199,6 +202,7 @@ public class Receta extends AbstractEntity implements Serializable {
     public void setIngredientesCantidades(List<String> ingredientesCantidades) {
         this.ingredientesCantidades = ingredientesCantidades;
     }
+
 
     @Override
     public String toString() {
