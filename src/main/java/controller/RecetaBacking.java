@@ -103,7 +103,7 @@ public class RecetaBacking  extends AbstractBacking<Receta>{
 
 
 
-@Asynchronous
+
 //Logica para guardar las recetas
 public void registrarReceta() throws Exception {
     try {
@@ -182,6 +182,8 @@ public void registrarReceta() throws Exception {
 
                 recetaDAO.create(nuevaReceta);
 
+                System.out.println("Receta creada con exito!");
+
                 // Crear una lista de objetos de tipo Ingrediente
                 List<Ingrediente> ingredientes = new ArrayList<>();
                 for (String nombre : nombresIngredientes) {
@@ -219,6 +221,7 @@ public void registrarReceta() throws Exception {
         System.out.println("Error" + e.getMessage());
     }
     finally {
+        actualizarListaRecetas();
         ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
         externalContext.redirect(externalContext.getRequestContextPath() + "/index.xhtml");
     }

@@ -14,7 +14,7 @@ public class RecetaDAO extends AbstractEntityDAO<Receta> {
 
     // Método para encontrar un rango específico de recetas
     public List<Receta> findRange(int inicio, int cantidad) {
-        TypedQuery<Receta> query = em.createQuery("SELECT r FROM Receta r ORDER BY r.id", Receta.class)
+        TypedQuery<Receta> query = em.createQuery("SELECT r FROM Receta r ORDER BY r.id DESC", Receta.class)
                 .setFirstResult(inicio) // Establece el primer resultado del rango
                 .setMaxResults(cantidad); // Establece la cantidad máxima de resultados a obtener
         return query.getResultList();

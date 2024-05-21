@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="JaviCook:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a8b2cdbc-f0e4-43bb-9dcc-38cbc7206858" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/JaviCook_war.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/JaviCook_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/RecetaBacking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RecetaBacking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/RecetaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/RecetaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240418-111335494/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240418-111335494/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240418-114743529/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240418-114743529/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240418-180729946/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240418-180729946/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240418-181426730/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240418-181426730/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240418-182325430/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240418-182325430/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240418-193939610/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240418-193939610/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/log/server.log" beforeDir="false" afterPath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/log/server.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/tmp/startup-marker" beforeDir="false" afterPath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/tmp/startup-marker" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/model/Receta.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/webapp/index.xhtml" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2LxsbjuGAXreUKyR0fRekBjEaFZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/javit/Desktop/Luciano/Respaldo proyecto de recetas&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propDebugger&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\src\main\webapp\js" />
+      <recent name="C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\src\main\webapp\img" />
+      <recent name="C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\src\main\webapp\WEB-INF" />
+      <recent name="C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\src\main\webapp\WEB-INF\img" />
+      <recent name="C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\src\main\webapp" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\src\main\webapp" />
+      <recent name="C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\src\main\webapp\img" />
+      <recent name="C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\src\main\webapp\css" />
+      <recent name="C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\src\main\webapp\WEB-INF\css" />
+      <recent name="C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\src\main\resources\css" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="model" />
+      <recent name="util" />
+      <recent name="datamodel" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+      <command value="mvn clean install" />
+      <command value="mvn clean compile" />
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="JBoss/WildFly 25.0.1.Final" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 25.0.1.Final" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <deployment>
+        <artifact name="JaviCook:war exploded">
+          <settings />
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="SERVER" />
+        <option name="BINDING_SET_NAME" value="" />
+        <option name="DOMAIN" value="false" />
+        <option name="SERVER_GROUP" value="main-server-group" />
+        <option name="USERNAME" value="" />
+        <option name="CREDENTIAL_ALIAS" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="JBoss" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="58359" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="JaviCook:war exploded" />
+        </option>
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a8b2cdbc-f0e4-43bb-9dcc-38cbc7206858" name="Changes" comment="" />
+      <created>1676824144759</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676824144759</updated>
+      <workItem from="1676824146550" duration="141000" />
+      <workItem from="1676824309973" duration="2188000" />
+      <workItem from="1676828281695" duration="15932000" />
+      <workItem from="1676900990670" duration="5448000" />
+      <workItem from="1676989206817" duration="11484000" />
+      <workItem from="1677029030762" duration="758000" />
+      <workItem from="1677181605848" duration="1553000" />
+      <workItem from="1677335157535" duration="11572000" />
+      <workItem from="1677622615832" duration="1535000" />
+      <workItem from="1694305597909" duration="125000" />
+      <workItem from="1695221897814" duration="101000" />
+      <workItem from="1704500235507" duration="1722000" />
+      <workItem from="1704506947887" duration="1789000" />
+      <workItem from="1704508765423" duration="2543000" />
+      <workItem from="1704511332053" duration="4103000" />
+      <workItem from="1704643010760" duration="5806000" />
+      <workItem from="1704650696372" duration="4069000" />
+      <workItem from="1704658848361" duration="16691000" />
+      <workItem from="1704722089514" duration="16235000" />
+      <workItem from="1704749405292" duration="624000" />
+      <workItem from="1704759902132" duration="11090000" />
+      <workItem from="1704889359399" duration="16072000" />
+      <workItem from="1704921871286" duration="12227000" />
+      <workItem from="1704994376503" duration="10091000" />
+      <workItem from="1705018073014" duration="15876000" />
+      <workItem from="1705064700208" duration="2492000" />
+      <workItem from="1705324145326" duration="15469000" />
+      <workItem from="1705450137377" duration="3452000" />
+      <workItem from="1705459101422" duration="15573000" />
+      <workItem from="1705535542461" duration="5046000" />
+      <workItem from="1705574221280" duration="14547000" />
+      <workItem from="1705669481323" duration="11428000" />
+      <workItem from="1705766559005" duration="15470000" />
+      <workItem from="1705935441166" duration="2825000" />
+      <workItem from="1705961716257" duration="30000" />
+      <workItem from="1706032418875" duration="600000" />
+      <workItem from="1706534261873" duration="608000" />
+      <workItem from="1706807899578" duration="1167000" />
+      <workItem from="1710337176289" duration="4357000" />
+      <workItem from="1710427934133" duration="9864000" />
+      <workItem from="1710508951404" duration="10956000" />
+      <workItem from="1710767117150" duration="24179000" />
+      <workItem from="1710849242325" duration="27407000" />
+      <workItem from="1710940697605" duration="24586000" />
+      <workItem from="1711028838785" duration="14305000" />
+      <workItem from="1711113219710" duration="23281000" />
+      <workItem from="1711162042938" duration="1596000" />
+      <workItem from="1711163725597" duration="2813000" />
+      <workItem from="1711372752129" duration="20639000" />
+      <workItem from="1711459167695" duration="13904000" />
+      <workItem from="1711546027356" duration="16574000" />
+      <workItem from="1711647665018" duration="11027000" />
+      <workItem from="1712148342943" duration="26160000" />
+      <workItem from="1712184708096" duration="2010000" />
+      <workItem from="1712236689684" duration="17492000" />
+      <workItem from="1712323503603" duration="21559000" />
+      <workItem from="1712583545770" duration="9734000" />
+      <workItem from="1712669240449" duration="12488000" />
+      <workItem from="1712841882043" duration="5154000" />
+      <workItem from="1712848814356" duration="14646000" />
+      <workItem from="1712945696780" duration="11171000" />
+      <workItem from="1713194284030" duration="1060000" />
+      <workItem from="1713197532721" duration="1140000" />
+      <workItem from="1713203449587" duration="12502000" />
+      <workItem from="1713274697738" duration="9783000" />
+      <workItem from="1713360571807" duration="7090000" />
+      <workItem from="1713448524119" duration="18889000" />
+      <workItem from="1713534549667" duration="4442000" />
+      <workItem from="1713793647363" duration="7808000" />
+      <workItem from="1713878651193" duration="16879000" />
+      <workItem from="1713969272249" duration="1203000" />
+      <workItem from="1714053141093" duration="14770000" />
+      <workItem from="1714144224139" duration="15705000" />
+      <workItem from="1714397828334" duration="18639000" />
+      <workItem from="1714430026612" duration="12759000" />
+      <workItem from="1714483868766" duration="9499000" />
+      <workItem from="1714655819308" duration="10345000" />
+      <workItem from="1714669091654" duration="14533000" />
+      <workItem from="1714743784840" duration="16615000" />
+      <workItem from="1715001913037" duration="13077000" />
+      <workItem from="1715087495474" duration="11025000" />
+      <workItem from="1715173382140" duration="23297000" />
+      <workItem from="1715259910656" duration="28491000" />
+      <workItem from="1715347291245" duration="12049000" />
+      <workItem from="1715607496709" duration="6327000" />
+      <workItem from="1715614847954" duration="22728000" />
+      <workItem from="1715693357900" duration="15522000" />
+      <workItem from="1715777912710" duration="20265000" />
+      <workItem from="1715866550997" duration="10802000" />
+      <workItem from="1715885742925" duration="2907000" />
+      <workItem from="1715891609489" duration="2661000" />
+      <workItem from="1715894673979" duration="7475000" />
+      <workItem from="1715950928871" duration="23084000" />
+      <workItem from="1715986365788" duration="2609000" />
+      <workItem from="1716010470450" duration="262000" />
+      <workItem from="1716210069840" duration="5364000" />
+      <workItem from="1716218773943" duration="7736000" />
+      <workItem from="1716228063392" duration="4139000" />
+      <workItem from="1716232232361" duration="358000" />
+      <workItem from="1716232628392" duration="13823000" />
+      <workItem from="1716254973339" duration="171000" />
+      <workItem from="1716296366417" duration="10263000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint type="java-exception">
+          <properties class="java.net.ConnectException" package="java.net" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/RecetaBacking.java</url>
+          <line>176</line>
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/RecetaBacking.java</url>
+          <line>177</line>
+          <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/RecetaBacking.java</url>
+          <line>182</line>
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/RecetaBacking.java</url>
+          <line>184</line>
+          <option name="timeStamp" value="118" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XPathView.XPathProjectComponent">
+    <history>
+      <element expression="#nombre">
+        <namespace prefix="" uri="http://www.w3.org/1999/xhtml" />
+        <namespace prefix="c" uri="http://java.sun.com/jsp/jstl/core" />
+        <namespace prefix="pt" uri="http://xmlns.jcp.org/jsf/passthrough" />
+        <namespace prefix="ui" uri="http://xmlns.jcp.org/jsf/facelets" />
+        <namespace prefix="f" uri="http://java.sun.com/jsf/core" />
+        <namespace prefix="h" uri="http://xmlns.jcp.org/jsf/html" />
+      </element>
+    </history>
+    <find-history />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
