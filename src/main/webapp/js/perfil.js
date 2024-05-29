@@ -7,13 +7,13 @@ function cerrarSesion() {
 }
 
 
+
 function mostrarRecetasUsuario(event) {
     event.preventDefault();
     let botonRecetas = document.querySelector('.recetas-del-usuario');
-
-    if (botonRecetas.style.display === "none" || botonRecetas.style.display === "") {
-        botonRecetas.style.display = "block";
+    if (botonRecetas.style.display === 'none' || botonRecetas.style.display === '') {
+        botonRecetas.style.display = 'block';
     } else {
-        botonRecetas.style.display = "none";
+        botonRecetas.style.display = 'none';
     }
 }

@@ -50,20 +50,16 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
     @Override
     public void init() {
         newEntity();
-//      setEntityDAO(usuarioDAO);
         setDataModel(new GenericDataModel<>(getEntityDAO(), getEntity()));
         setInactivos(false);
         filtrarInactivos();
         erroresLogin = new ArrayList<>();
         obtenerRecetasDeUsuario();
-
     }
 
 
 
     public String iniciarSesion() {
-
-
 
         LocalDateTime fechaActual = LocalDateTime.now();
         DateTimeFormatter formatoArgentino = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm", new Locale("es", "AR"));
@@ -132,9 +128,7 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
         if (usuario.getNombre() == null || usuario.getNombre().isEmpty() || usuario.getContrasenia() == null || usuario.getContrasenia().isEmpty()) {
             erroresRegistro.add("Usuario y contraseña requeridos para registrarse");
             System.out.println("No se ingreso usuario o contraseña!");
-//            FacesMessage errorMessage = new FacesMessage("Usuario y contraseña requeridos");
-//            errorMessage.setSeverity(FacesMessage.SEVERITY_ERROR);
-//            context.addMessage(null, errorMessage);
+
             flash.put("erroresRegistro", erroresRegistro); // Almacenar mensajes en flash
             usuario.setNombre("");
             usuario.setContrasenia("");
@@ -151,9 +145,6 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
                 erroresRegistro.clear();
                 System.out.println("El usuario a crear ya existe");
                 erroresRegistro.add("El usuario ingresado ya existe");
-//                FacesMessage message = new FacesMessage("Usuario ya existente");
-//                message.setSeverity(FacesMessage.SEVERITY_ERROR);
-//                context.addMessage(null, message);
                 flash.put("erroresRegistro", erroresRegistro); // Almacenar mensajes en flash
                 usuario.setNombre("");
                 usuario.setContrasenia("");
@@ -163,9 +154,6 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
 //Si no existe, lo crea:
         exitoRegistro.add("Usuario registrado con éxito");
         System.out.println("Usuario creado!");
-//        FacesMessage message = new FacesMessage("Usuario creado con éxito");
-//        message.setSeverity(FacesMessage.SEVERITY_INFO);
-//        context.addMessage(null, message);
 
         Usuario usuarioCreado = new Usuario(usuario.getNombre(),usuario.getContrasenia(),usuario.getEmail());
         usuarioDAO.create(usuarioCreado);
@@ -181,26 +169,20 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
         }catch (Exception e){
             erroresRegistro.clear();
             System.out.println("Error al registrar usuario");
-
             erroresRegistro.add("Se produjo un error al crear el usuario");
-//            FacesMessage message = new FacesMessage("Error al crear el usuario");
-//            message.setSeverity(FacesMessage.SEVERITY_ERROR);
-//            context.addMessage(null, message);
-
             flash.put("erroresRegistro", erroresRegistro); // Almacenar mensajes en flash
         }
 
         return "crear_usuario.xhtml?faces-redirect=true";
-
     }
 
 
 
     public String irAPerfil() {
         cargarUsuarioDeSesion();
+        obtenerRecetasDeUsuario(); // Asegúrate de que las recetas se cargan
         return "perfil?faces-redirect=true";
     }
-
 
 
     public void cargarUsuarioDeSesion() {
@@ -225,17 +207,12 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
     }
 
 
-
     public void obtenerRecetasDeUsuario() {
-        FacesContext context = FacesContext.getCurrentInstance();
-        Usuario usuarioAutenticado = usuarioDAO.findByNombreYContrasenia(usuario.getNombre(), usuario.getContrasenia());
-        if (usuarioAutenticado != null) {
-            context.getExternalContext().getSessionMap().put("usuario", usuarioAutenticado);
-            recetasPorUsuario = usuarioDAO.findRecetasPorUsuario(usuarioAutenticado.getId());
-        }else{
+        if (usuario != null) {
+            recetasPorUsuario = usuarioDAO.findRecetasPorUsuario(usuario.getId());
+        } else {
             recetasPorUsuario = new ArrayList<>();
         }
-
     }
 
 
@@ -250,14 +227,6 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
         setEntity(new Usuario());
     }
 
-
-//    public GenericDAO<Usuario> getUsuarioDAO() {
-//        return usuarioDAO;
-//    }
-//
-//    public void setUsuarioDAO(GenericDAO<Usuario> usuarioDAO) {
-//        this.usuarioDAO = usuarioDAO;
-//    }
 
     @Override
     public GenericDataModel<Usuario> getDataModel() {
