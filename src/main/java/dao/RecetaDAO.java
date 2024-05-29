@@ -68,6 +68,26 @@ public class RecetaDAO extends AbstractEntityDAO<Receta> {
         }
     }
 
+    public List<Receta> buscarPorIngredientes(String filtroIngredientes) {
+        String jpql = "SELECT DISTINCT r FROM Receta r " +
+                "JOIN r.ingredientes i " +
+                "WHERE LOWER(i.nombre) LIKE :filtroIngredientes";
+        TypedQuery<Receta> query = em.createQuery(jpql, Receta.class);
+        query.setParameter("filtroIngredientes", "%" + filtroIngredientes.toLowerCase() + "%");
+        return query.getResultList();
+    }
+
+
+    public List<Receta> findTop3Recetas() {
+        TypedQuery<Receta> query = em.createQuery("SELECT r FROM Receta r ORDER BY r.valoracion DESC", Receta.class)
+                .setMaxResults(3); // Obtener solo las 3 mejores recetas
+        return query.getResultList();
+    }
+
+
+
+
+
 
     @Override
     public PersistentEntity findById(Long id) throws Exception {

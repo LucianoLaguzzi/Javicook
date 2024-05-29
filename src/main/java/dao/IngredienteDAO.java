@@ -20,7 +20,12 @@ public class IngredienteDAO extends AbstractEntityDAO<Ingrediente> {
         return ingredientes.isEmpty() ? null : ingredientes.get(0);
     }
 
-
+    public List<String> findIngredientesByRecetaId(Long recetaId) {
+        TypedQuery<String> query = em.createQuery(
+                "SELECT i.nombre FROM Ingrediente i JOIN i.recetas r WHERE r.id = :recetaId", String.class);
+        query.setParameter("recetaId", recetaId);
+        return query.getResultList();
+    }
 
 
 

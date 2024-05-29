@@ -10,7 +10,7 @@ import java.io.Serializable;
 @NamedQueries({
         @NamedQuery(name = "Usuario.findAllActivos", query = "SELECT u FROM Usuario u WHERE u.estado = 'A'"),
         @NamedQuery(name = "Usuario.findAllNamedBy", query = "SELECT u FROM Usuario u WHERE u.estado = 'A'"),
-        @NamedQuery(name = "Usuario.findByNombreYContraseña", query = "SELECT u FROM Usuario u WHERE u.nombre = :nombre AND u.contraseña = :contraseña"),
+        @NamedQuery(name = "Usuario.findByNombreYContrasenia", query = "SELECT u FROM Usuario u WHERE u.nombre = :nombre AND u.contrasenia = :contrasenia"),
         @NamedQuery(name = "Usuario.findByNombre", query = "SELECT u FROM Usuario u WHERE u.nombre = :nombre"),
 
 })
@@ -29,16 +29,16 @@ public class Usuario extends AbstractEntity implements Serializable {
     @Column(name = "EMAIL")
     private String email;
 
-    @Column(name = "CONTRASEÑA")
-    private String contraseña;
+    @Column(name = "CONTRASENIA")
+    private String contrasenia;
 
 
     public Usuario(){
     }
 
-    public Usuario(String nombre, String contraseña, String email) {
+    public Usuario(String nombre, String contrasenia, String email) {
         this.nombre = nombre;
-        this.contraseña=contraseña;
+        this.contrasenia=contrasenia;
         this.email=email;
     }
 
@@ -69,17 +69,17 @@ public class Usuario extends AbstractEntity implements Serializable {
         this.email = email;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
     @Override
     public String toString() {
-        return  "Contacto - Nombre: " + getNombre() + " - Email: " + getEmail();
+        return  getNombre();
     }
 
 

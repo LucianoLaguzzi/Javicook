@@ -308,3 +308,15 @@ function valorarReceta(valoracion) {
         }
     });
 }
+
+
+let filtroInput = document.querySelector('.text-filtro');
+let botonBuscar = document.querySelector('.boton-filtro');
+
+filtroInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Evitar el comportamiento predeterminado del "Enter"
+        botonBuscar.click(); // Activar el evento del botón de búsqueda
+    }
+});
+

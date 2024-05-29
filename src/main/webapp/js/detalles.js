@@ -16,3 +16,7 @@ function mostrarMensajeConfirmacion() {
         document.querySelector(".mensaje-confirmacion").style.display = 'none';
     }, 10000); //
 }
+
+
+
+

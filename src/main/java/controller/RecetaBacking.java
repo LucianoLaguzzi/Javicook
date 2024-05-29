@@ -29,6 +29,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 @ManagedBean(name="recetaBacking")
@@ -53,6 +54,13 @@ public class RecetaBacking  extends AbstractBacking<Receta>{
 
     private int cantidadRecetasCargadas = 0; // Inicializa la cantidad de recetas cargadas
     private int cantidadRecetasPorLote = 7; // Establece la cantidad de recetas por lote
+    private String filtroIngredientes;
+
+
+    // Nueva lista para almacenar el top 3 de recetas
+    private List<Receta> top3Recetas = new ArrayList<>();
+
+
 
 
     public RecetaBacking() {
@@ -67,6 +75,8 @@ public class RecetaBacking  extends AbstractBacking<Receta>{
         filtrarInactivos();
         cantidadRecetasCargadas = 0;
         obtenerRecetas();
+        cargarTop3Recetas();
+
     }
 
     @Override
@@ -80,18 +90,21 @@ public class RecetaBacking  extends AbstractBacking<Receta>{
 
     public void obtenerRecetas() {
         try {
-            listaRecetas = recetaDAO.findRange(cantidadRecetasCargadas, cantidadRecetasPorLote);
+            if (filtroIngredientes != null && !filtroIngredientes.trim().isEmpty()) {
+                listaRecetas = recetaDAO.buscarPorIngredientes(filtroIngredientes);
+            } else {
+                listaRecetas = recetaDAO.findRange(cantidadRecetasCargadas, cantidadRecetasPorLote);
+            }
+
             if (!listaRecetas.isEmpty()) {
-                System.out.println("Hay recetas disponibles");
-                hayRecetas= true;
+                hayRecetas = true;
             } else {
                 System.out.println("No hay recetas para mostrar");
-                hayRecetas= false;
+                hayRecetas = false;
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
-
     }
 
 
@@ -102,6 +115,44 @@ public class RecetaBacking  extends AbstractBacking<Receta>{
     }
 
 
+    // Nuevo método para cargar el top 3 de recetas
+    public void cargarTop3Recetas() {
+        List<Receta> valoradas = recetaDAO.findTop3Recetas().stream()
+                .filter(receta -> receta.getValoracion() > 0)
+                .sorted((r1, r2) -> Integer.compare(r2.getValoracion(), r1.getValoracion()))
+                .collect(Collectors.toList());
+
+        top3Recetas.clear();
+        top3Recetas.addAll(valoradas);
+        completarConRecetasVacias(top3Recetas);
+    }
+
+    private void completarConRecetasVacias(List<Receta> recetas) {
+        while (recetas.size() < 3) {
+            recetas.add(null); // Usa null como marcador de posición para recetas vacías
+        }
+    }
+
+
+    public void buscarPorIngredientes() {
+        if (filtroIngredientes == null || filtroIngredientes.trim().isEmpty()) {
+            filtroIngredientes = null;
+            cantidadRecetasCargadas = 0;
+            obtenerRecetas();
+        } else {
+            listaRecetas = recetaDAO.buscarPorIngredientes(filtroIngredientes);
+        }
+        hayRecetas = !listaRecetas.isEmpty();
+
+        // Redirecciona para evitar reenviar formulario
+        FacesContext context = FacesContext.getCurrentInstance();
+        ExternalContext externalContext = context.getExternalContext();
+        try {
+            externalContext.redirect(externalContext.getRequestContextPath() + "/index.xhtml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 //Logica para guardar las recetas
@@ -239,9 +290,6 @@ public void registrarReceta() throws Exception {
     }
 
 
-
-
-
     //Getters y Setters
     @Override
     public GenericDataModel<Receta> getDataModel() {
@@ -283,4 +331,21 @@ public void registrarReceta() throws Exception {
     public void setIngredientesCantidades(List<String> ingredientesCantidades) {
         this.ingredientesCantidades = ingredientesCantidades;
     }
+    public String getFiltroIngredientes() {
+        return filtroIngredientes;
+    }
+
+    public void setFiltroIngredientes(String filtroIngredientes) {
+        this.filtroIngredientes = filtroIngredientes;
+    }
+
+    public List<Receta> getTop3Recetas() {
+        return top3Recetas;
+    }
+
+    public void setTop3Recetas(List<Receta> top3Recetas) {
+        this.top3Recetas = top3Recetas;
+    }
+
+
 }

@@ -1,6 +1,7 @@
 package dao;
 
 import model.PersistentEntity;
+import model.Receta;
 import model.Usuario;
 
 import javax.ejb.Stateless;
@@ -14,10 +15,10 @@ public class UsuarioDAO extends AbstractEntityDAO<Usuario> {
 //        super(Usuario.class);
 //    }
 
-    public Usuario findByNombreYContraseña(String nombre, String contraseña) {
-        TypedQuery<Usuario> query = em.createNamedQuery("Usuario.findByNombreYContraseña", Usuario.class);
+    public Usuario findByNombreYContrasenia(String nombre, String contrasenia) {
+        TypedQuery<Usuario> query = em.createNamedQuery("Usuario.findByNombreYContrasenia", Usuario.class);
         query.setParameter("nombre", nombre);
-        query.setParameter("contraseña", contraseña);
+        query.setParameter("contrasenia", contrasenia);
         List<Usuario> usuarios = query.getResultList();
         return usuarios.isEmpty() ? null : usuarios.get(0);
     }
@@ -28,6 +29,13 @@ public class UsuarioDAO extends AbstractEntityDAO<Usuario> {
         return usuarios.isEmpty() ? null : usuarios.get(0);
     }
 
+
+    public List<Receta> findRecetasPorUsuario(Long usuarioId) {
+        TypedQuery<Receta> query = em.createQuery(
+                "SELECT r FROM Receta r WHERE r.usuario.id = :usuarioId", Receta.class);
+        query.setParameter("usuarioId", usuarioId);
+        return query.getResultList();
+    }
 
     @Override
     public PersistentEntity findById(Long id) throws Exception {

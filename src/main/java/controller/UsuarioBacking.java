@@ -2,14 +2,21 @@ package controller;
 
 import dao.UsuarioDAO;
 import datamodel.GenericDataModel;
+import model.Receta;
 import model.Usuario;
 import javax.annotation.PostConstruct;
+import javax.ejb.Asynchronous;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
+import javax.faces.event.ComponentSystemEvent;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -34,6 +41,8 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
     private List<String> erroresRegistro = new ArrayList<>();
     private List<String> exitoRegistro = new ArrayList<>();
 
+    private List<Receta> recetasPorUsuario;
+
     public UsuarioBacking() {
         usuario = new Usuario();
     }
@@ -46,7 +55,10 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
         setInactivos(false);
         filtrarInactivos();
         erroresLogin = new ArrayList<>();
+        obtenerRecetasDeUsuario();
+
     }
+
 
 
     public String iniciarSesion() {
@@ -62,21 +74,21 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
         FacesContext context = FacesContext.getCurrentInstance();
         Flash flash = context.getExternalContext().getFlash();
 
-        if (usuario.getNombre() == null || usuario.getNombre().isEmpty() || usuario.getContraseña() == null || usuario.getContraseña().isEmpty()) {
+        if (usuario.getNombre() == null || usuario.getNombre().isEmpty() || usuario.getContrasenia() == null || usuario.getContrasenia().isEmpty()) {
             erroresLogin.add("Debe ingresar un usuario y una contraseña");
             FacesMessage errorMessage = new FacesMessage("Debe ingresar un usuario y una contraseña");
             errorMessage.setSeverity(FacesMessage.SEVERITY_ERROR);
             context.addMessage(null, errorMessage);
             flash.put("erroresLogin", erroresLogin); // Almacenar mensajes en flash
             usuario.setNombre("");
-            usuario.setContraseña("");
+            usuario.setContrasenia("");
 
             return "login.xhtml?faces-redirect=true";
         }
 
-        Usuario usuarioEncontrado = usuarioDAO.findByNombreYContraseña(usuario.getNombre(), usuario.getContraseña());
+        Usuario usuarioEncontrado = usuarioDAO.findByNombreYContrasenia(usuario.getNombre(), usuario.getContrasenia());
         if (usuarioEncontrado != null) {
-            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", usuarioEncontrado);
+            context.getExternalContext().getSessionMap().put("usuario", usuarioEncontrado);
             return "index.xhtml?faces-redirect=true";
         } else {
             erroresLogin.add("Nombre de usuario o contraseña incorrectos");
@@ -85,7 +97,7 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
             context.addMessage(null, errorMessage);
             flash.put("erroresLogin", erroresLogin); // Almacenar mensajes en flash
             usuario.setNombre("");
-            usuario.setContraseña("");
+            usuario.setContrasenia("");
             return "login.xhtml?faces-redirect=true";
         }
     }
@@ -98,8 +110,11 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
         return "login.xhtml?faces-redirect=true";
     }
 
+    public String redireccionarAlIndex() {
+        return "index.xhtml?faces-redirect=true";
+    }
+
     public String cerrarSesion() {
-        System.out.println("Se entro al metodo cerrar sesion del usuario backing");
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         System.out.println("Cerrando sesion...");
         return "login.xhtml?faces-redirect=true";
@@ -114,7 +129,7 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
         FacesContext context = FacesContext.getCurrentInstance();
         Flash flash = context.getExternalContext().getFlash();
 
-        if (usuario.getNombre() == null || usuario.getNombre().isEmpty() || usuario.getContraseña() == null || usuario.getContraseña().isEmpty()) {
+        if (usuario.getNombre() == null || usuario.getNombre().isEmpty() || usuario.getContrasenia() == null || usuario.getContrasenia().isEmpty()) {
             erroresRegistro.add("Usuario y contraseña requeridos para registrarse");
             System.out.println("No se ingreso usuario o contraseña!");
 //            FacesMessage errorMessage = new FacesMessage("Usuario y contraseña requeridos");
@@ -122,7 +137,7 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
 //            context.addMessage(null, errorMessage);
             flash.put("erroresRegistro", erroresRegistro); // Almacenar mensajes en flash
             usuario.setNombre("");
-            usuario.setContraseña("");
+            usuario.setContrasenia("");
             usuario.setEmail("");
             return "crear_usuario.xhtml?faces-redirect=true";
         }
@@ -141,7 +156,7 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
 //                context.addMessage(null, message);
                 flash.put("erroresRegistro", erroresRegistro); // Almacenar mensajes en flash
                 usuario.setNombre("");
-                usuario.setContraseña("");
+                usuario.setContrasenia("");
                 usuario.setEmail("");
                 return "crear_usuario.xhtml?faces-redirect=true";
             }
@@ -152,13 +167,13 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
 //        message.setSeverity(FacesMessage.SEVERITY_INFO);
 //        context.addMessage(null, message);
 
-        Usuario usuarioCreado = new Usuario(usuario.getNombre(),usuario.getContraseña(),usuario.getEmail());
+        Usuario usuarioCreado = new Usuario(usuario.getNombre(),usuario.getContrasenia(),usuario.getEmail());
         usuarioDAO.create(usuarioCreado);
         setEntity(new Usuario());
 
         flash.put("exitoRegistro", exitoRegistro);
         usuario.setNombre("");
-        usuario.setContraseña("");
+        usuario.setContrasenia("");
         usuario.setEmail("");
         return "crear_usuario.xhtml?faces-redirect=true";
 
@@ -181,8 +196,53 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
 
 
 
+    public String irAPerfil() {
+        cargarUsuarioDeSesion();
+        return "perfil?faces-redirect=true";
+    }
 
 
+
+    public void cargarUsuarioDeSesion() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        usuario = (Usuario) context.getExternalContext().getSessionMap().get("usuario");
+        if (usuario == null) {
+            redirigirALogin();
+        } else {
+            if (usuario.getEmail() == null || usuario.getId() == null) {
+                usuario = usuarioDAO.findByNombre(usuario.getNombre());
+                context.getExternalContext().getSessionMap().put("usuario", usuario);
+            }
+        }
+    }
+
+    public void redirigirALogin() {
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    public void obtenerRecetasDeUsuario() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        Usuario usuarioAutenticado = usuarioDAO.findByNombreYContrasenia(usuario.getNombre(), usuario.getContrasenia());
+        if (usuarioAutenticado != null) {
+            context.getExternalContext().getSessionMap().put("usuario", usuarioAutenticado);
+            recetasPorUsuario = usuarioDAO.findRecetasPorUsuario(usuarioAutenticado.getId());
+        }else{
+            recetasPorUsuario = new ArrayList<>();
+        }
+
+    }
+
+
+    public String verDetallesReceta(int idReceta) {
+        // Lógica para cargar los detalles de la receta con el ID proporcionado
+        return "detalle_receta?faces-redirect=true&idReceta=" + idReceta;
+    }
 
 
     @Override
@@ -210,6 +270,9 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
     }
 
     public Usuario getUsuario() {
+        if (usuario == null) {
+            cargarUsuarioDeSesion();
+        }
         return usuario;
     }
 
@@ -243,5 +306,11 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
     }
 
 
+    public List<Receta> getRecetasPorUsuario() {
+        return recetasPorUsuario;
+    }
 
+    public void setRecetasPorUsuario(List<Receta> recetasPorUsuario) {
+        this.recetasPorUsuario = recetasPorUsuario;
+    }
 }
