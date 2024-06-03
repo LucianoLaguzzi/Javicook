@@ -55,7 +55,7 @@
                             <h:outputText styleClass="detalles-titulo" value="#{detalleRecetaBacking.tituloAMayuscula(detalleRecetaBacking.receta.titulo)}" />
                         </div>
                         <div class="imagen-contenedor">
-                            <img src="#{detalleRecetaBacking.receta.imagen}" alt="#{detalleRecetaBacking.receta.titulo}" />
+                            <img src="#{detalleRecetaBacking.receta.imagen}" class="panel-img" alt="#{detalleRecetaBacking.receta.titulo}" />
                             <div class="detalles-usuario-fecha">
                                 <span class="detalles-nombre-usuario">#{detalleRecetaBacking.receta.usuario.nombre}</span>
                                 <span class="detalles-fecha-subida">#{detalleRecetaBacking.receta.fecha}</span>
@@ -98,18 +98,6 @@
 
                     <hr class="divider"/>
 
-
-
-
-
-
-
-
-
-
-
-
-
                         <div class="detalles-comentarios">
                             <i class="far fa-comment-alt"></i>
                             <h:outputText value="Comentarios"></h:outputText>
@@ -122,7 +110,10 @@
                         <div class="comentarios-usuarios">
                             <ui:repeat var="comentario" value="#{detalleRecetaBacking.comentarios}">
                                 <div class="contenedores-spam">
-                                    <span class="usuario-comentario">#{comentario.usuario.nombre}</span>
+                                    <div class="imagen-nombre">
+                                        <h:graphicImage id="imagePreview" value="#{comentario.usuario.imagenPerfil}?unique=#{usuarioBacking.uniqueImageParam}" alt="Imagen de Perfil" styleClass="imagen-perfil-comentario"/>
+                                        <span class="usuario-comentario">#{comentario.usuario.nombre}</span>
+                                    </div>
                                     <span class="comentario-fecha">#{detalleRecetaBacking.obtenerFechaComentario(comentario)}</span>
                                     <span class="texto-comentario">#{comentario.comentario}</span>
                                 </div>

@@ -41,9 +41,14 @@
 
             <!-- Sección de la imagen de perfil -->
             <div class="perfil-imagen">
-                <h:graphicImage id="imagePreview" value="#{usuarioBacking.usuario.imagenPerfil}?unique=#{usuarioBacking.uniqueImageParam}" alt="Imagen de Perfil" styleClass="imagen-perfil"/>
+                <div class="image-container">
+                    <h:graphicImage id="imagePreview" value="#{usuarioBacking.usuario.imagenPerfil}?unique=#{usuarioBacking.uniqueImageParam}" alt="Imagen de Perfil" styleClass="imagen-perfil"/>
+                    <label for="imagen" class="edit-icon">
+                        <i class="fa fa-camera" title="Editar imagen"></i> <!-- Icono de cámara -->
+                    </label>
+                </div>
                 <input type="file" id="imagen" name="file" accept="image/*" onchange="previewImage(event)" class="input-imagen"/>
-                <h:commandButton value="Subir Imagen" action="#{usuarioBacking.cambiarImagen}" styleClass="boton-subir-imagen" immediate="true"/>
+                <h:commandButton id="saveButton" value="&#10004; Guardar" action="#{usuarioBacking.cambiarImagen}" styleClass="boton-guardar-imagen" immediate="true"/>
             </div>
 
 

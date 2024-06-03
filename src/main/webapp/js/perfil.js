@@ -35,5 +35,8 @@ function previewImage(event) {
     } else {
         preview.src = "#{usuarioBacking.usuario.imagenPerfil}";
     }
+
+    // Habilitar el botón de guardar imagen
+    document.querySelector('.boton-guardar-imagen').classList.add('visible');
 }
 
