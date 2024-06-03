@@ -1543,6 +1543,7 @@ span.detalles-fecha-subida{
 .mensaje-ir-index{
     display: flex;
     justify-content: center;
+    margin-top: 30px;
 }
 
 
@@ -1565,8 +1566,8 @@ body.perfil {
     display: flex;
     left: 38%;
     min-height: 430px;
-    height: 580px;
-    max-height: 1000px;
+    height: auto;
+    /* max-height: 1000px; */
     width: 500px;
     max-width: 700px;
     position: relative;
@@ -1576,8 +1577,8 @@ body.perfil {
     border: 1px solid rgb(255 255 255 / 40%);
     backdrop-filter: blur(5px);
     flex-direction: column;
-    margin-top: 5%;
-    overflow: hidden; /* Ensures the inner scroll works correctly */
+    /* margin-top: 5%; */
+    overflow: hidden;
 
 }
 
@@ -1623,25 +1624,33 @@ body.perfil {
     margin-top: auto;
 }
 
-.receta-etiqueta{
-    text-decoration: underline;
-    color: burlywood;
-}
-
-.recetas-del-usuario{
+.recetas-del-usuario {
     overflow-y: auto;
-    max-height: 200px;
+    max-height: 250px;
     background-color: rgb(255 255 255 / 10%);
     border-radius: 11px;
     margin-right: 50px;
     padding: 10px 10px 10px 15px;
     margin-top: 15px;
+    height: 220px;
+    overflow-x: auto;
 }
 
 .tarjeta-receta2 {
-    margin-bottom: 10px; /* Add some spacing between recipes */
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+.receta-etiqueta {
+    text-decoration: underline;
+    color: burlywood;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 /* Para navegadores WebKit (Chrome, Safari, Edge) */
 .recetas-del-usuario::-webkit-scrollbar {
@@ -1662,3 +1671,42 @@ body.perfil {
 .recetas-del-usuario::-webkit-scrollbar-thumb:hover {
     background-color: rgba(0, 0, 0, 0.7); /* Color del pulgar al pasar el ratón */
 }
+
+
+/*IMAGEN DE PERFIL*/
+
+.perfil-imagen {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.imagen-perfil {
+    width: 150px; /* Ajusta el tamaño según lo necesites */
+    height: 150px; /* Ajusta el tamaño según lo necesites */
+    border-radius: 50%; /* Hace la imagen circular */
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin distorsión */
+    border: 2px solid white; /* Borde blanco */
+}
+
+.input-imagen {
+    display: block;
+    margin-top: 10px;
+}
+
+.boton-subir-imagen {
+    display: block;
+    margin-top: 10px;
+    background-color: burlywood;
+    border: none;
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.boton-subir-imagen:hover {
+    background-color: darkgoldenrod;
+}
+
+
+

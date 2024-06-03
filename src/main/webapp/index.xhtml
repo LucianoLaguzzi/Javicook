@@ -44,7 +44,7 @@
                 <img src="img/JaviCook_logo.png" alt="Logotipo" class="logo-principal"/>
                 <c:if test="#{not empty usuarioBacking.usuario}">
                     <h:outputText value="Bienvenido, " styleClass="bienvenido-text" />
-                    <h:commandLink action="#{usuarioBacking.irAPerfil}" value="#{usuarioBacking.usuario.nombre}" styleClass="link-al-perfil" />
+                    <h:commandLink action="#{usuarioBacking.irAPerfil}" value="#{usuarioBacking.usuario.nombre}" styleClass="link-al-perfil" title="Ir al perfil" />
                     <h:outputText value=" !" styleClass="simbolo-bienvenido" />
                 </c:if>
                 <span class="subtitulo"> Inspírate con recetas exclusivas </span>

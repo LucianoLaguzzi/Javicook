@@ -17,3 +17,23 @@ function mostrarRecetasUsuario(event) {
         botonRecetas.style.display = 'none';
     }
 }
+
+
+
+function previewImage(event) {
+    const fileInput = event.target;
+    const preview = document.getElementById('imagePreview');
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = function () {
+        preview.src = reader.result;
+    }
+
+    if (file) {
+        reader.readAsDataURL(file);
+    } else {
+        preview.src = "#{usuarioBacking.usuario.imagenPerfil}";
+    }
+}
+

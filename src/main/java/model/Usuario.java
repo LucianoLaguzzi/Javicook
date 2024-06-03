@@ -33,13 +33,17 @@ public class Usuario extends AbstractEntity implements Serializable {
     private String contrasenia;
 
 
+    private String imagenPerfil;
+
     public Usuario(){
+        this.imagenPerfil = "img/default-image.jpg";
     }
 
-    public Usuario(String nombre, String contrasenia, String email) {
+    public Usuario(String nombre, String contrasenia, String email, String imagenPerfil) {
         this.nombre = nombre;
         this.contrasenia=contrasenia;
         this.email=email;
+        this.imagenPerfil = imagenPerfil;
     }
 
 
@@ -75,6 +79,15 @@ public class Usuario extends AbstractEntity implements Serializable {
 
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
+    }
+
+
+    public String getImagenPerfil() {
+        return imagenPerfil;
+    }
+
+    public void setImagenPerfil(String imagenPerfil) {
+        this.imagenPerfil = imagenPerfil;
     }
 
     @Override

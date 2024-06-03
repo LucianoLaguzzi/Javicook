@@ -14,18 +14,20 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.faces.event.ComponentSystemEvent;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
+import javax.servlet.http.Part;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 
 @ManagedBean(name="usuarioBacking")
@@ -43,6 +45,10 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
 
     private List<Receta> recetasPorUsuario;
 
+    private Part nuevaImagen;
+
+    private String uniqueImageParam;
+
     public UsuarioBacking() {
         usuario = new Usuario();
     }
@@ -55,6 +61,7 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
         filtrarInactivos();
         erroresLogin = new ArrayList<>();
         obtenerRecetasDeUsuario();
+        generateUniqueImageParam();
     }
 
 
@@ -117,7 +124,6 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
     }
 
 
-
     public String registrarUsuario() throws Exception {
         erroresRegistro.clear();
         exitoRegistro.clear();
@@ -155,7 +161,7 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
         exitoRegistro.add("Usuario registrado con éxito");
         System.out.println("Usuario creado!");
 
-        Usuario usuarioCreado = new Usuario(usuario.getNombre(),usuario.getContrasenia(),usuario.getEmail());
+        Usuario usuarioCreado = new Usuario(usuario.getNombre(),usuario.getContrasenia(),usuario.getEmail(),"img/default-image.jpg");
         usuarioDAO.create(usuarioCreado);
         setEntity(new Usuario());
 
@@ -220,6 +226,89 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
         // Lógica para cargar los detalles de la receta con el ID proporcionado
         return "detalle_receta?faces-redirect=true&idReceta=" + idReceta;
     }
+
+
+
+    public String cambiarImagen() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        ExternalContext externalContext = context.getExternalContext();
+        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
+
+        try {
+            Part filePart = request.getPart("file");
+            if (filePart != null && filePart.getSize() > 0) {
+                String fileName = usuario.getNombre().toLowerCase().replaceAll("\\s+$", "").replaceAll("\\s+", "-") + "_profile.jpg";
+
+                // Ruta 1: JaviCook\src\main\webapp\img
+                String relativeWebPath = "/img";
+                ServletContext servletContext = (ServletContext) externalContext.getContext();
+                String absoluteDiskPath = servletContext.getRealPath(relativeWebPath);
+                String filePath = Paths.get(absoluteDiskPath, fileName).toString();
+
+                // Ruta 2: JaviCook\target\JaviCook-1.0-SNAPSHOT\img
+                String workingDirectory = System.getProperty("user.dir");
+                String fotosPath = workingDirectory + "/src/main/webapp/img";
+                String targetPath = "\\wildfly-25.0.1.Final\\bin";
+                String pathFinal = fotosPath.replace(targetPath, "") + "/" + fileName;
+
+                // Leer el archivo en un byte array
+                byte[] fileContent;
+                try (InputStream input = filePart.getInputStream();
+                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream()) {
+                    byte[] buffer = new byte[1024];
+                    int length;
+                    while ((length = input.read(buffer)) > 0) {
+                        byteArrayOutputStream.write(buffer, 0, length);
+                    }
+                    fileContent = byteArrayOutputStream.toByteArray();
+                }
+
+                // Guardar la imagen en ambas rutas
+                try (OutputStream output1 = Files.newOutputStream(Paths.get(filePath))) {
+                    output1.write(fileContent);
+                }
+
+                try (OutputStream output2 = Files.newOutputStream(Paths.get(pathFinal))) {
+                    output2.write(fileContent);
+                }
+
+                // Actualizar la referencia de la imagen en la base de datos
+                try {
+                    usuario.setImagenPerfil(relativeWebPath + "/" + fileName);
+                    usuarioDAO.update(usuario);
+                    System.out.println("Imagen de perfil actualizada correctamente");
+
+                    // Generar un nuevo parámetro único
+                    generateUniqueImageParam();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    System.out.println("Error al actualizar la imagen en la base de datos");
+
+                }
+            } else {
+                System.out.println("Debe seleccionar una imagen para subir");
+
+            }
+        } catch (IOException | ServletException e) {
+            e.printStackTrace();
+            System.out.println("Error al procesar la imagen: " + e.getMessage());
+
+        }
+
+        return null;
+    }
+
+
+
+    public String getUniqueImageParam() {
+        return uniqueImageParam;
+    }
+
+    public void generateUniqueImageParam() {
+        this.uniqueImageParam = UUID.randomUUID().toString();
+    }
+
 
 
     @Override
