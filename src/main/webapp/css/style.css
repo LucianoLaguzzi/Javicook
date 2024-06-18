@@ -417,6 +417,11 @@ h2{
     padding-top: 14px;
     margin-bottom: 16px;
 }
+.modal-content > h2{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
 
 .filtro h2{
     color: #FFFFFF;
@@ -519,7 +524,7 @@ h2{
 
 /* Contenido del modal */
 .modal-content {
-    background-color: #fefefe;
+    background-color: #fefefeeb;
     margin: 15% auto; /* Centrado verticalmente y 15% desde el borde superior */
     padding: 20px;
     border: 1px solid #888;
@@ -583,6 +588,7 @@ h2{
     font-family: 'Montserrat';
     padding: 10px;
     width: 25%;
+    font-weight: 500;
 }
 
 .receta-titulo{
@@ -594,6 +600,8 @@ h2{
     outline: none;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     font-size: 20px;
+    letter-spacing: 1px;
+
 }
 
 .receta-titulo::placeholder{
@@ -617,8 +625,17 @@ h2{
     margin-top: 25px;
     margin-bottom: 10px;
     padding: 10px;
+    background-color: #28a745;
+    cursor: pointer;
+    border-radius: 10px;
+    color: white;
+    font-size: 17px;
+    border: none;
 }
 
+.btn-guardar-receta:hover {
+    background-color: #168e1a;
+}
 
 /*Pasos*/
 .div-pasos-receta{
@@ -634,9 +651,9 @@ h2{
 }
 
 .label-pasos{
-    /*padding: 10px;*/
     width: 10%;
     font-family: 'Montserrat';
+    font-weight: 500;
 }
 
 .text-area-pasos{
@@ -651,16 +668,21 @@ h2{
     max-height: 200px;
     font-size: 17px;
     resize: vertical;
+    letter-spacing: 1px;
 }
 
 .btn-agregar-paso{
-    background-color: #00c008;
+    background-color: #28a745;
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 10px;
     padding: 8px;
     margin-bottom: 20px;
+}
+
+.btn-agregar-paso:hover{
+    background-color: #168e1a;
 }
 
 .paso {
@@ -716,6 +738,16 @@ h2{
     border-radius: 30px;
 }
 
+.modal-error-imagen {
+    color: red;
+    font-size: 14px;
+    width: 50%;
+    padding-bottom: 15px;
+}
+.modal-error-imagen-dinamico {
+    border-color: red;
+}
+
 .div-dificultad{
     display: flex;
     flex-direction: row;
@@ -730,6 +762,7 @@ h2{
     width: 25%;
     padding: 10px;
     font-family: 'Montserrat';
+    font-weight: 500;
 }
 
 .menu-dificultad{
@@ -776,6 +809,7 @@ h2{
     width: 25%;
     padding: 10px;
     font-family: 'Montserrat';
+    font-weight: 500;
 }
 
 .menu-categoria{
@@ -813,36 +847,41 @@ h2{
     width: 25%;
     padding: 10px;
     font-family: 'Montserrat';
+    font-weight: 500;
 }
 
 .input-tiempo-preparacion{
     font-size: 18px;
-    width: 9%;
-    padding: 2px;
+    width: 8%;
+    padding: 3px;
     border: 2px solid lemonchiffon;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     outline: none;
     text-align: center;
 }
 
+.input-tiempo-preparacion:-webkit-autofill {
+    -webkit-text-fill-color: #000000 !important; /* Color del texto */
+}
+
 .btn-agregar-tiempo{
-    background-color: #00c008;
+    background-color: #28a745;
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 0px 10px 10px 0px;
     padding: 7px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    font-size: 17px;
 }
 
 .btn-quitar-tiempo{
-    background-color: #00c008;
+    background-color: #28a745;
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 10px 0px 0px 10px;;
     padding: 7px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    font-size: 18px;
 }
 
 
@@ -867,6 +906,7 @@ h2{
     font-family: 'Montserrat';
     font-size: 17px;
     width: 25%;
+    font-weight: 500;
 }
 
 .input-ingredientes{
@@ -881,6 +921,7 @@ h2{
     max-height: 200px;
     font-size: 17px;
     text-overflow: ellipsis;
+    letter-spacing: 1px;
 }
 
 .input-ingredientes::placeholder{
@@ -893,7 +934,11 @@ h2{
 
 .p-aclaracion-ingrediente{
     font-size: 12px;
-    margin-top: 10px;
+    margin-top: 6px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-left: 12%;
 }
 
 .modal-error-ingredientes{
@@ -921,6 +966,8 @@ h2{
     width: 25%;
     padding: 10px;
     font-family: 'Montserrat';
+    font-weight: 500;
+    text-align: center;
 }
 
 
@@ -933,6 +980,7 @@ h2{
     border-radius: 10px;
     font-size: 17px;
     resize: vertical;
+    letter-spacing: 1px;
 }
 
 
@@ -943,7 +991,7 @@ h2{
 
 .p-aclaracion-cantidad-ingrediente{
     font-size: 12px;
-    margin-top: 10px;
+    margin-top: 6px;
 }
 
 
@@ -962,7 +1010,8 @@ h2{
 
 .panel-recetas{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    /*grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));*/
+    grid-template-columns: repeat(auto-fit, minmax(340px, 23.7%));
     gap: 20px;
     padding: 20px;
 }
@@ -1049,6 +1098,47 @@ h2{
 
 .ver-mas-recetas:hover {
     background-color: #45a049;
+}
+
+
+/* Cambia el scroll de el index */
+.body-main::-webkit-scrollbar {
+    width: 12px; /* Ancho de la scrollbar */
+}
+
+.body-main::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1); /* Fondo de la pista */
+    border-radius: 10px; /* Esquinas redondeadas */
+}
+
+.body-main::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5); /* Color del pulgar */
+    border-radius: 10px; /* Esquinas redondeadas */
+    border: 3px solid rgba(0, 0, 0, 0.1); /* Espacio alrededor del pulgar */
+}
+
+.body-main::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Color del pulgar al pasar el ratón */
+}
+
+/*Cambia el scroll de el modal de alta*/
+.modal::-webkit-scrollbar {
+    width: 12px; /* Ancho de la scrollbar */
+}
+
+.modal::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1); /* Fondo de la pista */
+    border-radius: 10px; /* Esquinas redondeadas */
+}
+
+.modal::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5); /* Color del pulgar */
+    border-radius: 10px; /* Esquinas redondeadas */
+    border: 3px solid rgba(0, 0, 0, 0.1); /* Espacio alrededor del pulgar */
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Color del pulgar al pasar el ratón */
 }
 
 
@@ -1235,7 +1325,7 @@ margin-bottom: 10px;
     font-size: 18px;
     align-items: flex-start;
     justify-content: space-around;
-    gap: 50%;
+    gap: 45%;
 }
 
 .detalles-tiempo-dificultad span i {
@@ -1404,7 +1494,7 @@ span.detalles-fecha-subida{
     outline: none;
     background-color: #e64a19;
     cursor: pointer;
-    width: 8%;
+    width: 11%;
     font-size: 18px;
     border-radius: 0px 10px 10px 0px;
     padding-left: 10px;
@@ -1546,6 +1636,10 @@ span.detalles-fecha-subida{
 
 .top3 > .panel-recetas > .tarjeta-receta{
     background: #680404;
+}
+
+.top3 > .panel-recetas{
+    display: flex;
 }
 
 .default-text{
@@ -1694,6 +1788,8 @@ body.perfil {
     margin-bottom: 15px;
     display: flex;
     flex-direction: column;
+    width: 36%;
+    align-self: center;
 }
 
 .image-container {
@@ -1714,7 +1810,7 @@ body.perfil {
     opacity: 0.4;
 }
 
-.input-imagen {
+.input-imagen2 {
     display: none; /* Ocultar el input de archivo */
 }
 
@@ -1758,3 +1854,76 @@ body.perfil {
     background-color: #285b2a;
 }
 
+
+/*Para el icono de guardar receta en index*/
+.icono-favorito {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.icono-favorito:hover {
+    color: red;
+}
+
+
+
+/*Section favoritos*/
+.favoritos-titulo{
+    font-size: 45px;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    color: #FFFFFF;
+    text-shadow: 2px 4px 4px #000000;
+}
+
+.favoritos{
+    position: relative;
+    min-width: 200px;
+    padding-bottom: 5px;
+    background: #145d0a;
+}
+
+
+.mensaje-no-recetas-favoritas{
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    font-size: 20px;
+    padding-top: 30px;
+    text-shadow: 2px 2px 4px #000000;
+    letter-spacing: 1px;
+}
+
+.link-eliminar-receta {
+    background-color: #f83b3b;
+    color: white;
+    border: none;
+    padding: 10px 11px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Montserrat';
+    align-items: center;
+}
+
+.link-eliminar-receta:hover{
+    background-color: #d51111;
+}
+
+.link-eliminar-receta .fa-trash {
+    margin-right: 5px; /* Espaciado entre el icono y el texto */
+    color: white; /* Asegurar que el icono también sea blanco */
+}

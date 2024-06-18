@@ -4,6 +4,7 @@ import controller.UsuarioBacking;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "usuario")
@@ -12,6 +13,7 @@ import java.io.Serializable;
         @NamedQuery(name = "Usuario.findAllNamedBy", query = "SELECT u FROM Usuario u WHERE u.estado = 'A'"),
         @NamedQuery(name = "Usuario.findByNombreYContrasenia", query = "SELECT u FROM Usuario u WHERE u.nombre = :nombre AND u.contrasenia = :contrasenia"),
         @NamedQuery(name = "Usuario.findByNombre", query = "SELECT u FROM Usuario u WHERE u.nombre = :nombre"),
+        @NamedQuery(name = "Usuario.findByIdWithRecetasFavoritas", query = "SELECT u FROM Usuario u LEFT JOIN FETCH u.recetasFavoritas WHERE u.id = :id"),
 
 })
 @SequenceGenerator(name = "SEQ_USU", initialValue = 1, allocationSize = 1)
@@ -34,6 +36,14 @@ public class Usuario extends AbstractEntity implements Serializable {
 
 
     private String imagenPerfil;
+
+    @ManyToMany
+    @JoinTable(
+            name = "usuario_favorito_receta",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "receta_id")
+    )
+    private List<Receta> recetasFavoritas;
 
     public Usuario(){
         this.imagenPerfil = "img/default-image.jpg";
@@ -88,6 +98,14 @@ public class Usuario extends AbstractEntity implements Serializable {
 
     public void setImagenPerfil(String imagenPerfil) {
         this.imagenPerfil = imagenPerfil;
+    }
+
+    public List<Receta> getRecetasFavoritas() {
+        return recetasFavoritas;
+    }
+
+    public void setRecetasFavoritas(List<Receta> recetasFavoritas) {
+        this.recetasFavoritas = recetasFavoritas;
     }
 
     @Override

@@ -60,6 +60,9 @@ function validarFormulario(event) {
     let inputTextIngredientes = document.querySelector('.input-ingredientes');
     let mensajeErrorIngredientes = document.querySelector('.modal-error-ingredientes');
 
+    let inputImagen = document.querySelector('.input-imagen');  // Selecciona el campo de entrada de imagen
+    let mensajeErrorImagen = document.querySelector('.modal-error-imagen');  // Mensaje de error para la imagen
+
     // Verificar si el campo titulo está vacío
     if (inputNombreReceta.value.trim() === '') {
         mensajeErrorTitulo.textContent = 'Por favor, ingrese el nombre de la receta.';
@@ -74,7 +77,7 @@ function validarFormulario(event) {
     }
 
     //Verifica campo paso esta vacio (con verificar el primero me parece bien):
-    if(inputTextPaso.value.trim() === ''){
+    if (inputTextPaso.value.trim() === '') {
         mensajeErrorPaso.textContent = 'Por favor, ingrese pasos para la receta.';
         inputTextPaso.classList.add('modal-error-paso-dinamico');
         inputTextPaso.focus();
@@ -86,7 +89,7 @@ function validarFormulario(event) {
 
 
     //Verifica selector dificultad esta vacio:
-    if(selectorDificultad.value === ''){
+    if (selectorDificultad.value === '') {
         mensajeErrorDificultad.textContent = 'Por favor, seleccione la dificultad';
         selectorDificultad.classList.add('modal-error-dificultad-dinamico');
         selectorDificultad.focus();
@@ -124,16 +127,16 @@ function validarFormulario(event) {
             inputTiempoPreparacion.focus();
             event.preventDefault();
         } else {
-        // Limpiar mensaje de error si el campo no está vacío
-        mensajeErrorTiempoPreparacion.textContent = '';
-        // Remover el resaltado del campo requerido
-        inputTiempoPreparacion.classList.remove('modal-error-tiempo-preparacion-dinamico');
+            // Limpiar mensaje de error si el campo no está vacío
+            mensajeErrorTiempoPreparacion.textContent = '';
+            // Remover el resaltado del campo requerido
+            inputTiempoPreparacion.classList.remove('modal-error-tiempo-preparacion-dinamico');
         }
     }
 
 
     //Verifica campo ingrediente esta vacio:
-    if(inputTextIngredientes.value.trim() === ''){
+    if (inputTextIngredientes.value.trim() === '') {
         mensajeErrorIngredientes.textContent = 'Por favor, ingrese los ingredientes necesarios (separados por coma).';
         inputTextIngredientes.classList.add('modal-error-ingredientes-dinamico');
         inputTextIngredientes.focus();
@@ -144,9 +147,29 @@ function validarFormulario(event) {
     }
 
 
+    // Verificar si se ha seleccionado una imagen
+    if (inputImagen.files.length === 0) {
+        mensajeErrorImagen.textContent = 'Por favor, seleccione una imagen para la receta.';
+        inputImagen.classList.add('modal-error-imagen-dinamico');
+        inputImagen.focus();
+        event.preventDefault();
+    } else {
+        let file = inputImagen.files[0];
+        let validImageTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif'];
+        if (!validImageTypes.includes(file.type)) {
+            mensajeErrorImagen.textContent = 'El archivo seleccionado no es una imagen válida. Seleccione una imagen en formato JPG, PNG o GIF.';
+            inputImagen.classList.add('modal-error-imagen-dinamico');
+            inputImagen.focus();
+            event.preventDefault();
+        } else {
+            mensajeErrorImagen.textContent = '';
+            inputImagen.classList.remove('modal-error-imagen-dinamico');
+        }
+    }
 
 
 }
+
 
 // Agregar evento clic al botón "Guardar receta" para validar el formulario
     // Verificar si el botón existe
@@ -320,3 +343,18 @@ filtroInput.addEventListener('keydown', function(event) {
     }
 });
 
+
+
+function guardarComoFavorito(icon) {
+    const recetaId = icon.getAttribute('data-receta-id');
+    console.log(`Icono clicado con receta ID: ${recetaId}`);
+
+    const boton = icon.nextElementSibling;
+
+    if (boton && boton.classList.contains('boton-add-fav')) {
+        console.log(`Encontrado botón con receta ID: ${recetaId}`);
+        boton.click();
+    } else {
+        console.error(`No se encontró el botón con receta ID: ${recetaId}`);
+    }
+}

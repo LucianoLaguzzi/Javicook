@@ -45,7 +45,7 @@ public class Receta extends AbstractEntity implements Serializable {
     @Column(name = "CATEGORIA")
     private String categoria;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(
             name = "receta_ingrediente",
             joinColumns = @JoinColumn(name = "id_receta"),
@@ -66,6 +66,9 @@ public class Receta extends AbstractEntity implements Serializable {
     @CollectionTable(name="RECETA_INGREDIENTES_CANTIDADES", joinColumns = @JoinColumn(name = "RECETA_ID"))
     @Column(name="INGREDIENTE_CANTIDAD")
     private List<String> ingredientesCantidades;
+
+    @ManyToMany(mappedBy = "recetasFavoritas")
+    private List<Usuario> usuariosFavoritos;
 
 
 
@@ -203,6 +206,14 @@ public class Receta extends AbstractEntity implements Serializable {
         this.ingredientesCantidades = ingredientesCantidades;
     }
 
+
+    public List<Usuario> getUsuariosFavoritos() {
+        return usuariosFavoritos;
+    }
+
+    public void setUsuariosFavoritos(List<Usuario> usuariosFavoritos) {
+        this.usuariosFavoritos = usuariosFavoritos;
+    }
 
     @Override
     public String toString() {

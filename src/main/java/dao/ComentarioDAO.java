@@ -6,6 +6,7 @@ import model.PersistentEntity;
 
 
 import javax.ejb.Stateless;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -28,6 +29,13 @@ public class ComentarioDAO extends AbstractEntityDAO<Comentario>{
         return resultados.isEmpty() ? null : resultados.get(0);
     }
 
+
+    public void eliminarComentariosDeReceta(Long idReceta) {
+        // Eliminar los pasos asociados a la receta
+        Query query = em.createQuery("DELETE FROM Comentario c WHERE c.receta.id = :idReceta");
+        query.setParameter("idReceta", idReceta);
+        query.executeUpdate();
+    }
 
 
     @Override

@@ -5,6 +5,7 @@ import model.*;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -84,6 +85,19 @@ public class RecetaDAO extends AbstractEntityDAO<Receta> {
         return query.getResultList();
     }
 
+    public void eliminarReceta(Long idReceta) {
+        try {
+            Receta receta = em.find(Receta.class, idReceta);
+            if (receta != null) {
+                System.out.println("Receta a eliminar con id " + idReceta);
+                em.remove(receta);
+            } else {
+                System.out.println("No se encontró la receta con id " + idReceta + " en la base de datos.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
 

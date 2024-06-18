@@ -158,18 +158,18 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
                 return "crear_usuario.xhtml?faces-redirect=true";
             }
 //Si no existe, lo crea:
-        exitoRegistro.add("Usuario registrado con éxito");
-        System.out.println("Usuario creado!");
+            exitoRegistro.add("Usuario registrado con éxito");
+            System.out.println("Usuario creado!");
 
-        Usuario usuarioCreado = new Usuario(usuario.getNombre(),usuario.getContrasenia(),usuario.getEmail(),"img/default-image.jpg");
-        usuarioDAO.create(usuarioCreado);
-        setEntity(new Usuario());
+            Usuario usuarioCreado = new Usuario(usuario.getNombre(),usuario.getContrasenia(),usuario.getEmail(),"img/default-image.jpg");
+            usuarioDAO.create(usuarioCreado);
+            setEntity(new Usuario());
 
-        flash.put("exitoRegistro", exitoRegistro);
-        usuario.setNombre("");
-        usuario.setContrasenia("");
-        usuario.setEmail("");
-        return "crear_usuario.xhtml?faces-redirect=true";
+            flash.put("exitoRegistro", exitoRegistro);
+            usuario.setNombre("");
+            usuario.setContrasenia("");
+            usuario.setEmail("");
+            return "crear_usuario.xhtml?faces-redirect=true";
 
 
         }catch (Exception e){
@@ -198,7 +198,7 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
             redirigirALogin();
         } else {
             if (usuario.getEmail() == null || usuario.getId() == null) {
-                usuario = usuarioDAO.findByNombre(usuario.getNombre());
+                usuario = usuarioDAO.findByIdWithRecetasFavoritas(usuario.getId());
                 context.getExternalContext().getSessionMap().put("usuario", usuario);
             }
         }
@@ -301,6 +301,38 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
 
 
 
+
+    public void toggleRecetaFavorita(Receta receta) throws Exception {
+        if (usuario != null) {
+            cargarUsuarioDeSesion();
+            usuario = usuarioDAO.findByIdWithRecetasFavoritas(usuario.getId());
+
+            if (usuario.getRecetasFavoritas() == null) {
+                usuario.setRecetasFavoritas(new ArrayList<>());
+            }
+
+            if (receta != null) {
+                if (usuario.getRecetasFavoritas().contains(receta)) {
+                    usuario.getRecetasFavoritas().remove(receta);
+                } else {
+                    usuario.getRecetasFavoritas().add(receta);
+                }
+                usuarioDAO.update(usuario);
+            }
+        }
+    }
+
+
+    public boolean esRecetaFavorita(Receta receta) {
+        cargarUsuarioDeSesion();
+        usuario = usuarioDAO.findByIdWithRecetasFavoritas(usuario.getId());
+        if (usuario != null && usuario.getRecetasFavoritas() != null) {
+            return usuario.getRecetasFavoritas().contains(receta);
+        }
+        return false;
+    }
+
+
     public String getUniqueImageParam() {
         return uniqueImageParam;
     }
@@ -329,7 +361,11 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
 
     public Usuario getUsuario() {
         if (usuario == null) {
-            cargarUsuarioDeSesion();
+            FacesContext context = FacesContext.getCurrentInstance();
+            usuario = (Usuario) context.getExternalContext().getSessionMap().get("usuario");
+            if (usuario == null) {
+                redirigirALogin();
+            }
         }
         return usuario;
     }

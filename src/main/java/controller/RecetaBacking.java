@@ -48,7 +48,9 @@ public class RecetaBacking  extends AbstractBacking<Receta>{
 
     private boolean hayRecetas;
 
-    private String pathFinal = "";
+    private String pathFinalSnapshot = "";
+
+    private String filePath = "";
 
     private List<String> ingredientesCantidades = new ArrayList<>();
 
@@ -167,12 +169,9 @@ public void registrarReceta() throws Exception {
         Usuario usuarioAutenticado = (Usuario) session.getAttribute("usuario");
         if (usuarioAutenticado != null) {
 
-
-
-            //Cantidades e ingredientes
+            // Cantidades e ingredientes
             String[] cantidadesArray = request.getParameterValues("cantidadIngrediente");
             List<String> cantidades = (cantidadesArray != null) ? Arrays.asList(cantidadesArray) : new ArrayList<>();
-
 
             // Obtener los pasos
             String[] pasosArray = request.getParameterValues("pasos");
@@ -180,56 +179,71 @@ public void registrarReceta() throws Exception {
 
             // Procesar la imagen
             Part filePart = request.getPart("file"); // Obtener la parte del archivo
-            // Verificar si se está enviando un archivo
+            String pathFinal = null; // Declarar pathFinal aquí para que esté disponible más tarde
             if (filePart != null && filePart.getSize() > 0) {
                 String fileName = receta.getTitulo(); // Establecer el nombre del archivo (suponiendo que las imágenes son JPG)
                 fileName = fileName.toLowerCase().replaceAll("\\s+$", ""); // Convertir a minúsculas y eliminar espacios al final
                 fileName = fileName.replaceAll("\\s+", "-"); // Reemplazar espacios por guiones
                 fileName += "_img.jpg";
-                System.out.println(fileName);
 
-                // Obtener la ruta (VER COMO OBTENER LA RUTA / me agrega /target/snapshot)
+                // Ruta 1: JaviCook\src\main\webapp\img
+                String relativeWebPath = "/img/fotos";
+                ServletContext servletContext = (ServletContext) externalContext.getContext();
+                String absoluteDiskPath = servletContext.getRealPath(relativeWebPath);
+                filePath = Paths.get(absoluteDiskPath, fileName).toString();
+
+                // Ruta 2: JaviCook\target\JaviCook-1.0-SNAPSHOT\img
                 String workingDirectory = System.getProperty("user.dir");
                 String fotosPath = workingDirectory + "/src/main/webapp/img/fotos";
-                // Reemplazar la parte no deseada de la ruta
                 String targetPath = "\\wildfly-25.0.1.Final\\bin";
-                pathFinal = fotosPath.replace(targetPath, "");
-                System.out.println("Ruta final: " + pathFinal);
-                pathFinal = pathFinal + "/" + fileName;
-                // Guardar el archivo en el servidor
+                pathFinalSnapshot = fotosPath.replace(targetPath, "") + "/" + fileName;
+
+                // Leer el archivo en un byte array
+                byte[] fileContent;
                 try (InputStream input = filePart.getInputStream();
-                     OutputStream output = Files.newOutputStream(Paths.get(pathFinal))) {
+                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream()) {
                     byte[] buffer = new byte[1024];
                     int length;
                     while ((length = input.read(buffer)) > 0) {
-                        output.write(buffer, 0, length);
+                        byteArrayOutputStream.write(buffer, 0, length);
                     }
+                    fileContent = byteArrayOutputStream.toByteArray();
                 }
-            }else{
+
+                // Guardar la imagen en ambas rutas
+                try (OutputStream output1 = Files.newOutputStream(Paths.get(filePath))) {
+                    output1.write(fileContent);
+                }
+
+                try (OutputStream output2 = Files.newOutputStream(Paths.get(pathFinalSnapshot))) {
+                    output2.write(fileContent);
+                }
+
+                // Establecer pathFinal para uso posterior
+                pathFinal = relativeWebPath + "/" + fileName;
+            } else {
                 System.out.println("No se obtuvo ninguna imagen");
             }
 
-            //Fecha y hora
+            // Fecha y hora
             LocalDateTime fechaActual = LocalDateTime.now();
             DateTimeFormatter formatoArgentino = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm", new Locale("es", "AR"));
             String fechaYHora = fechaActual.format(formatoArgentino);
-            System.out.println(fechaYHora);
 
-            //Categoria
+            // Categoria
             String categoria = receta.getCategoria();
-            //Dificultad
+            // Dificultad
             String dificultad = receta.getDificultad();
 
-            //Tiempo de preparacion
+            // Tiempo de preparacion
             String tiempo_preparacion = receta.getTiempo_preparacion();
 
-
-            //Ingredientes
+            // Ingredientes
             String ingredientesString = request.getParameter("ingredientes");
             String[] nombresIngredientes = (ingredientesString != null) ? ingredientesString.toLowerCase().split(",") : new String[0];
 
-            if ((receta.getTitulo() != null) || (!receta.getTitulo().equals(""))) {
-                    Receta nuevaReceta = new Receta(receta.getTitulo(),cantidades, usuarioAutenticado, pasos, pathFinal, fechaYHora,categoria,dificultad,tiempo_preparacion);
+            if ((receta.getTitulo() != null) && (!receta.getTitulo().equals(""))) {
+                Receta nuevaReceta = new Receta(receta.getTitulo(), cantidades, usuarioAutenticado, pasos, pathFinal, fechaYHora, categoria, dificultad, tiempo_preparacion);
 
                 recetaDAO.create(nuevaReceta);
 
@@ -239,8 +253,6 @@ public void registrarReceta() throws Exception {
                 List<Ingrediente> ingredientes = new ArrayList<>();
                 for (String nombre : nombresIngredientes) {
                     Ingrediente ingredienteExistente = ingredienteDAO.findByNombre(nombre);
-                    // Si el ingrediente existe, añadirlo a la lista de ingredientes de la receta
-                    // Si no existe, crear uno nuevo y añadirlo a la lista de ingredientes de la receta
                     if (ingredienteExistente != null) {
                         ingredientes.add(ingredienteExistente);
                     } else {
@@ -249,29 +261,23 @@ public void registrarReceta() throws Exception {
                         ingredientes.add(nuevoIngrediente);
                     }
                 }
-                // Ahora tienes una lista de objetos Ingrediente que puedes usar en tu lógica de negocio
-                System.out.println("Lista de ingredientes recibidos: " + ingredientes);
-                // Asignar los ingredientes a la receta
                 nuevaReceta.setIngredientes(ingredientes);
-                // Actualizar la receta con la lista de ingredientes
                 recetaDAO.update(nuevaReceta);
 
                 receta = new Receta();
 
                 RecetaBacking recetaBacking = context.getApplication().evaluateExpressionGet(context, "#{recetaBacking}", RecetaBacking.class);
                 recetaBacking.actualizarListaRecetas();
-                }
+            }
 
-
-        }else{
+        } else {
             System.out.println("No hay usuario activo");
         }
 
-    }catch (Exception e){
+    } catch (Exception e) {
         e.printStackTrace();
         System.out.println("Error" + e.getMessage());
-    }
-    finally {
+    } finally {
         actualizarListaRecetas();
         ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
         externalContext.redirect(externalContext.getRequestContextPath() + "/index.xhtml");
@@ -346,6 +352,5 @@ public void registrarReceta() throws Exception {
     public void setTop3Recetas(List<Receta> top3Recetas) {
         this.top3Recetas = top3Recetas;
     }
-
 
 }

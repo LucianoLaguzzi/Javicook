@@ -20,3 +20,11 @@ function mostrarMensajeConfirmacion() {
 
 
 
+
+
+function confirmarEliminar(event) {
+    event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+    if (confirm('¿Estás seguro de que quieres eliminar esta receta?')) {
+        document.querySelector('.boton-eliminar-receta').click(); // Simular el clic en el botón oculto
+    }
+}

@@ -5,6 +5,7 @@ import model.Receta;
 import model.Usuario;
 
 import javax.ejb.Stateless;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -36,6 +37,17 @@ public class UsuarioDAO extends AbstractEntityDAO<Usuario> {
         query.setParameter("usuarioId", usuarioId);
         return query.getResultList();
     }
+
+
+
+    public Usuario findByIdWithRecetasFavoritas(Long id) {
+        return em.createNamedQuery("Usuario.findByIdWithRecetasFavoritas", Usuario.class)
+                .setParameter("id", id)
+                .getSingleResult();
+    }
+
+
+
 
     @Override
     public PersistentEntity findById(Long id) throws Exception {

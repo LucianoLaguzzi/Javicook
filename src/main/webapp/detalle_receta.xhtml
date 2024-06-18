@@ -49,7 +49,6 @@
 
             <main class="principal">
                 <section class="tarjeta-grande">
-
                     <h:panelGroup styleClass="panel-detalles">
                         <div class="div-detalles-titulo">
                             <h:outputText styleClass="detalles-titulo" value="#{detalleRecetaBacking.tituloAMayuscula(detalleRecetaBacking.receta.titulo)}" />
@@ -84,7 +83,7 @@
                             <h:outputText styleClass="paso-texto" value="#{pasosRecetaBacking.formatPasos(pasosRecetaBacking.obtenerPasosReceta(pasosRecetaBacking.receta.id).get(0))}" escape="false" />
                         </div>
 
-                    <hr class="divider"/>
+                        <hr class="divider"/>
 
                         <h:outputText styleClass="titulo-valoracion" value="Tu valoracion para esta receta" />
 
@@ -96,7 +95,16 @@
                             </c:forEach>
                         </div>
 
-                    <hr class="divider"/>
+                        <hr class="divider"/>
+
+
+                        <!-- Botón oculto para eliminar (sin mostrar visualmente) -->
+                        <h:commandButton styleClass="boton-eliminar-receta" id="btnEliminarReceta" style="display:none;" action="#{detalleRecetaBacking.eliminarReceta(detalleRecetaBacking.receta.id)}" onclick="return confirm('Si apretas en aceptar, tu receta se borrará!');" />
+                        <!-- Botón visible con icono Font Awesome, mostrado condicionalmente -->
+                        <h:outputLink styleClass="link-eliminar-receta" rendered="#{detalleRecetaBacking.esPropietarioReceta()}" onclick="return confirmarEliminar(event)">
+                            <i class="fas fa-trash"></i> Eliminar receta
+                        </h:outputLink>
+
 
                         <div class="detalles-comentarios">
                             <i class="far fa-comment-alt"></i>

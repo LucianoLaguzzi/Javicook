@@ -2,6 +2,7 @@ package controller;
 
 import dao.ComentarioDAO;
 import dao.RecetaDAO;
+import dao.UsuarioDAO;
 import datamodel.GenericDataModel;
 import model.*;
 
@@ -11,11 +12,16 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Objects;
 
 
 @ManagedBean(name="detalleRecetaBacking")
@@ -24,6 +30,9 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
 
     @EJB
     RecetaDAO recetaDAO;
+
+    @EJB
+    UsuarioDAO usuarioDAO;
 
     private Receta receta;
 
@@ -286,6 +295,99 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
         }
         return null;
     }
+
+
+
+    public boolean esPropietarioReceta() {
+        Usuario usuarioAutenticado = obtenerUsuarioActual();
+        return usuarioAutenticado != null && receta.getUsuario().getId() == usuarioAutenticado.getId();
+    }
+
+
+    public String eliminarReceta(Long idReceta) {
+        try {
+            Usuario usuarioAutenticado = obtenerUsuarioActual();
+            if (usuarioAutenticado == null) {
+                System.out.println("Usuario no autenticado.");
+                return null;
+            }
+
+            System.out.println("Usuario autenticado: " + usuarioAutenticado.getId());
+            // Eliminar la receta de la base de datos
+            eliminarImagenReceta(receta);
+            // Eliminar los comentarios asociados a la receta
+            comentarioDAO.eliminarComentariosDeReceta(idReceta);
+
+
+
+//            Eliminar antes de la lista de favoritos
+            eliminarFavoritoEnReceta(usuarioAutenticado,receta);
+
+
+            recetaDAO.eliminarReceta(idReceta);
+            System.out.println("Receta eliminada: " + idReceta);
+            return "index.xhtml?faces-redirect=true";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
+    private void eliminarImagenReceta(Receta receta) {
+        if (receta.getImagen() != null && !receta.getImagen().isEmpty()) {
+            try {
+                // Obtener el nombre del archivo de la ruta de la imagen en la receta
+                String imageName = receta.getImagen().substring(receta.getImagen().lastIndexOf('/') + 1);
+
+                // Obtener la ruta absoluta de la imagen en la carpeta del proyecto
+                String relativeWebPath = "/img/fotos";
+                FacesContext context = FacesContext.getCurrentInstance();
+                ExternalContext externalContext = context.getExternalContext();
+                ServletContext servletContext = (ServletContext) externalContext.getContext();
+                String absoluteDiskPath = servletContext.getRealPath(relativeWebPath);
+
+                // Construir la ruta completa para eliminar la imagen
+                String filePath = Paths.get(absoluteDiskPath, imageName).toString();
+                File file = new File(filePath);
+                if (file.delete()) {
+                    System.out.println("El archivo se eliminó correctamente.");
+                } else {
+                    System.out.println("No se pudo eliminar el archivo.");
+                }
+                // Obtener la ruta absoluta de la imagen en el sistema de archivos del proyecto
+                String workingDirectory = System.getProperty("user.dir");
+                String fotosPath = workingDirectory + "/src/main/webapp/img/fotos";
+                String targetPath = "\\wildfly-25.0.1.Final\\bin";
+                String pathFinalSnapshot = fotosPath.replace(targetPath, "") + "/" + imageName;
+                File file2 = new File(pathFinalSnapshot);
+                if (file2.delete()) {
+                    System.out.println("El archivo se eliminó correctamente.");
+                } else {
+                    System.out.println("No se pudo eliminar el archivo.");
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+
+
+    public void eliminarFavoritoEnReceta(Usuario usuarioAutenticado, Receta receta) throws Exception {
+        usuarioAutenticado = usuarioDAO.findByIdWithRecetasFavoritas(usuarioAutenticado.getId());
+        if (usuarioAutenticado == null) {
+            System.out.println("Usuario no autenticado.");
+        }else {
+            usuarioAutenticado.getRecetasFavoritas().remove(receta);
+            usuarioDAO.update(usuarioAutenticado);
+            System.out.println("La receta" + receta + " fue removida de la lista de favoritos" );
+        }
+    }
+
+
 
     @Override
     public void newEntity() {

@@ -11,12 +11,307 @@
   <component name="ChangeListManager">
     <list default="true" id="a8b2cdbc-f0e4-43bb-9dcc-38cbc7206858" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DetalleRecetaBacking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DetalleRecetaBacking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/RecetaBacking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RecetaBacking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UsuarioBacking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UsuarioBacking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ComentarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ComentarioDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/RecetaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/RecetaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/UsuarioDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Ingrediente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Ingrediente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Receta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Receta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Usuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/detalle_receta.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/detalle_receta.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/img/test2_profile.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/img/test2_profile.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/perfil.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/perfil.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/detalles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/detalles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/perfil.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/perfil.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240506-103408785/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240506-103408785/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240506-192124592/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240506-192124592/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240506-193950524/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240506-193950524/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240506-193950524/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240506-193950524/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240507-111412311/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240507-111412311/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240507-183454675/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240507-183454675/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240507-184133155/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240507-184133155/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240507-191817850/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240507-191817850/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-120357479/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-120357479/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-133641390/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-133641390/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-133641390/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-134231695/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-134231695/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-134231695/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-134231695/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-135820164/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-135820164/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-135820164/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-135820164/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-135820164/standalone.v5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-140148254/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-140148254/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-141530793/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-141530793/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-141530793/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-141530793/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-142041380/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-142041380/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-142041380/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-142041380/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-142343417/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-142343417/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-190158220/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-190158220/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-190158220/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-190158220/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-204318476/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-204318476/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-204318476/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-204318476/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-211435246/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-211435246/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-211435246/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240508-211435246/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-101521940/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-101521940/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-105314738/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-105314738/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-105314738/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-105314738/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-114919981/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-114919981/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-140658103/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-140658103/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-140658103/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-140658103/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-141502491/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-141502491/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-141502491/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-141502491/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-142118888/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-142118888/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-142118888/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-142118888/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-144434681/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-144434681/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-144434681/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-144434681/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-165540202/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-165540202/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-165540202/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-165540202/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-170337108/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-170337108/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-175123173/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-175123173/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-175123173/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-175123173/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-180618546/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-180618546/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-180618546/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-180618546/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-201458778/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240509-201458778/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240510-105345802/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240510-105345802/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240510-105345802/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240510-105345802/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240510-125341615/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240510-125341615/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240510-151052792/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240510-151052792/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240510-151052792/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240510-151052792/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240510-153038741/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240510-153038741/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240510-161155021/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240510-161155021/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-114421667/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-114421667/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-114421667/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-114421667/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-115938311/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-115938311/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-122741431/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-122741431/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-124301062/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-124301062/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-153852232/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-153852232/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-154756929/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-154756929/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-223954713/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-223954713/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-230628388/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-230628388/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-230822353/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-230822353/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-230822353/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-230822353/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-232344051/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-232344051/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-232344051/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-232344051/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-232614409/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-232614409/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-232614409/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-232614409/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-233500178/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-233500178/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-233500178/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-233500178/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-234617329/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-234617329/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-234617329/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240513-234617329/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240514-105546780/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240514-105546780/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240514-123103211/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240514-123103211/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240514-143807850/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240514-143807850/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240514-145558907/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240514-145558907/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240514-152352006/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240514-152352006/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240514-152352006/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240514-152352006/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240514-153412444/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240514-153412444/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240514-154901371/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240514-154901371/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-120144468/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-120144468/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-153548694/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-153548694/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-153548694/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-153548694/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-190625950/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-190625950/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-200619109/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-200619109/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-200619109/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-200619109/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-200922317/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-200922317/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-201248650/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-201248650/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-201248650/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-201248650/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-201248650/standalone.v5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-201248650/standalone.v6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-201248650/standalone.v7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240515-201248650/standalone.v8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-111840783/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-111840783/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-120303430/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-120303430/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-120303430/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-120303430/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-150126276/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-150126276/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-150126276/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-150126276/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-151327647/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-151327647/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-151327647/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-151327647/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-151844179/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-151844179/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-154729424/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-154729424/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-154729424/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-154729424/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-155836907/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-155836907/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-170908899/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-170908899/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-173509658/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-173509658/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-174547182/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-174547182/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-174918365/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-174918365/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-175358781/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-175358781/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-180052643/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-180052643/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-183213809/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-183213809/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-190127226/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-190127226/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-190127226/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-191135665/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-191135665/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-191135665/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-194004822/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-194004822/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-195736812/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240516-195736812/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-111833931/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-111833931/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-111833931/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-111833931/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-140807148/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-140807148/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-140807148/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-140807148/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-143118311/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-143118311/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-144629241/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-144629241/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-161659132/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-161659132/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-162755147/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-162755147/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-163819837/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-163819837/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-163819837/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-164540426/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-164540426/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-165247339/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-165247339/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-165920197/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-165920197/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-171302457/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-171302457/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-172646646/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-172646646/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-173342479/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-173342479/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-175544733/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-175544733/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-192721741/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-192721741/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-193801091/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-193801091/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-194849666/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-194849666/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-195412428/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-195412428/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-200515032/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-200515032/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-201030302/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-201030302/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-201030302/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-201431395/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-201431395/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-202328206/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-202328206/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-202625068/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-203412886/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240517-203412886/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240518-023636125/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240518-023636125/standalone.v2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/current/standalone.v3.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/standalone.last.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/standalone.last.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/log/server.log" beforeDir="false" afterPath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/log/server.log" afterDir="false" />
@@ -297,7 +592,19 @@
       <workItem from="1717074782539" duration="17896000" />
       <workItem from="1717160799315" duration="18949000" />
       <workItem from="1717185538293" duration="5184000" />
-      <workItem from="1717420060965" duration="18413000" />
+      <workItem from="1717420060965" duration="20815000" />
+      <workItem from="1717506574997" duration="24740000" />
+      <workItem from="1717593323843" duration="14090000" />
+      <workItem from="1717680155554" duration="15709000" />
+      <workItem from="1717767798311" duration="12307000" />
+      <workItem from="1717787903866" duration="4169000" />
+      <workItem from="1718025148052" duration="22746000" />
+      <workItem from="1718110614944" duration="21492000" />
+      <workItem from="1718140383334" duration="1354000" />
+      <workItem from="1718198596590" duration="14944000" />
+      <workItem from="1718283892289" duration="16473000" />
+      <workItem from="1718371893304" duration="11866000" />
+      <workItem from="1718717743523" duration="2693000" />
     </task>
     <servers />
   </component>
@@ -322,6 +629,24 @@
           <properties class="java.net.ConnectException" package="java.net" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/DetalleRecetaBacking.java</url>
+          <line>306</line>
+          <properties class="controller.DetalleRecetaBacking" method="eliminarReceta">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/DetalleRecetaBacking.java</url>
+          <line>378</line>
+          <properties class="controller.DetalleRecetaBacking" method="eliminarFavoritoEnReceta">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

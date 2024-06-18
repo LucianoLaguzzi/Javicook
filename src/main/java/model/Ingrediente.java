@@ -26,7 +26,7 @@ public class Ingrediente extends AbstractEntity implements Serializable {
     private String nombre;
 
 
-    @ManyToMany(mappedBy = "ingredientes", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "ingredientes")
     private List<Receta> recetas;
 
 
