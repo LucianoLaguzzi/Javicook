@@ -48,6 +48,15 @@ public class UsuarioDAO extends AbstractEntityDAO<Usuario> {
 
 
 
+    public Usuario findByTokenRecuperacion(String token) {
+        TypedQuery<Usuario> query = em.createQuery(
+                "SELECT u FROM Usuario u WHERE u.tokenRecuperacion = :token", Usuario.class);
+        query.setParameter("token", token);
+        List<Usuario> resultados = query.getResultList();
+        return resultados.isEmpty() ? null : resultados.get(0);
+    }
+
+
 
     @Override
     public PersistentEntity findById(Long id) throws Exception {

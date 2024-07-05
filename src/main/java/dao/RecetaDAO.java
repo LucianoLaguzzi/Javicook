@@ -69,11 +69,13 @@ public class RecetaDAO extends AbstractEntityDAO<Receta> {
         }
     }
 
-    public List<Receta> buscarPorIngredientes(String filtroIngredientes) {
+    public List<Receta> buscarPorIngredientes(String filtroIngredientes,int inicio, int cantidad) {
         String jpql = "SELECT DISTINCT r FROM Receta r " +
                 "JOIN r.ingredientes i " +
                 "WHERE LOWER(i.nombre) LIKE :filtroIngredientes";
-        TypedQuery<Receta> query = em.createQuery(jpql, Receta.class);
+        TypedQuery<Receta> query = em.createQuery(jpql, Receta.class)
+                .setFirstResult(inicio) // Establece el primer resultado del rango
+                .setMaxResults(cantidad); // Establece la cantidad máxima de resultados a obtener
         query.setParameter("filtroIngredientes", "%" + filtroIngredientes.toLowerCase() + "%");
         return query.getResultList();
     }
@@ -99,8 +101,12 @@ public class RecetaDAO extends AbstractEntityDAO<Receta> {
         }
     }
 
-
-
+    public void eliminarValoracionDeUsuario(Long idReceta) {
+        // Eliminar los pasos asociados a la receta
+        Query query = em.createQuery("DELETE FROM ValoracionUsuario vu WHERE vu.receta.id = :idReceta");
+        query.setParameter("idReceta", idReceta);
+        query.executeUpdate();
+    }
 
 
     @Override

@@ -81,14 +81,17 @@
 
             <div class="entrada">
             <h:inputText id="newUser" value="#{usuarioBacking.usuario.nombre}"  styleClass="inp-nuevo-usuario" pt:placeholder="Usuario"/>
+                <i class="fas fa-user"></i>
             </div>
 
             <div class="entrada">
                 <h:inputSecret id="newPass" value="#{usuarioBacking.usuario.contrasenia}" styleClass="inp-nueva-pass" pt:placeholder="Contraseña"/>
+                <i class="fas fa-lock"></i>
             </div>
 
             <div class="entrada">
             <h:inputText id="newEmail" value="#{usuarioBacking.usuario.email}" styleClass="inp-nuevo-email" pt:placeholder="Email"/>
+                <i class="fas fa-envelope"></i>
             </div>
 
             <h:commandButton value="Registrarse" action="#{usuarioBacking.registrarUsuario}" styleClass="boton-registrar-usuario">

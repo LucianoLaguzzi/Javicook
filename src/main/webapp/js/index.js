@@ -358,3 +358,5 @@ function guardarComoFavorito(icon) {
         console.error(`No se encontró el botón con receta ID: ${recetaId}`);
     }
 }
+
+

@@ -2,8 +2,12 @@ package controller;
 
 import dao.UsuarioDAO;
 import datamodel.GenericDataModel;
+import model.Comentario;
+import model.PasswordUtil;
 import model.Receta;
 import model.Usuario;
+import org.mindrot.jbcrypt.BCrypt;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.Asynchronous;
 import javax.ejb.EJB;
@@ -14,6 +18,9 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.faces.event.ComponentSystemEvent;
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -49,6 +56,13 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
 
     private String uniqueImageParam;
 
+
+    private String token; // Propiedad para almacenar el token
+
+    private String nuevaContrasenia;
+    private String confirmarContrasenia;
+
+
     public UsuarioBacking() {
         usuario = new Usuario();
     }
@@ -62,6 +76,15 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
         erroresLogin = new ArrayList<>();
         obtenerRecetasDeUsuario();
         generateUniqueImageParam();
+
+        // Obtener el token desde los parámetros de la URL al iniciar el bean
+        Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+        token = params.get("token");
+
+        if (token == null || token.isEmpty()) {
+            System.out.println("Token no proporcionado.");
+        }
+
     }
 
 
@@ -89,10 +112,22 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
             return "login.xhtml?faces-redirect=true";
         }
 
-        Usuario usuarioEncontrado = usuarioDAO.findByNombreYContrasenia(usuario.getNombre(), usuario.getContrasenia());
+        Usuario usuarioEncontrado = usuarioDAO.findByNombre(usuario.getNombre());
         if (usuarioEncontrado != null) {
-            context.getExternalContext().getSessionMap().put("usuario", usuarioEncontrado);
-            return "index.xhtml?faces-redirect=true";
+            // Verificar la contraseña
+            if (PasswordUtil.checkPassword(usuario.getContrasenia(), usuarioEncontrado.getContrasenia())) {
+                context.getExternalContext().getSessionMap().put("usuario", usuarioEncontrado);
+                return "index.xhtml?faces-redirect=true";
+            } else {
+                erroresLogin.add("Nombre de usuario o contraseña incorrectos");
+                FacesMessage errorMessage = new FacesMessage("Nombre de usuario o contraseña incorrectos");
+                errorMessage.setSeverity(FacesMessage.SEVERITY_ERROR);
+                context.addMessage(null, errorMessage);
+                flash.put("erroresLogin", erroresLogin); // Almacenar mensajes en flash
+                usuario.setNombre("");
+                usuario.setContrasenia("");
+                return "login.xhtml?faces-redirect=true";
+            }
         } else {
             erroresLogin.add("Nombre de usuario o contraseña incorrectos");
             FacesMessage errorMessage = new FacesMessage("Nombre de usuario o contraseña incorrectos");
@@ -104,6 +139,18 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
             return "login.xhtml?faces-redirect=true";
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
     public String redireccionarACrearUsuario() {
         return "crear_usuario.xhtml?faces-redirect=true";
@@ -146,7 +193,7 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
 //Voy a la base de datos para ver si el usuario a crear ya existe
             Usuario verificarUsuario = usuarioDAO.findByNombre(usuario.getNombre());
 
-//Si existe:
+//Si existe usuario con ese nombre:
             if (verificarUsuario != null) {
                 erroresRegistro.clear();
                 System.out.println("El usuario a crear ya existe");
@@ -157,12 +204,14 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
                 usuario.setEmail("");
                 return "crear_usuario.xhtml?faces-redirect=true";
             }
-//Si no existe, lo crea:
+//Si no existe, hashear la contraseña y luego crear el usuario :
+            String hashedPassword = PasswordUtil.hashPassword(usuario.getContrasenia());
+
+
+            Usuario usuarioCreado = new Usuario(usuario.getNombre(),hashedPassword,usuario.getEmail(),"img/default-image.jpg");
+            usuarioDAO.create(usuarioCreado);
             exitoRegistro.add("Usuario registrado con éxito");
             System.out.println("Usuario creado!");
-
-            Usuario usuarioCreado = new Usuario(usuario.getNombre(),usuario.getContrasenia(),usuario.getEmail(),"img/default-image.jpg");
-            usuarioDAO.create(usuarioCreado);
             setEntity(new Usuario());
 
             flash.put("exitoRegistro", exitoRegistro);
@@ -333,7 +382,156 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
     }
 
 
-    public String getUniqueImageParam() {
+
+    public String redireccionarARecuperarContrasenia() {
+        return "recuperarContrasenia.xhtml?faces-redirect=true";
+    }
+
+
+    public String solicitarRecuperacionContrasenia() throws Exception {
+        FacesContext context = FacesContext.getCurrentInstance();
+        Flash flash = context.getExternalContext().getFlash();
+
+        Usuario usuarioEncontrado = usuarioDAO.findByNombre(usuario.getNombre());
+        if (usuarioEncontrado != null) {
+            // Generar token y fecha de expiración
+            String token = UUID.randomUUID().toString();
+            LocalDateTime fechaExpiracion = LocalDateTime.now().plusHours(1);
+
+            // Almacenar token y fecha de expiración en la base de datos
+            usuarioEncontrado.setTokenRecuperacion(token);
+            usuarioEncontrado.setFechaExpiracionToken(fechaExpiracion);
+            usuarioDAO.update(usuarioEncontrado);
+
+            // Enviar email con el enlace de recuperación
+            String linkRecuperacion = "http://localhost:8080/JaviCook-1.0-SNAPSHOT/cambiarContrasenia.xhtml?token=" + token;
+            String mensaje = "Para recuperar tu contraseña, haz clic en el siguiente enlace: " + linkRecuperacion;
+            enviarEmail(usuarioEncontrado.getEmail(), "Recuperación de contraseña", mensaje);
+
+            flash.put("mensajeRecuperacion", "Se ha enviado un enlace de recuperación a tu email.");
+            return "login.xhtml?faces-redirect=true";
+        } else {
+            erroresLogin.add("Usuario no encontrado");
+            FacesMessage errorMessage = new FacesMessage("Usuario no encontrado");
+            errorMessage.setSeverity(FacesMessage.SEVERITY_ERROR);
+            context.addMessage(null, errorMessage);
+            flash.put("erroresLogin", erroresLogin);
+            return "recuperarContrasenia.xhtml?faces-redirect=true";
+        }
+    }
+
+
+
+
+
+    // Método para cambiar la contraseña
+    public String cambiarContrasenia() throws Exception {
+        if (token == null || token.isEmpty()) {
+            System.out.println("Token no válido.");
+            return null;
+        }
+
+        // Buscar el usuario por el token
+        usuario = usuarioDAO.findByTokenRecuperacion(token);
+        if (usuario == null) {
+            System.out.println("Token inválido o expirado.");
+            return null;
+        }
+
+        // Verificar si el token ha expirado
+        LocalDateTime fechaExpiracionToken = usuario.getFechaExpiracionToken();
+        if (fechaExpiracionToken == null || LocalDateTime.now().isAfter(fechaExpiracionToken)) {
+            System.out.println("Token expirado.");
+            return null;
+        }
+
+
+        // Verificar que las nuevas contraseñas no estén vacías
+        if (confirmarContrasenia == null || confirmarContrasenia.isEmpty()) {
+            System.out.println("Debe ingresar una nueva contraseña.");
+            return null;
+        }
+
+        // Verificar que las contraseñas ingresadas coincidan
+        if (!nuevaContrasenia.equals(confirmarContrasenia)) {
+            System.out.println("Las contraseñas no coinciden.");
+            return null;
+        }
+
+        // Hashear la nueva contraseña ingresada por el usuario
+        String hashedNewPassword = PasswordUtil.hashPassword(confirmarContrasenia);
+
+        // Actualizar la contraseña hasheada del usuario en la base de datos
+        usuario.setContrasenia(hashedNewPassword);
+        usuarioDAO.update(usuario);
+
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Éxito", "Contraseña cambiada con éxito."));
+        return "login?faces-redirect=true";
+    }
+
+    // Método para agregar mensajes de error
+    private void addErrorMessage(String mensaje) {
+        FacesMessage errorMessage = new FacesMessage(mensaje);
+        errorMessage.setSeverity(FacesMessage.SEVERITY_ERROR);
+        FacesContext.getCurrentInstance().addMessage(null, errorMessage);
+    }
+
+
+
+
+
+
+    private void enviarEmail(String emailDestinatario, String asunto, String cuerpo) {
+        // Configuración de JavaMail para enviar correo electrónico
+        String host = "smtp.gmail.com";
+        String username = "javicook.app@gmail.com"; // Tu dirección de Gmail
+        String password = "tdhqvpfqpzqhrbys"; // Contraseña de aplicación generada
+        int port = 587; // Puerto SMTP para Gmail
+
+        Properties props = new Properties();
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.port", port);
+        props.put("mail.smtp.auth", "true");
+
+        // Habilitar TLS
+        props.put("mail.smtp.starttls.enable", "true");
+
+        // Crear la sesión de JavaMail
+        Session session = Session.getInstance(props, new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
+
+        try {
+            // Preparar el mensaje de correo
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(username)); // Dirección del remitente (tu dirección de Gmail)
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailDestinatario)); // Destinatario del correo
+            message.setSubject(asunto);
+            message.setText(cuerpo);
+
+            // Enviar el correo
+            Transport.send(message);
+
+            System.out.println("Correo de confirmación enviado a " + emailDestinatario);
+
+        } catch (SendFailedException e) {
+            System.out.println("Error: Dirección de correo no válida o no puede recibir correos: " + emailDestinatario);
+            // Aquí puedes manejar el error, por ejemplo, notificando al usuario
+        } catch (MessagingException e) {
+            System.out.println("Error al enviar correo de confirmación: " + e.getMessage());
+        }
+    }
+
+
+
+
+
+
+
+
+        public String getUniqueImageParam() {
         return uniqueImageParam;
     }
 
@@ -406,5 +604,29 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
 
     public void setRecetasPorUsuario(List<Receta> recetasPorUsuario) {
         this.recetasPorUsuario = recetasPorUsuario;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getConfirmarContrasenia() {
+        return confirmarContrasenia;
+    }
+
+    public void setConfirmarContrasenia(String confirmarContrasenia) {
+        this.confirmarContrasenia = confirmarContrasenia;
+    }
+
+    public String getNuevaContrasenia() {
+        return nuevaContrasenia;
+    }
+
+    public void setNuevaContrasenia(String nuevaContrasenia) {
+        this.nuevaContrasenia = nuevaContrasenia;
     }
 }

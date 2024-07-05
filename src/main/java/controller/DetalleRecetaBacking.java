@@ -12,6 +12,10 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.mail.*;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -22,6 +26,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Properties;
 
 
 @ManagedBean(name="detalleRecetaBacking")
@@ -270,6 +275,9 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
             // Guardar el comentario en la base de datos
             comentarioDAO.create(comentario);
 
+//            Aca podria ir el envio de mail
+            enviarCorreoConfirmacion(usuarioActual.getEmail(), comentario);
+
             // Recargar los comentarios después de agregar uno nuevo
             cargarComentarios();
 
@@ -317,12 +325,11 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
             eliminarImagenReceta(receta);
             // Eliminar los comentarios asociados a la receta
             comentarioDAO.eliminarComentariosDeReceta(idReceta);
-
-
-
 //            Eliminar antes de la lista de favoritos
             eliminarFavoritoEnReceta(usuarioAutenticado,receta);
 
+//            Eliminar valoracion en valoracion_usuario
+            eliminarValoracionDelUsuario(usuarioAutenticado,receta);
 
             recetaDAO.eliminarReceta(idReceta);
             System.out.println("Receta eliminada: " + idReceta);
@@ -386,6 +393,64 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
             System.out.println("La receta" + receta + " fue removida de la lista de favoritos" );
         }
     }
+
+
+    public void eliminarValoracionDelUsuario (Usuario usuarioAutenticado, Receta receta) throws Exception {
+        usuarioAutenticado = usuarioDAO.findByIdWithRecetasFavoritas(usuarioAutenticado.getId());
+        if (usuarioAutenticado == null) {
+            System.out.println("Usuario no autenticado.");
+        }else {
+            recetaDAO.eliminarValoracionDeUsuario(receta.getId());
+        }
+
+    }
+
+
+
+    // Método para enviar correo de confirmación
+    private void enviarCorreoConfirmacion(String emailDestinatario, Comentario comentario) {
+        // Configuración de JavaMail para enviar correo electrónico
+        String host = "smtp.gmail.com";
+        String username = "javicook.app@gmail.com"; // Tu dirección de Gmail
+        String password = "tdhqvpfqpzqhrbys"; // Contraseña de aplicación generada
+        int port = 587; // Puerto SMTP para Gmail
+
+        Properties props = new Properties();
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.port", port);
+        props.put("mail.smtp.auth", "true");
+
+        // Habilitar TLS
+        props.put("mail.smtp.starttls.enable", "true");
+
+        // Crear la sesión de JavaMail
+        Session session = Session.getInstance(props, new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
+
+        try {
+            // Preparar el mensaje de correo
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(username)); // Dirección del remitente (tu dirección de Gmail)
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailDestinatario)); // Destinatario del correo
+            message.setSubject("Confirmación de Comentario");
+            message.setText("Hola,\n\nTu comentario ha sido registrado correctamente en nuestra aplicación.");
+
+            // Enviar el correo
+            Transport.send(message);
+
+            System.out.println("Correo de confirmación enviado a " + emailDestinatario);
+
+        } catch (SendFailedException e) {
+            System.out.println("Error: Dirección de correo no válida o no puede recibir correos: " + emailDestinatario);
+            // Aquí puedes manejar el error, por ejemplo, notificando al usuario
+        } catch (MessagingException e) {
+            System.out.println("Error al enviar correo de confirmación: " + e.getMessage());
+        }
+    }
+
 
 
 

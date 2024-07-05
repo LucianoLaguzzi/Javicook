@@ -53,21 +53,23 @@ header p {
     margin-bottom: 20px;
     font-weight: 600;
     color: honeydew;
+    letter-spacing: 1px;
+    padding-top: 0px !important;
 }
 
 .login-section{
-    height: 350px;
+    height: 380px;
     max-height: 500px;
     width: 350px;
     max-width: 600px;
     position: relative;
     background-color: rgb(0 0 0 / 40%);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     opacity: 0.95;
     border: 1px solid rgb(255 255 255 / 40%);
     border-radius: 10px;
     backdrop-filter: blur(5px);
-    top:12px;
+    top: 24px;
 }
 
 .login-form {
@@ -76,6 +78,12 @@ header p {
     width: 100%;
 }
 
+.mensaje-recuperar-contrasenia{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px;
+}
 
 .entrada {
     display:flex;
@@ -104,6 +112,23 @@ header p {
     color: #97fda9;
 }
 
+.fa-user {
+    color: #97fda9;
+    margin-left: 4px;
+    margin-right: 5px;
+}
+
+.fa-lock{
+    color: #97fda9;
+    margin-left: 4px;
+    margin-right: 5px;
+}
+
+.fa-envelope{
+    color: #97fda9;
+    margin-left: 4px;
+    margin-right: 5px;
+}
 
 input[type="text"]:focus, input[type="password"]:focus{
     /*outline: 2px solid #0a8a0a;*/
@@ -204,7 +229,117 @@ input[type="text"]:focus, input[type="password"]:focus{
  }
 
 
+.titulo-recuperar-pass{
+font-family: sans-serif;
+font-size: 30px;
+font-weight: 600;
+margin-bottom: 10px;
+color: honeydew;
+text-align: center;
+}
 
+
+.recuperar-section{
+    height: 400px;
+    max-height: 500px;
+    width: 550px;
+    max-width: 700px;
+    position: relative;
+    background-color: rgb(0 0 0 / 66%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    opacity: 0.95;
+    border: 1px solid rgb(255 255 255 / 40%);
+    backdrop-filter: blur(5px);
+}
+
+.cambiar-section{
+    height: 430px;
+    max-height: 500px;
+    width: 550px;
+    max-width: 700px;
+    position: relative;
+    background-color: rgb(0 0 0 / 66%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    opacity: 0.95;
+    border: 1px solid rgb(255 255 255 / 40%);
+    backdrop-filter: blur(5px);
+}
+
+.p-recuperar-pass{
+    color: #4CAF50;
+    font-size: 18px;
+    margin: 12px;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+
+.boton-recuperar-contrasenia{
+    padding: 10px;
+    font-size: 19px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    display: block;
+    margin-top: 10px;
+}
+
+.boton-recuperar-contrasenia:hover {
+    background-color: #45a049;
+}
+
+.boton-cambiar-contrasenia{
+    padding: 10px;
+    font-size: 19px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    display: block;
+    margin-top: 10px;
+}
+
+.boton-cambiar-contrasenia:hover {
+    background-color: #45a049;
+}
+
+.entrada-recuperar{
+    padding: 7px 15px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    opacity: 0.7;
+    border: 1px solid rgb(255 255 255 / 40%);
+    width: 60%;
+}
+
+.entrada-recuperar input{
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    letter-spacing: 0.1em;
+}
+
+.entrada-recuperar input::placeholder{
+    color: #c0c0c0;
+}
+
+.error-usuario-recuperar{
+    color: red;
+    font-size: 14px;
+    width: 50%;
+    padding-bottom: 15px;
+}
+.error-usuario-recuperar-dinamico {
+    border-color: red;
+}
 
 
 
@@ -307,6 +442,7 @@ h1.titulo-registrar{
     margin-bottom: 20px;
     color: honeydew;
     text-align: center;
+    padding-top: 0px !important;
 }
 
 .boton-registrar-usuario{
@@ -1081,7 +1217,6 @@ h2{
 }
 
 .ver-mas-recetas{
-    text-align: left;
     border: 1px solid #ccc;
     border-radius: 20px;
     display: flex;
@@ -1250,9 +1385,10 @@ margin-bottom: 10px;
 }
 
 .detalles-titulo{
-    color: #fed5aa;
+    color: #ffae72;
     font-size: 35px;
     font-family: Montserrat;
+    font-weight: 600;
 }
 
 .detalles-cantidades{
@@ -1927,3 +2063,150 @@ body.perfil {
     margin-right: 5px; /* Espaciado entre el icono y el texto */
     color: white; /* Asegurar que el icono también sea blanco */
 }
+
+.link-editar{
+    color: white;
+    background: #a88787;
+    padding: 6px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: 'Montserrat';
+    padding: 10px 11px;
+}
+
+.btn-eliminar-editar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+}
+
+.link-editar:hover{
+    background: #836b6b;
+}
+
+
+/*Recuperar contraseña*/
+.recuperar-contrasenia{
+    background: linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.recuperar-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cambiar-contrasenia{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cambiar-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mensaje-confirmacion-recuperar {
+    background-color: #12883b82;
+    color: white;
+    padding: 15px;
+    position: fixed;
+    bottom: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20000;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 33%;
+    height: 30%;
+    align-content: center;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    animation: fadeInOut 2s ease-in-out forwards;
+}
+
+.mensaje-confirmacion-recuperar > p {
+    font-size: 24px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+}
+
+.spinner-container-recuperar{
+    margin-top: 50px;
+}
+
+.procesando-recuperar{
+    color: #ffbe43;
+    font-weight: 700;
+}
+
+
+.error-mensaje-cambiar-pass{
+    color: red;
+    font-size: 14px;
+    width: 77%;
+    padding-bottom: 15px;
+}
+.error-mensaje-cambiar-pass-dinamico {
+    border-color: red;
+}
+
+
+.mensaje-confirmacion-cambiar {
+    background-color: #12883b82;
+    color: white;
+    padding: 15px;
+    position: fixed;
+    bottom: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20000;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 33%;
+    height: 30%;
+    align-content: center;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    animation: fadeInOut 2s ease-in-out forwards;
+}
+
+.mensaje-confirmacion-cambiar > p {
+    font-size: 24px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+}
+
+.circle-check-container-cambiar{
+    margin-top: 50px;
+}
+
+.procesando-cambiar{
+    color: #ffbe43;
+    font-weight: 700;
+}
+
+.fa-check{
+    background: #82b07e;
+    font-size: 30px;
+    padding: 15px;
+    border-radius: 30px;
+    margin-bottom: 15px;
+}
+
+
+
+/*Skeleton*/
+

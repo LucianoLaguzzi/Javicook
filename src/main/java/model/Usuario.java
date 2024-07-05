@@ -4,6 +4,7 @@ import controller.UsuarioBacking;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -44,6 +45,18 @@ public class Usuario extends AbstractEntity implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "receta_id")
     )
     private List<Receta> recetasFavoritas;
+
+
+
+    @Column(name = "token_recuperacion")
+    private String tokenRecuperacion;
+
+    @Column(name = "fecha_expiracion_token")
+    private LocalDateTime fechaExpiracionToken;
+
+
+
+
 
     public Usuario(){
         this.imagenPerfil = "img/default-image.jpg";
@@ -107,6 +120,26 @@ public class Usuario extends AbstractEntity implements Serializable {
     public void setRecetasFavoritas(List<Receta> recetasFavoritas) {
         this.recetasFavoritas = recetasFavoritas;
     }
+
+
+
+    public String getTokenRecuperacion() {
+        return tokenRecuperacion;
+    }
+
+    public void setTokenRecuperacion(String tokenRecuperacion) {
+        this.tokenRecuperacion = tokenRecuperacion;
+    }
+
+    public LocalDateTime getFechaExpiracionToken() {
+        return fechaExpiracionToken;
+    }
+
+    public void setFechaExpiracionToken(LocalDateTime fechaExpiracionToken) {
+        this.fechaExpiracionToken = fechaExpiracionToken;
+    }
+
+
 
     @Override
     public String toString() {

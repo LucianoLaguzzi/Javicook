@@ -61,11 +61,13 @@
 
         <div class="entrada">
             <h:inputText id="nombre" value="#{usuarioBacking.usuario.nombre}" pt:placeholder="Usuario"  styleClass="input-usuario" />
+            <i class="fas fa-user"></i>
             <h:message for="nombre" />
         </div>
 
         <div class="entrada">
             <h:inputSecret id="contrasenia" value="#{usuarioBacking.usuario.contrasenia}" pt:placeholder="Contraseña" />
+            <i class="fas fa-lock"></i>
             <h:message for="contrasenia" />
         </div>
         <h:commandButton value="Iniciar sesión" action="#{usuarioBacking.iniciarSesion}" styleClass="boton-iniciar-sesion">
@@ -77,6 +79,15 @@
         <div class="panel-links">
             <span class="mensaje-ir-registrar"> ¿No tenés usuario?  <h:commandLink value="Registrarse" action="#{usuarioBacking.redireccionarACrearUsuario}" styleClass="link" immediate="true" /> </span>
         </div>
+
+
+
+        <!-- Enlace para recuperar contraseña -->
+
+            <span class="mensaje-recuperar-contrasenia"> <h:commandLink value="¿Olvidaste tu contraseña?" action="#{usuarioBacking.redireccionarARecuperarContrasenia}" styleClass="link" immediate="true" /> </span>
+
+
+
     </h:form>
 </section>
 </body>

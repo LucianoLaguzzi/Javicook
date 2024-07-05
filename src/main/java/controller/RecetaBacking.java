@@ -93,7 +93,7 @@ public class RecetaBacking  extends AbstractBacking<Receta>{
     public void obtenerRecetas() {
         try {
             if (filtroIngredientes != null && !filtroIngredientes.trim().isEmpty()) {
-                listaRecetas = recetaDAO.buscarPorIngredientes(filtroIngredientes);
+                listaRecetas = recetaDAO.buscarPorIngredientes(filtroIngredientes,cantidadRecetasCargadas, cantidadRecetasPorLote);
             } else {
                 listaRecetas = recetaDAO.findRange(cantidadRecetasCargadas, cantidadRecetasPorLote);
             }
@@ -112,7 +112,7 @@ public class RecetaBacking  extends AbstractBacking<Receta>{
 
     // Método para cargar más recetas cuando se presiona el botón "Ver +"
     public void cargarMasRecetas() {
-        cantidadRecetasPorLote += cantidadRecetasPorLote; // Incrementa la cantidad de recetas cargadas
+        cantidadRecetasPorLote += 7; // Incrementa la cantidad de recetas cargadas
         obtenerRecetas(); // Vuelve a obtener las recetas para cargar el siguiente lote
     }
 
@@ -140,9 +140,12 @@ public class RecetaBacking  extends AbstractBacking<Receta>{
         if (filtroIngredientes == null || filtroIngredientes.trim().isEmpty()) {
             filtroIngredientes = null;
             cantidadRecetasCargadas = 0;
+            cantidadRecetasPorLote = 7;
             obtenerRecetas();
         } else {
-            listaRecetas = recetaDAO.buscarPorIngredientes(filtroIngredientes);
+            cantidadRecetasCargadas = 0;
+            cantidadRecetasPorLote = 7;
+            listaRecetas = recetaDAO.buscarPorIngredientes(filtroIngredientes,cantidadRecetasCargadas, cantidadRecetasPorLote);
         }
         hayRecetas = !listaRecetas.isEmpty();
 
@@ -294,6 +297,9 @@ public void registrarReceta() throws Exception {
         // Lógica para cargar los detalles de la receta con el ID proporcionado
         return "detalle_receta?faces-redirect=true&idReceta=" + idReceta;
     }
+
+
+
 
 
     //Getters y Setters

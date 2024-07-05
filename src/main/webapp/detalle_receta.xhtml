@@ -53,6 +53,8 @@
                         <div class="div-detalles-titulo">
                             <h:outputText styleClass="detalles-titulo" value="#{detalleRecetaBacking.tituloAMayuscula(detalleRecetaBacking.receta.titulo)}" />
                         </div>
+
+
                         <div class="imagen-contenedor">
                             <img src="#{detalleRecetaBacking.receta.imagen}" class="panel-img" alt="#{detalleRecetaBacking.receta.titulo}" />
                             <div class="detalles-usuario-fecha">
@@ -98,12 +100,13 @@
                         <hr class="divider"/>
 
 
-                        <!-- Botón oculto para eliminar (sin mostrar visualmente) -->
-                        <h:commandButton styleClass="boton-eliminar-receta" id="btnEliminarReceta" style="display:none;" action="#{detalleRecetaBacking.eliminarReceta(detalleRecetaBacking.receta.id)}" onclick="return confirm('Si apretas en aceptar, tu receta se borrará!');" />
-                        <!-- Botón visible con icono Font Awesome, mostrado condicionalmente -->
-                        <h:outputLink styleClass="link-eliminar-receta" rendered="#{detalleRecetaBacking.esPropietarioReceta()}" onclick="return confirmarEliminar(event)">
-                            <i class="fas fa-trash"></i> Eliminar receta
-                        </h:outputLink>
+                            <!-- Botón oculto para eliminar (sin mostrar visualmente) -->
+                            <h:commandButton styleClass="boton-eliminar-receta" id="btnEliminarReceta"  style="display:none;" action="#{detalleRecetaBacking.eliminarReceta(detalleRecetaBacking.receta.id)}" onclick="return confirm('Si apretas en aceptar, tu receta se borrará!');" />
+                            <!-- Botón visible con icono Font Awesome, mostrado condicionalmente -->
+                            <h:outputLink styleClass="link-eliminar-receta" rendered="#{detalleRecetaBacking.esPropietarioReceta()}" onclick="return confirmarEliminar(event)">
+                                <i class="fas fa-trash"></i> Eliminar receta
+                            </h:outputLink>
+
 
 
                         <div class="detalles-comentarios">
