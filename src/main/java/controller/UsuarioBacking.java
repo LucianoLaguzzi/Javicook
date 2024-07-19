@@ -62,6 +62,11 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
     private String nuevaContrasenia;
     private String confirmarContrasenia;
 
+    private String nuevoNombre;
+    private String nuevoEmail;
+
+
+
 
     public UsuarioBacking() {
         usuario = new Usuario();
@@ -526,12 +531,54 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
 
 
 
+    //Editar nombre de usuario y Email
+    public void editarNombreUsuario() throws Exception {
+        if (usuario != null) {
+            System.out.println("El nuevo nombre para remplazar el anterior es : " + nuevoNombre);
+            // Aquí deberías persistir el cambio en tu base de datos
+            usuario.setNombre(nuevoNombre);
+            System.out.println(usuario.getNombre());
+            try {
+                usuarioDAO.update(usuario);
+                redirigirAPerfil();
+            }catch (Exception e){
+                System.out.println(e);
+            }
+
+        }
+    }
+
+
+    public void editarNombreEmail() {
+        if (usuario != null) {
+            System.out.println("El nuevo nombre para remplazar el anterior es : " + nuevoEmail);
+            // Aquí deberías persistir el cambio en tu base de datos
+            usuario.setEmail(nuevoEmail);
+            System.out.println(usuario.getEmail());
+            try {
+                usuarioDAO.update(usuario);
+                redirigirAPerfil();
+            }catch (Exception e){
+                System.out.println(e);
+            }
+        }
+    }
 
 
 
 
 
-        public String getUniqueImageParam() {
+    public void redirigirAPerfil(){
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect("perfil.xhtml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    public String getUniqueImageParam() {
         return uniqueImageParam;
     }
 
@@ -629,4 +676,24 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
     public void setNuevaContrasenia(String nuevaContrasenia) {
         this.nuevaContrasenia = nuevaContrasenia;
     }
+
+    public String getNuevoNombre() {
+        return nuevoNombre;
+    }
+
+    public void setNuevoNombre(String nuevoNombre) {
+        this.nuevoNombre = nuevoNombre;
+    }
+
+    public String getNuevoEmail() {
+        return nuevoEmail;
+    }
+
+    public void setNuevoEmail(String nuevoEmail) {
+        this.nuevoEmail = nuevoEmail;
+    }
+
+
+
 }
+

@@ -40,3 +40,81 @@ function previewImage(event) {
     document.querySelector('.boton-guardar-imagen').classList.add('visible');
 }
 
+//Edicion nombre de usuario
+function mostrarInput() {
+    let btnEditar = document.querySelector('.btn-editar-user');
+    let outputNombre = document.querySelector('.output-nombre-usuario');
+    let inputNombre = document.querySelector('.input-nuevo-nombre');
+    let btnCancelar = document.querySelector('.btn-cancelar-user');
+    let btnGuardarIcon = document.querySelector('.btn-guardar-icon');
+
+    // Ocultar el botón de edición y mostrar los botones de cancelar y guardar
+    btnEditar.style.display = 'none';
+
+    outputNombre.style.display = 'none';
+    inputNombre.style.display = 'block';
+    btnCancelar.style.display = 'inline-block';
+    btnGuardarIcon.style.display = 'inline-block';
+}
+
+function cancelarInput() {
+    let btnEditar = document.querySelector('.btn-editar-user');
+    let outputNombre = document.querySelector('.output-nombre-usuario');
+    let inputNombre = document.querySelector('.input-nuevo-nombre');
+    let btnCancelar = document.querySelector('.btn-cancelar-user');
+    let btnGuardarIcon = document.querySelector('.btn-guardar-icon');
+
+    // Mostrar el botón de edición y ocultar los botones de cancelar y guardar
+    btnEditar.style.display =('block');
+
+    outputNombre.style.display = 'block';
+    inputNombre.style.display = 'none';
+    btnCancelar.style.display = 'none';
+    btnGuardarIcon.style.display = 'none';
+}
+
+function guardarInput() {
+    let btnGuardarUser = document.querySelector('.btn-guardar-user');
+    btnGuardarUser.click();
+}
+
+
+
+
+//Edicion email de usuario
+function mostrarInputEmail() {
+    let btnEditar = document.querySelector('.btn-editar-email');
+    let outputEmail = document.querySelector('.output-email-usuario');
+    let inputEmail = document.querySelector('.input-nuevo-email');
+    let btnCancelarEmail = document.querySelector('.btn-cancelar-email');
+    let btnGuardarIconEmail = document.querySelector('.btn-guardar-icon-email');
+
+    // Ocultar el botón de edición y mostrar los botones de cancelar y guardar
+    btnEditar.style.display = 'none';
+
+    outputEmail.style.display = 'none';
+    inputEmail.style.display = 'block';
+    btnCancelarEmail.style.display = 'inline-block';
+    btnGuardarIconEmail.style.display = 'inline-block';
+}
+
+function cancelarInputEmail() {
+    let btnEditar = document.querySelector('.btn-editar-email');
+    let outputEmail = document.querySelector('.output-email-usuario');
+    let inputEmail = document.querySelector('.input-nuevo-email');
+    let btnCancelarEmail = document.querySelector('.btn-cancelar-email');
+    let btnGuardarIconEmail = document.querySelector('.btn-guardar-icon-email');
+
+    // Mostrar el botón de edición y ocultar los botones de cancelar y guardar
+    btnEditar.style.display =('block');
+
+    outputEmail.style.display = 'block';
+    inputEmail.style.display = 'none';
+    btnCancelarEmail.style.display = 'none';
+    btnGuardarIconEmail.style.display = 'none';
+}
+
+function guardarInputEmail() {
+    let btnGuardarEmail = document.querySelector('.btn-guardar-email');
+    btnGuardarEmail.click();
+}

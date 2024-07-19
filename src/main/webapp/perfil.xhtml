@@ -52,15 +52,79 @@
             </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
             <div class="perfil-usuario">
-                <h:outputLabel styleClass="perfil-label-usuario" value="Usuario:" />
-                <h:outputText value="#{usuarioBacking.usuario.nombre}" />
+                <div class="perfil-inputs">
+                    <div class="div-label-perfil">
+                        <h:outputLabel styleClass="perfil-label-usuario" value="Usuario:" />
+                    </div>
+
+                    <h:outputText value="#{usuarioBacking.usuario.nombre}" styleClass="output-nombre-usuario" />
+                    <h:inputText value="#{usuarioBacking.nuevoNombre}" styleClass="input-nuevo-nombre" style="display:none;"/>
+                </div>
+
+                <a id="btnEditarUser" class="btn-editar-user" title="Editar Usuario" onclick="mostrarInput()">
+                    <i class="fas fa-pencil-alt"></i>
+                </a>
+
+                <div class="cancel-ok">
+                    <a id="btnCancelarUser" class="btn-cancelar-user" title="Cancelar" style="display:none;" onclick="cancelarInput()">
+                        <i class="fas fa-times-circle"></i>
+                    </a>
+                    <a id="btnGuardarIcon" class="btn-guardar-icon" title="Guardar" style="display:none;" onclick="guardarInput()">
+                        <i class="fas fa-check-circle"></i>
+                    </a>
+                    <h:commandButton id="btnGuardarUser" styleClass="btn-guardar-user" style="display:none;" action="#{usuarioBacking.editarNombreUsuario}"/>
+                </div>
             </div>
 
+
+
             <div class="perfil-email">
-                <h:outputLabel styleClass="perfil-label-email" value="Email:" />
-                <h:outputText value="#{usuarioBacking.usuario.email}" />
+                <div class="perfil-inputs">
+                    <div class="div-label-perfil">
+                        <h:outputLabel styleClass="perfil-label-email" value="Email:" />
+                    </div>
+
+                    <h:outputText value="#{usuarioBacking.usuario.email}" styleClass="output-email-usuario"/>
+                    <h:inputText value="#{usuarioBacking.nuevoEmail}" styleClass="input-nuevo-email" style="display:none;"/>
+                </div>
+
+                    <a id="btnEditarEmail" class="btn-editar-email" title="Editar Email"  onclick="mostrarInputEmail()">
+                        <i class="fas fa-pencil-alt"></i>
+                    </a>
+
+                <div class="cancel-ok">
+                    <a id="btnCancelarEmail" class="btn-cancelar-email" title="Cancelar" style="display:none;" onclick="cancelarInputEmail()">
+                        <i class="fas fa-times-circle"></i>
+                    </a>
+                    <a id="btnGuardarEmail" class="btn-guardar-icon-email" title="Guardar" style="display:none;" onclick="guardarInputEmail()">
+                        <i class="fas fa-check-circle"></i>
+                    </a>
+                    <h:commandButton id="btnGuardarOculto" styleClass="btn-guardar-email" style="display:none;" action="#{usuarioBacking.editarNombreEmail}"/>
+                </div>
+
             </div>
+
+
+
+
+
+
+
+
+
+
 
 
             <div class="div-recetas-usuario">

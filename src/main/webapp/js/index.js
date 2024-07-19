@@ -360,3 +360,8 @@ function guardarComoFavorito(icon) {
 }
 
 
+setTimeout(function() {
+    document.querySelector('.main-content').style.display = 'block';
+    document.querySelector('.preloader').style.display = 'none';
+}, 3000); // Ajusta el tiempo según sea necesario
+
