@@ -20,13 +20,11 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Properties;
+import java.util.*;
 
 
 @ManagedBean(name="detalleRecetaBacking")
@@ -453,6 +451,43 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
 
 
 
+    public void editarPasos() throws Exception {
+        FacesContext context = FacesContext.getCurrentInstance();
+        ExternalContext externalContext = context.getExternalContext();
+        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
+        HttpSession session = request.getSession(false);
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        if (usuario != null) {
+            String[] pasosArray = request.getParameterValues("pasosNuevos");
+            List<String> pasosNuevos = (pasosArray != null) ? Arrays.asList(pasosArray) : new ArrayList<>();
+
+            receta = recetaDAO.findById(Receta.class, receta.getId());
+            receta.setPasos(pasosNuevos);
+            recetaDAO.update(receta);
+
+            externalContext.redirect(externalContext.getRequestContextPath() + "/detalle_receta.xhtml?idReceta=" + receta.getId());
+        }
+    }
+
+
+
+    public void editarTitulo() throws Exception {
+        FacesContext context = FacesContext.getCurrentInstance();
+        ExternalContext externalContext = context.getExternalContext();
+        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
+        HttpSession session = request.getSession(false);
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+
+        if (usuario != null) {
+            String nuevoTitulo = request.getParameter("nuevoTitulo");
+
+            receta = recetaDAO.findById(Receta.class, receta.getId());
+            receta.setTitulo(nuevoTitulo);
+            recetaDAO.update(receta);
+
+            externalContext.redirect(externalContext.getRequestContextPath() + "/detalle_receta.xhtml?idReceta=" + receta.getId());
+        }
+    }
 
     @Override
     public void newEntity() {

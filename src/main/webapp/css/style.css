@@ -908,6 +908,26 @@ h2{
     font-weight: 500;
 }
 
+@media (max-width: 1400px) {
+    .label-pasos {
+        width: 12%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .label-pasos {
+        width: 15%;
+        margin-right: 4px;
+    }
+}
+
+@media (max-width: 750px) {
+    .label-pasos {
+        width: 33%;
+    }
+}
+
+
 .text-area-pasos{
     padding: 10px;
     width: 100%;
@@ -935,6 +955,27 @@ h2{
 
 .btn-agregar-paso:hover{
     background-color: #168e1a;
+}
+
+
+.btn-quitar-paso{
+    background-color:#c53108;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 8px;
+    margin-bottom: 20px;
+}
+
+.btn-quitar-paso:hover{
+    background-color: #9f0505;
+}
+
+
+.div-agregar-quitar-pasos{
+    display: flex;
+    gap: 20px;
 }
 
 .paso {
@@ -1537,7 +1578,11 @@ body.body-detalles{
 }
 
 .div-detalles-titulo{
-margin-bottom: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 .detalles-titulo{
@@ -1545,12 +1590,41 @@ margin-bottom: 10px;
     font-size: 35px;
     font-family: Montserrat;
     font-weight: 600;
+    margin-left: auto;
 }
 
 @media (max-width: 800px) {
     .detalles-titulo {
         font-size: 22px;
     }
+}
+
+.btn-editar-titulo{
+    margin-left: auto;
+    cursor: pointer;
+    color: #a7a89e;
+}
+
+@media (max-width: 800px) {
+    .btn-editar-titulo {
+        font-size: 13px;
+    }
+}
+
+
+.text-area-pasos-nuevos{
+    padding: 10px;
+    width: 100%;
+    height: 51px;
+    border: 2px solid lemonchiffon;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    outline: none;
+    border-radius: 10px;
+    min-height: 50px;
+    max-height: 200px;
+    font-size: 17px;
+    resize: vertical;
+    letter-spacing: 1px;
 }
 
 .detalles-cantidades{
@@ -1605,12 +1679,24 @@ margin-bottom: 10px;
     margin-right: 0.5em;
     border-radius: 15px;
     background-color: #fb8d3c;
-    margin-bottom: 15px;
+    margin-bottom: auto;
     font-weight: bold;
+    position: absolute;
+}
+
+.paso-item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 25px;
+}
+
+.texto-paso {
+    margin-left: 40px;
 }
 
 .paso-texto{
     color: white;
+    margin-top: 15px;
 }
 
 
@@ -2387,7 +2473,7 @@ body.perfil {
 }
 
 .link-eliminar-receta {
-    background-color: #f83b3b;
+    /*background-color: #f83b3b;*/
     color: white;
     border: none;
     padding: 10px 11px;
@@ -2402,13 +2488,20 @@ body.perfil {
     align-items: center;
 }
 
-.link-eliminar-receta:hover{
-    background-color: #d51111;
+/*.link-eliminar-receta:hover{*/
+/*    background-color: #d51111;*/
+/*}*/
+
+.link-eliminar-receta .fa-trash-alt {
+    margin-right: 5px; /* Espaciado entre el icono y el texto */
+    color: #ff3d46;
+    font-size: 25px;
 }
 
-.link-eliminar-receta .fa-trash {
-    margin-right: 5px; /* Espaciado entre el icono y el texto */
-    color: white; /* Asegurar que el icono también sea blanco */
+@media (max-width: 700px) {
+    .link-eliminar-receta .fa-trash-alt  {
+        font-size: 20px;
+    }
 }
 
 .link-editar{
@@ -2617,9 +2710,6 @@ body.perfil {
 }
 
 
-
-
-
 .btn-editar-user{
     cursor: pointer;
     display: flex;
@@ -2682,5 +2772,112 @@ body.perfil {
 }
 
 .btn-guardar-icon-email:hover{
+    color: #056705;
+}
+
+
+.btn-cancelar-paso{
+    color: #ce2d2d;
+}
+.btn-cancelar-paso:hover{
+    color: #bb0b0b;
+}
+
+.btn-guardar-paso{
+    color: #038e03;
+}
+
+.btn-guardar-paso:hover{
+    color: #056705;
+}
+
+
+.cancel-ok-pasos{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 40px;
+    font-size: 28px;
+    align-self: center;
+}
+
+.btn-editar-pasos{
+    cursor: pointer;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    color: #a7a89e;
+}
+
+
+@media (max-width: 800px) {
+    .btn-editar-pasos {
+        font-size: 13px;
+    }
+}
+
+.nuevo-titulo{
+    color: #ffae72;
+    width: 60%;
+    height: 40px;
+    font-family: Montserrat;
+    font-weight: 600;
+    margin-left: auto;
+    margin-right: 5%;
+    background: #2d2727;
+    border: none;
+    outline: 1px solid #a18888;
+    border-radius: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+}
+
+
+@media (max-width: 800px) {
+    .nuevo-titulo {
+        font-size: 15px;
+        height: 35px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .nuevo-titulo {
+        height: 30px;
+    }
+}
+
+
+
+.cancel-ok-titulo{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 40px;
+    font-size: 28px;
+    align-self: center;
+    float: right;
+    width: 20%;
+}
+
+@media (max-width: 800px) {
+    .cancel-ok-titulo {
+        gap: 13px;
+        font-size: 20px;
+    }
+}
+
+
+.btn-cancelar-titulo{
+    color: #ce2d2d;
+}
+.btn-cancelar-titulo:hover{
+    color: #bb0b0b;
+}
+
+.btn-guardar-titulo{
+    color: #038e03;
+}
+
+.btn-guardar-titulo:hover{
     color: #056705;
 }

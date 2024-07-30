@@ -183,6 +183,7 @@ function validarFormulario(event) {
 let pasoCounter = 1;
 
 function agregarPaso() {
+    let btnQuitarPaso = document.querySelector('.btn-quitar-paso');
     pasoCounter++;
     let nuevoPaso = document.createElement("div");
     nuevoPaso.classList.add("paso");
@@ -194,6 +195,12 @@ function agregarPaso() {
     nuevoTextArea.addEventListener('input', actualizarPasos);
 
     pasosPanel.appendChild(nuevoPaso);
+
+    // Mostrar el botón de eliminar si hay al menos 2 pasos
+    if (pasoCounter > 1) {
+        btnQuitarPaso.style.display = 'block';
+    }
+
 }
 
 
@@ -364,4 +371,38 @@ setTimeout(function() {
     document.querySelector('.main-content').style.display = 'block';
     document.querySelector('.preloader').style.display = 'none';
 }, 3000); // Ajusta el tiempo según sea necesario
+
+
+
+
+
+// Agregar evento de clic al botón "Quitar paso"
+let quitarPasoButton = document.querySelector('.btn-quitar-paso');
+quitarPasoButton.addEventListener("click", function(event) {
+    event.preventDefault(); // Evitar comportamiento predeterminado del botón
+    eliminarPaso(); // Llamar a la función para agregar un nuevo paso
+});
+
+
+function eliminarPaso() {
+    let btnQuitarPaso = document.querySelector('.btn-quitar-paso');
+
+    if (pasoCounter > 1) {
+        pasosPanel.removeChild(pasosPanel.lastChild);
+        pasoCounter--;
+    }
+
+    // Ocultar el botón de eliminar si solo queda un paso
+    if (pasoCounter <= 1) {
+        btnQuitarPaso.style.display = 'none';
+    }
+    actualizarPasos();
+
+
+}
+
+
+
+
+
 

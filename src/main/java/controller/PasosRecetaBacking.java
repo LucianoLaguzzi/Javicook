@@ -23,6 +23,8 @@ public class PasosRecetaBacking extends AbstractBacking<Receta> {
 
     private List<String> pasosReceta = new ArrayList<>();
 
+    private String nuevoPaso;
+
     public PasosRecetaBacking() {
         receta = new Receta();
     }
@@ -56,7 +58,6 @@ public class PasosRecetaBacking extends AbstractBacking<Receta> {
             if (!pasosReceta.isEmpty()){
                 return pasosReceta;
             }else{
-                System.out.println("Error, no se obtuvieron pasos de la receta");
                 List<String> listaVacia = new ArrayList<>();
                 listaVacia.add("No hay pasos");
                 return listaVacia;
@@ -69,16 +70,18 @@ public class PasosRecetaBacking extends AbstractBacking<Receta> {
 
 
     public String formatPasos(String pasos) {
-        String[] pasosArray = pasos.split("\\r\\n");
+        String[] pasosArray = pasos.split("\\r?\\n");
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < pasosArray.length; i++) {
             // Capitalizar la primera letra del paso
             String paso = capitalizeFirstLetter(pasosArray[i]);
-            // Agregar el número de paso dentro de un span con una clase CSS
-            builder.append("<div class=\"numero-paso\">").append((i + 1)).append("</div>").append(paso).append("<br>");
+            // Agregar el número de paso dentro de un div con una clase CSS
+            builder.append("<div class=\"paso-item\"><div class=\"numero-paso\">").append((i + 1)).append("</div>").append("<div class=\"texto-paso\">").append(paso).append("</div></div>");
         }
         return builder.toString();
     }
+
+
     private String capitalizeFirstLetter(String str) {
         if (str == null || str.isEmpty()) {
             return str;
@@ -111,4 +114,15 @@ public class PasosRecetaBacking extends AbstractBacking<Receta> {
     public void setPasosReceta(List<String> pasosReceta) {
         this.pasosReceta = pasosReceta;
     }
+
+    public String getNuevoPaso() {
+        return nuevoPaso;
+    }
+
+    public void setNuevoPaso(String nuevoPaso) {
+        this.nuevoPaso = nuevoPaso;
+    }
+
+
+
 }

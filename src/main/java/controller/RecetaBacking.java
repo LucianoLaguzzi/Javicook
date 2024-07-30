@@ -187,7 +187,12 @@ public void registrarReceta() throws Exception {
                 String fileName = receta.getTitulo(); // Establecer el nombre del archivo (suponiendo que las imágenes son JPG)
                 fileName = fileName.toLowerCase().replaceAll("\\s+$", ""); // Convertir a minúsculas y eliminar espacios al final
                 fileName = fileName.replaceAll("\\s+", "-"); // Reemplazar espacios por guiones
-                fileName += "_img.jpg";
+
+                // Agregar la hora y el minuto al nombre del archivo para hacerlo único
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HHmm");
+                String currentTime = dtf.format(LocalDateTime.now());
+                fileName += "_" + currentTime + "_img.jpg";
+
 
                 // Ruta 1: JaviCook\src\main\webapp\img
                 String relativeWebPath = "/img/fotos";
@@ -297,8 +302,6 @@ public void registrarReceta() throws Exception {
         // Lógica para cargar los detalles de la receta con el ID proporcionado
         return "detalle_receta?faces-redirect=true&idReceta=" + idReceta;
     }
-
-
 
 
 
