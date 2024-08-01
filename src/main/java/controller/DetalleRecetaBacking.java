@@ -42,6 +42,8 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
 
     private List<String> cantidadIngredientes = new ArrayList<>();
 
+    private List<String> pasosReceta = new ArrayList<>();
+
     @EJB
     private ComentarioDAO comentarioDAO;
 
@@ -67,9 +69,17 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
         if (idRecetaString != null) {
             long idReceta = Long.parseLong(idRecetaString);
             try {
-                receta = recetaDAO.findById(Receta.class, idReceta);
+                receta = recetaDAO.findById(Receta.class,idReceta);
             } catch (Exception e) {
                 e.printStackTrace();
+            }
+        }else{
+            if(receta.getId() != null){
+                try {
+                    receta = recetaDAO.findById(Receta.class,receta.getId());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
 
@@ -152,15 +162,19 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
         Long idReceta = receta.getId();
         Usuario usuarioActual = obtenerUsuarioActual();
 
+        if (recetaDAO.findUsuarioHaValoradoReceta(usuarioActual, idReceta)) {
+            FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("yaValorado", true);
+            return null;  // No redirigir, pero muestra el mensaje
+        } else {
 
         // Guardar la valoración del usuario en la base de datos
         guardarValoracionUsuario(usuarioActual, idReceta, valoracionSeleccionada);
-
         // Recalcular la valoración promedio de la receta
         recalcularValoracionPromedio(idReceta);
 
         // Redirigir a la misma página o a donde desees después de la valoración
         return "detalle_receta?faces-redirect=true&idReceta=" + idReceta;
+        }
     }
 
 
@@ -489,6 +503,91 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
         }
     }
 
+
+    public void editarIngredientes() throws Exception {
+        FacesContext context = FacesContext.getCurrentInstance();
+        ExternalContext externalContext = context.getExternalContext();
+        HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
+        HttpSession session = request.getSession(false);
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+
+
+        if (usuario != null) {
+            // Obtener el valor del parámetro enviado desde el input oculto
+            String ingredientesNuevos = request.getParameter("nuevosIngredientes");
+
+            System.out.println("Ingredientes sin array: " + ingredientesNuevos);
+
+            // Si el valor no es nulo, procesarlo
+            if (ingredientesNuevos != null && !ingredientesNuevos.isEmpty()) {
+                // Dividir los ingredientes en líneas
+                String[] ingredientesArray = ingredientesNuevos.split("\n");
+                List<String> listaIngredientesNuevos = Arrays.asList(ingredientesArray);
+
+                System.out.println("Ingredientes nuevos: " + listaIngredientesNuevos);
+
+                // Aquí puedes agregar la lógica para guardar los ingredientes en la base de datos
+
+                receta = recetaDAO.findById(Receta.class, receta.getId());
+                receta.setIngredientesCantidades(Collections.singletonList(ingredientesNuevos));
+                recetaDAO.update(receta);
+            }
+
+
+
+
+            externalContext.redirect(externalContext.getRequestContextPath() + "/detalle_receta.xhtml?idReceta=" + receta.getId());
+        }
+    }
+
+
+
+
+
+
+    public List<String> obtenerPasosReceta(Long idReceta) {
+        try {
+            if(idReceta == null){
+                idReceta = receta.getId();
+            }
+
+            pasosReceta = recetaDAO.findPasosPorReceta(idReceta);
+            if (!pasosReceta.isEmpty()){
+                return pasosReceta;
+            }else{
+                List<String> listaVacia = new ArrayList<>();
+                listaVacia.add("No hay pasos");
+                return listaVacia;
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return null;
+    }
+
+
+
+
+    public String formatPasos(String pasos) {
+        String[] pasosArray = pasos.split("\\r?\\n");
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < pasosArray.length; i++) {
+            // Capitalizar la primera letra del paso
+            String paso = capitalizeFirstLetter(pasosArray[i]);
+            // Agregar el número de paso dentro de un div con una clase CSS
+            builder.append("<div class=\"paso-item\"><div class=\"numero-paso\">").append((i + 1)).append("</div>").append("<div class=\"texto-paso\">").append(paso).append("</div></div>");
+        }
+        return builder.toString();
+    }
+
+
+
+
+
+
+
+
+
     @Override
     public void newEntity() {
         setEntity(new Receta());
@@ -531,8 +630,18 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
         this.comentarios = comentarios;
     }
 
+    public List<String> getPasosReceta() {
+        return pasosReceta;
+    }
+
+    public void setPasosReceta(List<String> pasosReceta) {
+        this.pasosReceta = pasosReceta;
+    }
+
+
 
 
 }
+
 
 

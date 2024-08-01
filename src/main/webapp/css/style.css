@@ -1925,17 +1925,58 @@ span.detalles-fecha-subida{
     font-size: 30px;
 }
 
-.detalles-valoracion i{
+
+.detalles-valoracion i {
     cursor: pointer;
+    font-size: 2em; /* Ajusta según tu diseño */
+    color: gray; /* Color de estrella vacía */
+    transition: color 0.2s;
 }
+
+@media (max-width: 1000px) {
+    .detalles-valoracion i {
+        font-size: 1.5em;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .detalles-valoracion i {
+        font-size: 1em;
+    }
+}
+
+
+.detalles-valoracion i.highlight {
+    color: gold; /* Color de estrella resaltada en hover */
+}
+
+.detalles-valoracion i.filled {
+    color: gold; /* Color de estrella rellena */
+}
+
+.detalles-valoracion i.fixed {
+    pointer-events: none; /* Desactiva la interacción si la estrella está fija */
+}
+
 
 .valoracion p{
     font-size: 16px !important;
     margin-bottom: 0px !important;
 }
 
+.valoracion-mensaje{
+    background-color: #ffdddd;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
 .fa-star {
-    color: #ffae00; /* Cambia el color de las estrellas de valoracion */
+    color: gold; /* Cambia el color de las estrellas de valoracion */
 }
 
 .comentarios-usuarios{
@@ -2881,3 +2922,45 @@ body.perfil {
 .btn-guardar-titulo:hover{
     color: #056705;
 }
+
+
+
+.btn-editar-ingredientes{
+    cursor: pointer;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    color: #a7a89e;
+}
+
+.cancel-ok-ingredientes{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 40px;
+    font-size: 28px;
+    align-self: center;
+}
+
+.btn-cancelar-ingredientes{
+    color: #ce2d2d;
+}
+
+.btn-guardar-ingredientes{
+    color: #038e03;
+}
+
+.text-area-ingredientes{
+    padding: 10px;
+    width: 50%;
+    border: 2px solid lemonchiffon;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    outline: none;
+    border-radius: 10px;
+    min-height: 50px;
+    max-height: 200px;
+    font-size: 17px;
+    text-overflow: ellipsis;
+    letter-spacing: 1px;
+}
+
+

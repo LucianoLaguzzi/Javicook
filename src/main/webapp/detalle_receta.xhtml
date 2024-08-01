@@ -11,7 +11,8 @@
 
         <f:metadata>
             <f:event listener="#{detalleRecetaBacking.init()}" type="preRenderView" />
-            <f:event listener="#{pasosRecetaBacking.obtenerPasosReceta(recetaBacking.receta.id)}" type="preRenderView" />
+            <f:event listener="#{detalleRecetaBacking.obtenerPasosReceta(detalleRecetaBacking.receta.id)}" type="preRenderView" />
+
 
         </f:metadata>
 
@@ -56,6 +57,13 @@
                             <h:outputText styleClass="detalles-titulo" value="#{detalleRecetaBacking.tituloAMayuscula(detalleRecetaBacking.receta.titulo)}" />
                             <input id="inputOcultoTitulo" class="nuevo-titulo" name="nuevoTitulo" style="display: none"/>
 
+
+                            <h:panelGroup rendered="#{!detalleRecetaBacking.esPropietarioReceta()}">
+                                <a id="btnEditarTituloOculto" class="btn-editar-titulo" style="opacity: 0; cursor:default">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
+                            </h:panelGroup>
+
                             <h:panelGroup rendered="#{detalleRecetaBacking.esPropietarioReceta()}">
                                 <a id="btnEditarTitulo" class="btn-editar-titulo" title="Editar Nombre" onclick="cambiarTitulo();">
                                     <i class="fas fa-pencil-alt"></i>
@@ -98,16 +106,43 @@
                         <h:outputText styleClass="texto-categoria" value="#{detalleRecetaBacking.receta.categoria}" escape="false" ></h:outputText>
                         </div>
 
+
                         <div class="detalles-cantidades">
                             <p> Ingredientes</p>
                             <h:outputText styleClass="valores-cantidad" value="#{detalleRecetaBacking.formatIngredientes(detalleRecetaBacking.obtenerCantidadesIngredientes(detalleRecetaBacking.receta.id).get(0))}" escape="false" />
+
+                            <!-- TextArea para editar ingredientes (inicialmente oculto) -->
+                            <textarea id="textareaIngredientes" class="text-area-ingredientes" style="display:none;"></textarea>
+
+                            <h:panelGroup rendered="#{detalleRecetaBacking.esPropietarioReceta()}">
+                                <a id="btnEditarIngredientes" class="btn-editar-ingredientes" title="Editar Ingredientes" >
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
+                            </h:panelGroup>
+
+                            <!-- Aca agrego todos los pasos, en un input oculto -->
+                            <input type="hidden" id="inputOcultoIngredientes" name="nuevosIngredientes" />
+
+                            <div class="cancel-ok-ingredientes">
+                                <a id="btnCancelarIngrediente" class="btn-cancelar-ingredientes" title="Cancelar" style="display:none;" >
+                                    <i class="fas fa-times-circle"></i>
+                                </a>
+                                <a id="btnGuardarIngrediente" class="btn-guardar-ingredientes" title="Guardar" style="display:none;" >
+                                    <i class="fas fa-check-circle"></i>
+                                </a>
+                                <h:commandButton id="btnPersistirIngrediente" styleClass="btn-guardar-ingrediente" style="display:none;" action="#{detalleRecetaBacking.editarIngredientes()}">
+                                    <f:ajax execute="@form" render="@form" />
+                                </h:commandButton>
+                            </div>
+
                         </div>
+
 
                         <hr class="divider"/>
 
                         <div class="detalles-pasos">
                             <p>Pasos</p>
-                            <h:outputText styleClass="paso-texto" value="#{pasosRecetaBacking.formatPasos(pasosRecetaBacking.obtenerPasosReceta(pasosRecetaBacking.receta.id).get(0))}" escape="false" />
+                            <h:outputText styleClass="paso-texto" value="#{detalleRecetaBacking.formatPasos(detalleRecetaBacking.obtenerPasosReceta(detalleRecetaBacking.receta.id).get(0))}" escape="false" />
 
                             <!-- Campos de los pasos -->
                             <div class="div-pasos-receta" style="display: none">
@@ -155,12 +190,18 @@
 
                         <h:outputText styleClass="titulo-valoracion" value="Tu valoracion para esta receta" />
 
-                        <div class="detalles-valoracion">
+                        <div class="detalles-valoracion" data-valoracion-usuario="#{detalleRecetaBacking.getValoracionUsuario()}"
+                             data-ya-valorado="#{not empty requestScope['yaValorado']}">
                             <c:forEach var="i" begin="1" end="5">
                                 <h:commandLink action="#{detalleRecetaBacking.valorarReceta(i)}">
-                                    <i class="fa#{detalleRecetaBacking.getValoracionUsuario() >= i ? 's' : 'r'} fa-star"></i>
+                                    <i class="fa fa-star"
+                                       data-value="#{i}"></i>
                                 </h:commandLink>
                             </c:forEach>
+                        </div>
+
+                        <div id="valoracion-mensaje" class="valoracion-mensaje" style="display:none; color: red; font-weight: bold;">
+                            ¡Ya has valorado esta receta!
                         </div>
 
                         <hr class="divider"/>

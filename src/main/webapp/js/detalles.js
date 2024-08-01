@@ -141,7 +141,6 @@ function autoResizeTextArea(textarea) {
 
 
 
-
 // Función para eliminar el último paso
 function quitarPaso() {
     let pasosPanel = document.querySelector('#pasosPanel');
@@ -172,13 +171,10 @@ function cambiarTitulo() {
 
     let divCancelOk = document.querySelector('.cancel-ok-titulo');
 
-
-
     divCancelOk.style.display = 'flex';
     btnEditarTitulo.style.display = 'none';
     outputTitulo.style.display = 'none';
     inputTitulo.style.display = 'block';
-
 
     btnCancelarTituloNuevo.style.display = 'block';
     btnGuardarTituloNuevo.style.display = 'block';
@@ -201,13 +197,9 @@ function cancelarTitulo() {
     outputTitulo.style.display = 'block';
     inputTitulo.style.display = 'none';
 
-
-
     btnCancelarTituloNuevo.style.display = 'none';
     btnGuardarTituloNuevo.style.display = 'none';
 }
-
-
 
 
 function guardarTitulo() {
@@ -218,7 +210,6 @@ function guardarTitulo() {
     let inputTitulo = document.querySelector('.nuevo-titulo');
 
     let divCancelOk = document.querySelector('.cancel-ok-titulo');
-
 
     let hiddenCallBacking = document.querySelector('.editar-titulo-backing');
 
@@ -231,8 +222,159 @@ function guardarTitulo() {
     btnCancelarTituloNuevo.style.display = 'none';
     btnGuardarTituloNuevo.style.display = 'none';
 
-
     hiddenCallBacking.click();
+}
 
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const valoracionUsuario = parseInt(document.querySelector('.detalles-valoracion').getAttribute('data-valoracion-usuario') || 0);
+
+    // Inicializa el estado de las estrellas basado en la valoración actual
+    resetStars(valoracionUsuario);
+
+    // Resalta las estrellas en el hover
+    function highlightStars(element) {
+        if (valoracionUsuario === 0) { // Solo aplica el hover si la receta no ha sido valorada
+            const value = parseInt(element.getAttribute('data-value'));
+            const stars = document.querySelectorAll('.detalles-valoracion i');
+            stars.forEach(star => {
+                if (parseInt(star.getAttribute('data-value')) <= value) {
+                    star.classList.add('highlight');
+                } else {
+                    star.classList.remove('highlight');
+                }
+            });
+        }
+    }
+
+    // Restablece las estrellas al salir del hover
+    function resetStars(rating = valoracionUsuario) {
+        const stars = document.querySelectorAll('.detalles-valoracion i');
+        stars.forEach(star => {
+            if (parseInt(star.getAttribute('data-value')) <= rating) {
+                star.classList.add('filled');
+            } else {
+                star.classList.remove('highlight');
+            }
+        });
+    }
+
+    // Maneja el clic en las estrellas
+    function submitRating(element) {
+        if (valoracionUsuario === 0) { // Solo se puede valorar si la receta no ha sido valorada
+            const value = parseInt(element.getAttribute('data-value'));
+            // Actualiza la valoración del usuario
+            resetStars(value);
+            // Aquí puedes hacer una solicitud AJAX para enviar la valoración o usar un formulario
+        }
+    }
+
+    // Agrega eventos a las estrellas
+    document.querySelectorAll('.detalles-valoracion i').forEach(star => {
+        star.addEventListener('mouseover', () => highlightStars(star));
+        star.addEventListener('mouseout', () => resetStars());
+        star.addEventListener('click', () => submitRating(star));
+    });
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    let mensajeDiv = document.querySelector('.valoracion-mensaje');
+    let detallesValoracion = document.querySelector('.detalles-valoracion');
+    let yaValorado = detallesValoracion.getAttribute('data-ya-valorado') === 'true';
+
+    if (yaValorado) {
+        mensajeDiv.style.display = 'block';  // Muestra el mensaje
+        setTimeout(function() {
+            mensajeDiv.style.display = 'none';  // Oculta el mensaje después de 3 segundos
+        }, 3000);
+    }
+});
+
+
+
+//Parte para editar la cantidad de ingredientes
+
+// Obtener referencias a los elementos
+let outputIngredientes = document.querySelector('.valores-cantidad');
+let textareaIngredientes = document.querySelector('.text-area-ingredientes');
+let editarIngredientesBtn = document.querySelector('.btn-editar-ingredientes');
+let guardarIngredientesBtn = document.querySelector('.btn-guardar-ingredientes');
+let cancelarEdicionBtn = document.querySelector('.btn-cancelar-ingredientes');
+let divGuardarCancelar = document.querySelector('.cancel-ok-ingredientes');
+
+// Función para mostrar el textarea y ocultar el outputText
+function editarIngredientes() {
+    // Obtener el texto actual del outputText y pasarlo al textarea
+    textareaIngredientes.value = outputIngredientes.innerText.replace(/<br\s*[\/]?>/gi, "\n");
+
+    // Ocultar el outputText y el botón de editar, mostrar el textarea y los botones de guardar/cancelar
+    outputIngredientes.style.display = 'none';
+    editarIngredientesBtn.style.display = 'none';
+    textareaIngredientes.style.display = 'block';
+    divGuardarCancelar.style.display = 'flex';
+    cancelarEdicionBtn.style.display = 'block';
+    guardarIngredientesBtn.style.display = 'block';
+
+// Ajustar tamaño de los textareas y agregar el evento de entrada
+    document.querySelectorAll('.text-area-ingredientes').forEach(textareaIngredientes => {
+        autoResizeTextAreaIngredientes(textareaIngredientes);
+        textareaIngredientes.addEventListener('input', function () {
+            autoResizeTextAreaIngredientes(this);
+        });
+    });
 
 }
+
+// Función para guardar los cambios y volver a la vista normal
+function guardarIngredientes() {
+    let botonOcultoEditarIngredientes = document.querySelector('.btn-guardar-ingrediente');
+    // Obtener el texto del textarea y formatearlo como HTML
+    let ingredientesEditados = textareaIngredientes.value.replace(/\n/g, "<br>");
+    // Actualizar el valor del outputText
+    outputIngredientes.innerHTML = ingredientesEditados;
+    // Ocultar el textarea y mostrar el outputText y el botón de editar
+    textareaIngredientes.style.display = 'none';
+    divGuardarCancelar.style.display = 'none';
+    outputIngredientes.style.display = 'block';
+    editarIngredientesBtn.style.display = 'inline';
+
+    // Aquí puedes agregar la lógica para guardar los cambios en el servidor si es necesario
+    actualizarIngredientesBackend(ingredientesEditados.replace(/<br\s*[\/]?>/gi, "\r\n"));
+
+    botonOcultoEditarIngredientes.click();
+}
+
+// Función para enviar los ingredientes actualizados al backend
+function actualizarIngredientesBackend(ingredientes) {
+    // Asignar directamente el valor de 'ingredientes' al input oculto
+    document.getElementById("inputOcultoIngredientes").value = ingredientes;
+}
+
+// Función para cancelar la edición y restaurar la vista original
+function cancelarEdicion() {
+    // Ocultar el textarea y mostrar el outputText y el botón de editar
+    textareaIngredientes.style.display = 'none';
+    divGuardarCancelar.style.display = 'none';
+    outputIngredientes.style.display = 'block';
+    editarIngredientesBtn.style.display = 'inline';
+}
+
+// Asociar las funciones a los botones correspondientes
+editarIngredientesBtn.addEventListener('click', editarIngredientes);
+guardarIngredientesBtn.addEventListener('click', guardarIngredientes);
+cancelarEdicionBtn.addEventListener('click', cancelarEdicion);
+
+
+function autoResizeTextAreaIngredientes(textareaIngredientes) {
+    // Restablecer la altura a 0 para que el scrollHeight pueda medir la altura total del contenido
+    textareaIngredientes.style.height = '0';
+    // Ajustar la altura del textarea según el contenido
+    textareaIngredientes.style.height = textareaIngredientes.scrollHeight + 'px';
+}
+
+
+
+
