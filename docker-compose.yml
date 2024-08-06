@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: javicook-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ""  # Deja esto vacío si no tienes contraseña
+      MYSQL_DATABASE: recetas
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ""  # Deja esto vacío si no hay contraseña
+    ports:
+      - "3307:3306"  # Mapea el puerto 3306 del contenedor al puerto 3307 en tu máquina
+    volumes:
+      - db_data:/var/lib/mysql
+
+  javicook:
+    image: javicook-app
+    container_name: javicook-app
+    environment:
+      DB_HOST: mysql  # Nombre del servicio de MySQL
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: ""
+      DB_NAME: recetas
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+
+volumes:
+  db_data:
