@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "RECETA_INGREDIENTES_CANTIDADES")
+@Table(name = "receta_ingredientes_cantidades")
 @NamedQueries({
         @NamedQuery(name = "RecetaIngredienteCantidad.findAll", query = "SELECT ric FROM RecetaIngredienteCantidad ric"),
         @NamedQuery(name = "RecetaIngredienteCantidad.findCantidadIngredientes", query = "SELECT ric.ingredienteCantidad FROM RecetaIngredienteCantidad ric WHERE ric.receta_id = :recetaId")

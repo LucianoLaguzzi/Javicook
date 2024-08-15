@@ -27,7 +27,7 @@ public class Receta extends AbstractEntity implements Serializable {
     private String titulo;
 
     @ElementCollection
-    @CollectionTable(name = "PASOS_RECETA", joinColumns = @JoinColumn(name = "RECETA_ID"))
+    @CollectionTable(name = "pasos_receta", joinColumns = @JoinColumn(name = "RECETA_ID"))
     @Column(name = "PASOS")
     private List<String> pasos;
 
@@ -63,7 +63,7 @@ public class Receta extends AbstractEntity implements Serializable {
     private String tiempo_preparacion;
 
     @ElementCollection
-    @CollectionTable(name="RECETA_INGREDIENTES_CANTIDADES", joinColumns = @JoinColumn(name = "RECETA_ID"))
+    @CollectionTable(name="receta_ingredientes_cantidades", joinColumns = @JoinColumn(name = "RECETA_ID"))
     @Column(name="INGREDIENTE_CANTIDAD")
     private List<String> ingredientesCantidades;
 

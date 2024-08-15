@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "PASOS_RECETA ")
+@Table(name = "pasos_receta")
 @NamedQueries({
         @NamedQuery(name = "PasosReceta.findAll", query = "SELECT pr FROM PasosReceta pr"),
         @NamedQuery(name = "PasosReceta.findPasosPorReceta", query = "SELECT pr.pasos FROM PasosReceta pr WHERE pr.receta_id = :recetaId")

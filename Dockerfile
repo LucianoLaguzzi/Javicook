@@ -1,14 +1,24 @@
-# Utiliza la imagen oficial de WildFly desde Quay.io
 FROM quay.io/wildfly/wildfly:25.0.1.Final
 
-# Establece el directorio de trabajo
-WORKDIR /home/jboss/javicook
+# Establecer variables de entorno
+ENV DEPLOYMENT_DIR=/opt/jboss/wildfly/standalone/deployments/
+ENV CONFIGURATION_DIR=/opt/jboss/wildfly/standalone/configuration/
 
-# Copia el archivo .war al contenedor
-COPY target/JaviCook-1.0-SNAPSHOT.war /home/jboss/javicook/
+# Crear la estructura de directorios necesaria
+RUN mkdir -p /opt/jboss/src/main/webapp/img/fotos/
 
-# Expone el puerto que usará WildFly
+# Copiar el WAR generado por Maven a la carpeta de despliegue de WildFly
+COPY target/JaviCook-1.0-SNAPSHOT.war $DEPLOYMENT_DIR
+
+# Copiar el archivo JAR del controlador JDBC
+COPY wildfly-25.0.1.Final/modules/system/layers/base/com/mysql/main/mysql-connector-java-5.1.48.jar /opt/jboss/wildfly/modules/com/mysql/jdbc/main/
+
+# Copiar el standalone.xml personalizado
+COPY wildfly-25.0.1.Final/standalone/configuration/standalone.xml $CONFIGURATION_DIR
+
+
+# Exponer el puerto 8080 para acceder a la app
 EXPOSE 8080
 
-# Comando para iniciar WildFly
-CMD ["standalone.sh", "-b", "0.0.0.0"]
+# Comando para ejecutar WildFly
+CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0"]
