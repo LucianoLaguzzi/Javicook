@@ -1,8 +1,8 @@
-2024-08-16 09:26:21,875 INFO  [org.jboss.modules] (main) JBoss Modules version 1.12.0.Final
-2024-08-16 09:26:22,699 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.13.Final
-2024-08-16 09:26:22,712 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final
-2024-08-16 09:26:22,916 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: WildFly Full 25.0.1.Final (WildFly Core 17.0.3.Final) starting
-2024-08-16 09:26:22,920 DEBUG [org.jboss.as.config] (MSC service thread 1-2) Configured system properties:
+2024-08-13 15:57:47,577 INFO  [org.jboss.modules] (main) JBoss Modules version 1.12.0.Final
+2024-08-13 15:57:48,796 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.13.Final
+2024-08-13 15:57:48,827 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final
+2024-08-13 15:57:49,264 INFO  [org.jboss.as] (MSC service thread 1-1) WFLYSRV0049: WildFly Full 25.0.1.Final (WildFly Core 17.0.3.Final) starting
+2024-08-13 15:57:49,268 DEBUG [org.jboss.as.config] (MSC service thread 1-1) Configured system properties:
 	file.encoding = Cp1252
 	file.separator = \
 	intellij.debug.agent = true
@@ -75,63 +75,63 @@
 	user.script = 
 	user.timezone = America/Buenos_Aires
 	user.variant = 
-2024-08-16 09:26:22,926 DEBUG [org.jboss.as.config] (MSC service thread 1-2) VM Arguments: -Dprogram.name=standalone.bat -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:58359,suspend=y,server=n -javaagent:C:\Users\javit\AppData\Local\JetBrains\IntelliJIdea2022.2\captureAgent\debugger-agent.jar --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED -Dorg.jboss.boot.log.file=C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\wildfly-25.0.1.Final\standalone\log\server.log -Dlogging.configuration=file:C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\wildfly-25.0.1.Final\standalone\configuration/logging.properties 
-2024-08-16 09:26:24,270 INFO  [org.wildfly.security] (ServerService Thread Pool -- 27) ELY00001: WildFly Elytron version 1.17.1.Final
-2024-08-16 09:26:25,470 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
-2024-08-16 09:26:25,498 INFO  [org.xnio] (MSC service thread 1-3) XNIO version 3.8.4.Final
-2024-08-16 09:26:25,512 INFO  [org.xnio.nio] (MSC service thread 1-3) XNIO NIO Implementation Version 3.8.4.Final
-2024-08-16 09:26:25,625 INFO  [org.wildfly.extension.microprofile.config.smallrye] (ServerService Thread Pool -- 64) WFLYCONF0001: Activating MicroProfile Config Subsystem
-2024-08-16 09:26:25,626 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 54) WFLYCLINF0001: Activating Infinispan subsystem.
-2024-08-16 09:26:25,649 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 74) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
-2024-08-16 09:26:25,664 INFO  [org.wildfly.extension.elytron.oidc._private] (ServerService Thread Pool -- 52) WFLYOIDC0001: Activating WildFly Elytron OIDC Subsystem
-2024-08-16 09:26:25,669 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 67) WFLYNAM0001: Activating Naming Subsystem
-2024-08-16 09:26:25,670 INFO  [org.wildfly.extension.metrics] (ServerService Thread Pool -- 63) WFLYMETRICS0001: Activating Base Metrics Subsystem
-2024-08-16 09:26:25,701 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 76) WFLYWS0002: Activating WebServices Extension
-2024-08-16 09:26:25,704 INFO  [org.wildfly.extension.microprofile.opentracing] (ServerService Thread Pool -- 66) WFLYTRACEXT0001: Activating MicroProfile OpenTracing Subsystem
-2024-08-16 09:26:25,771 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 56) WFLYRS0016: RESTEasy version 4.7.2.Final
-2024-08-16 09:26:25,772 INFO  [org.wildfly.extension.microprofile.jwt.smallrye] (ServerService Thread Pool -- 65) WFLYJWT0001: Activating MicroProfile JWT Subsystem
-2024-08-16 09:26:25,796 INFO  [org.wildfly.extension.health] (ServerService Thread Pool -- 53) WFLYHEALTH0001: Activating Base Health Subsystem
-2024-08-16 09:26:25,825 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 61) WFLYJSF0007: Activated the following Jakarta Server Faces Implementations: [main]
-2024-08-16 09:26:25,866 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0003: Undertow 2.2.12.Final starting
-2024-08-16 09:26:25,927 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-8) WFLYELY00023: KeyStore file 'C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\wildfly-25.0.1.Final\standalone\configuration\application.keystore' does not exist. Used blank.
-2024-08-16 09:26:25,982 INFO  [org.jboss.as.connector] (MSC service thread 1-7) WFLYJCA0009: Starting Jakarta Connectors Subsystem (WildFly/IronJacamar 1.5.2.Final)
-2024-08-16 09:26:26,006 INFO  [org.jboss.as.naming] (MSC service thread 1-2) WFLYNAM0003: Starting Naming Service
-2024-08-16 09:26:26,011 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-5) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
-2024-08-16 09:26:26,064 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-4) WFLYELY01084: KeyStore C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\wildfly-25.0.1.Final\standalone\configuration\application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
-2024-08-16 09:26:26,099 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 75) WFLYUT0014: Creating file handler for path 'C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\wildfly-25.0.1.Final/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
-2024-08-16 09:26:26,101 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 44) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
-2024-08-16 09:26:26,106 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) WFLYJCA0018: Started Driver service with driver-name = h2
-2024-08-16 09:26:26,229 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 44) WFLYJCA0005: Deploying non-JDBC-compliant driver class com.mysql.jdbc.Driver (version 5.1)
-2024-08-16 09:26:26,230 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 44) WFLYJCA0005: Deploying non-JDBC-compliant driver class com.mysql.jdbc.Driver (version 5.1)
-2024-08-16 09:26:26,231 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) WFLYJCA0018: Started Driver service with driver-name = mysql
-2024-08-16 09:26:26,232 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-7) WFLYJCA0018: Started Driver service with driver-name = mysql-new
-2024-08-16 09:26:26,231 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 44) WFLYJCA0005: Deploying non-JDBC-compliant driver class com.mysql.jdbc.Driver (version 5.1)
-2024-08-16 09:26:26,237 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-8) WFLYJCA0018: Started Driver service with driver-name = mysql-new2
-2024-08-16 09:26:26,397 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 55) WFLYIO001: Worker 'default' has auto-configured to 16 IO threads with 128 max task threads based on your 8 available processors
-2024-08-16 09:26:26,404 INFO  [org.jboss.as.ejb3] (MSC service thread 1-5) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 32 (per class), which is derived from the number of CPUs on this host.
-2024-08-16 09:26:26,406 INFO  [org.jboss.as.ejb3] (MSC service thread 1-4) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 128 (per class), which is derived from thread worker pool sizing.
-2024-08-16 09:26:26,536 INFO  [org.jboss.remoting] (MSC service thread 1-8) JBoss Remoting version 5.0.23.Final
-2024-08-16 09:26:26,560 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0012: Started server default-server.
-2024-08-16 09:26:26,564 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) Queuing requests.
-2024-08-16 09:26:26,566 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0018: Host default-host starting
-2024-08-16 09:26:26,656 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
-2024-08-16 09:26:26,707 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
-2024-08-16 09:26:26,794 INFO  [org.jboss.as.ejb3] (MSC service thread 1-8) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
-2024-08-16 09:26:26,924 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-7) WFLYJCA0001: Bound data source [java:jboss/datasources/agendaDS]
-2024-08-16 09:26:26,925 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-8) WFLYJCA0001: Bound data source [java:jboss/datasources/recetaDS]
-2024-08-16 09:26:27,196 INFO  [org.jboss.as.patching] (MSC service thread 1-5) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
-2024-08-16 09:26:27,218 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-7) WFLYDS0013: Started FileSystemDeploymentService for directory C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\wildfly-25.0.1.Final\standalone\deployments
-2024-08-16 09:26:27,481 INFO  [org.jboss.ws.common.management] (MSC service thread 1-3) JBWS022052: Starting JBossWS 5.4.4.Final (Apache CXF 3.4.4) 
-2024-08-16 09:26:27,959 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
-2024-08-16 09:26:27,962 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 25.0.1.Final (WildFly Core 17.0.3.Final) started in 6834ms - Started 308 of 548 services (338 services are lazy, passive or on-demand)
-2024-08-16 09:26:27,973 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
-2024-08-16 09:26:27,974 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
-2024-08-16 09:26:30,271 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0027: Starting deployment of "JaviCook-1.0-SNAPSHOT" (runtime-name: "JaviCook-1.0-SNAPSHOT.war")
-2024-08-16 09:26:32,484 INFO  [org.jboss.as.jpa] (MSC service thread 1-3) WFLYJPA0002: Read persistence.xml for recetaDS
-2024-08-16 09:26:32,686 INFO  [org.jipijapa] (MSC service thread 1-6) JIPIORMV53020253: Second level cache enabled for JaviCook-1.0-SNAPSHOT#recetaDS
-2024-08-16 09:26:34,192 INFO  [org.jboss.weld.deployer] (MSC service thread 1-7) WFLYWELD0003: Processing weld deployment JaviCook-1.0-SNAPSHOT.war
-2024-08-16 09:26:34,477 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-7) HV000001: Hibernate Validator 6.0.22.Final
-2024-08-16 09:26:34,935 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'ComentarioDAO' in deployment unit 'deployment "JaviCook-1.0-SNAPSHOT.war"' are as follows:
+2024-08-13 15:57:49,275 DEBUG [org.jboss.as.config] (MSC service thread 1-1) VM Arguments: -Dprogram.name=standalone.bat -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:58359,suspend=y,server=n -javaagent:C:\Users\javit\AppData\Local\JetBrains\IntelliJIdea2022.2\captureAgent\debugger-agent.jar --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED -Dorg.jboss.boot.log.file=C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\wildfly-25.0.1.Final\standalone\log\server.log -Dlogging.configuration=file:C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\wildfly-25.0.1.Final\standalone\configuration/logging.properties 
+2024-08-13 15:57:50,980 INFO  [org.wildfly.security] (ServerService Thread Pool -- 27) ELY00001: WildFly Elytron version 1.17.1.Final
+2024-08-13 15:57:52,381 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+2024-08-13 15:57:52,441 INFO  [org.xnio] (MSC service thread 1-8) XNIO version 3.8.4.Final
+2024-08-13 15:57:52,461 INFO  [org.xnio.nio] (MSC service thread 1-8) XNIO NIO Implementation Version 3.8.4.Final
+2024-08-13 15:57:52,593 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 54) WFLYCLINF0001: Activating Infinispan subsystem.
+2024-08-13 15:57:52,604 INFO  [org.wildfly.extension.microprofile.opentracing] (ServerService Thread Pool -- 66) WFLYTRACEXT0001: Activating MicroProfile OpenTracing Subsystem
+2024-08-13 15:57:52,605 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 74) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+2024-08-13 15:57:52,733 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 67) WFLYNAM0001: Activating Naming Subsystem
+2024-08-13 15:57:52,738 INFO  [org.wildfly.extension.microprofile.jwt.smallrye] (ServerService Thread Pool -- 65) WFLYJWT0001: Activating MicroProfile JWT Subsystem
+2024-08-13 15:57:52,761 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 56) WFLYRS0016: RESTEasy version 4.7.2.Final
+2024-08-13 15:57:52,787 INFO  [org.wildfly.extension.microprofile.config.smallrye] (ServerService Thread Pool -- 64) WFLYCONF0001: Activating MicroProfile Config Subsystem
+2024-08-13 15:57:52,854 INFO  [org.wildfly.extension.metrics] (ServerService Thread Pool -- 63) WFLYMETRICS0001: Activating Base Metrics Subsystem
+2024-08-13 15:57:52,860 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 61) WFLYJSF0007: Activated the following Jakarta Server Faces Implementations: [main]
+2024-08-13 15:57:52,898 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 76) WFLYWS0002: Activating WebServices Extension
+2024-08-13 15:57:52,929 INFO  [org.jboss.as.connector] (MSC service thread 1-3) WFLYJCA0009: Starting Jakarta Connectors Subsystem (WildFly/IronJacamar 1.5.2.Final)
+2024-08-13 15:57:52,965 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0003: Undertow 2.2.12.Final starting
+2024-08-13 15:57:52,966 INFO  [org.wildfly.extension.elytron.oidc._private] (ServerService Thread Pool -- 52) WFLYOIDC0001: Activating WildFly Elytron OIDC Subsystem
+2024-08-13 15:57:53,038 INFO  [org.wildfly.extension.health] (ServerService Thread Pool -- 53) WFLYHEALTH0001: Activating Base Health Subsystem
+2024-08-13 15:57:53,081 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 75) WFLYUT0014: Creating file handler for path 'C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\wildfly-25.0.1.Final/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2024-08-13 15:57:53,088 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-4) WFLYELY00023: KeyStore file 'C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\wildfly-25.0.1.Final\standalone\configuration\application.keystore' does not exist. Used blank.
+2024-08-13 15:57:53,125 INFO  [org.jboss.as.naming] (MSC service thread 1-7) WFLYNAM0003: Starting Naming Service
+2024-08-13 15:57:53,129 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-6) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2024-08-13 15:57:53,199 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 44) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+2024-08-13 15:57:53,170 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-6) WFLYELY01084: KeyStore C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\wildfly-25.0.1.Final\standalone\configuration\application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
+2024-08-13 15:57:53,277 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0018: Started Driver service with driver-name = h2
+2024-08-13 15:57:53,305 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 44) WFLYJCA0005: Deploying non-JDBC-compliant driver class com.mysql.jdbc.Driver (version 5.1)
+2024-08-13 15:57:53,306 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 44) WFLYJCA0005: Deploying non-JDBC-compliant driver class com.mysql.jdbc.Driver (version 5.1)
+2024-08-13 15:57:53,308 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0018: Started Driver service with driver-name = mysql
+2024-08-13 15:57:53,309 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 44) WFLYJCA0005: Deploying non-JDBC-compliant driver class com.mysql.jdbc.Driver (version 5.1)
+2024-08-13 15:57:53,314 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0018: Started Driver service with driver-name = mysql-new
+2024-08-13 15:57:53,314 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0018: Started Driver service with driver-name = mysql-new2
+2024-08-13 15:57:53,479 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 55) WFLYIO001: Worker 'default' has auto-configured to 16 IO threads with 128 max task threads based on your 8 available processors
+2024-08-13 15:57:53,491 INFO  [org.jboss.as.ejb3] (MSC service thread 1-3) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 128 (per class), which is derived from thread worker pool sizing.
+2024-08-13 15:57:53,492 INFO  [org.jboss.as.ejb3] (MSC service thread 1-3) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 32 (per class), which is derived from the number of CPUs on this host.
+2024-08-13 15:57:53,654 INFO  [org.jboss.remoting] (MSC service thread 1-4) JBoss Remoting version 5.0.23.Final
+2024-08-13 15:57:53,949 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0012: Started server default-server.
+2024-08-13 15:57:53,952 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) Queuing requests.
+2024-08-13 15:57:53,961 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0018: Host default-host starting
+2024-08-13 15:57:54,003 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2024-08-13 15:57:54,016 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2024-08-13 15:57:54,214 INFO  [org.jboss.as.ejb3] (MSC service thread 1-7) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+2024-08-13 15:57:54,408 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) WFLYJCA0001: Bound data source [java:jboss/datasources/agendaDS]
+2024-08-13 15:57:54,415 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) WFLYJCA0001: Bound data source [java:jboss/datasources/recetaDS]
+2024-08-13 15:57:54,669 INFO  [org.jboss.as.patching] (MSC service thread 1-1) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+2024-08-13 15:57:54,679 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-2) WFLYDS0013: Started FileSystemDeploymentService for directory C:\Users\javit\Desktop\Luciano\Proyectos\JaviCook\wildfly-25.0.1.Final\standalone\deployments
+2024-08-13 15:57:54,923 INFO  [org.jboss.ws.common.management] (MSC service thread 1-6) JBWS022052: Starting JBossWS 5.4.4.Final (Apache CXF 3.4.4) 
+2024-08-13 15:57:55,619 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2024-08-13 15:57:55,622 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: WildFly Full 25.0.1.Final (WildFly Core 17.0.3.Final) started in 8825ms - Started 308 of 548 services (338 services are lazy, passive or on-demand)
+2024-08-13 15:57:55,627 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2024-08-13 15:57:55,627 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2024-08-13 15:57:59,494 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0027: Starting deployment of "JaviCook-1.0-SNAPSHOT" (runtime-name: "JaviCook-1.0-SNAPSHOT.war")
+2024-08-13 15:58:02,131 INFO  [org.jboss.as.jpa] (MSC service thread 1-6) WFLYJPA0002: Read persistence.xml for recetaDS
+2024-08-13 15:58:02,536 INFO  [org.jipijapa] (MSC service thread 1-4) JIPIORMV53020253: Second level cache enabled for JaviCook-1.0-SNAPSHOT#recetaDS
+2024-08-13 15:58:05,074 INFO  [org.jboss.weld.deployer] (MSC service thread 1-6) WFLYWELD0003: Processing weld deployment JaviCook-1.0-SNAPSHOT.war
+2024-08-13 15:58:05,401 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-6) HV000001: Hibernate Validator 6.0.22.Final
+2024-08-13 15:58:05,924 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-6) WFLYEJB0473: JNDI bindings for session bean named 'ComentarioDAO' in deployment unit 'deployment "JaviCook-1.0-SNAPSHOT.war"' are as follows:
 
 	java:global/JaviCook-1.0-SNAPSHOT/ComentarioDAO!dao.ComentarioDAO
 	java:app/JaviCook-1.0-SNAPSHOT/ComentarioDAO!dao.ComentarioDAO
@@ -140,7 +140,7 @@
 	java:app/JaviCook-1.0-SNAPSHOT/ComentarioDAO
 	java:module/ComentarioDAO
 
-2024-08-16 09:26:34,936 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'RecetaDAO' in deployment unit 'deployment "JaviCook-1.0-SNAPSHOT.war"' are as follows:
+2024-08-13 15:58:05,925 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-6) WFLYEJB0473: JNDI bindings for session bean named 'RecetaDAO' in deployment unit 'deployment "JaviCook-1.0-SNAPSHOT.war"' are as follows:
 
 	java:global/JaviCook-1.0-SNAPSHOT/RecetaDAO!dao.RecetaDAO
 	java:app/JaviCook-1.0-SNAPSHOT/RecetaDAO!dao.RecetaDAO
@@ -149,7 +149,7 @@
 	java:app/JaviCook-1.0-SNAPSHOT/RecetaDAO
 	java:module/RecetaDAO
 
-2024-08-16 09:26:34,936 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'GenericDAO' in deployment unit 'deployment "JaviCook-1.0-SNAPSHOT.war"' are as follows:
+2024-08-13 15:58:05,925 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-6) WFLYEJB0473: JNDI bindings for session bean named 'GenericDAO' in deployment unit 'deployment "JaviCook-1.0-SNAPSHOT.war"' are as follows:
 
 	java:global/JaviCook-1.0-SNAPSHOT/GenericDAO!dao.GenericDAO
 	java:app/JaviCook-1.0-SNAPSHOT/GenericDAO!dao.GenericDAO
@@ -158,7 +158,7 @@
 	java:app/JaviCook-1.0-SNAPSHOT/GenericDAO
 	java:module/GenericDAO
 
-2024-08-16 09:26:34,937 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'IngredienteDAO' in deployment unit 'deployment "JaviCook-1.0-SNAPSHOT.war"' are as follows:
+2024-08-13 15:58:05,926 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-6) WFLYEJB0473: JNDI bindings for session bean named 'IngredienteDAO' in deployment unit 'deployment "JaviCook-1.0-SNAPSHOT.war"' are as follows:
 
 	java:global/JaviCook-1.0-SNAPSHOT/IngredienteDAO!dao.IngredienteDAO
 	java:app/JaviCook-1.0-SNAPSHOT/IngredienteDAO!dao.IngredienteDAO
@@ -167,7 +167,7 @@
 	java:app/JaviCook-1.0-SNAPSHOT/IngredienteDAO
 	java:module/IngredienteDAO
 
-2024-08-16 09:26:34,938 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'UsuarioDAO' in deployment unit 'deployment "JaviCook-1.0-SNAPSHOT.war"' are as follows:
+2024-08-13 15:58:05,927 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-6) WFLYEJB0473: JNDI bindings for session bean named 'UsuarioDAO' in deployment unit 'deployment "JaviCook-1.0-SNAPSHOT.war"' are as follows:
 
 	java:global/JaviCook-1.0-SNAPSHOT/UsuarioDAO!dao.UsuarioDAO
 	java:app/JaviCook-1.0-SNAPSHOT/UsuarioDAO!dao.UsuarioDAO
@@ -176,29 +176,29 @@
 	java:app/JaviCook-1.0-SNAPSHOT/UsuarioDAO
 	java:module/UsuarioDAO
 
-2024-08-16 09:26:35,129 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 13) ISPN000128: Infinispan version: Infinispan 'Taedonggang' 12.1.7.Final
-2024-08-16 09:26:35,360 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 13) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'JaviCook-1.0-SNAPSHOT#recetaDS'
-2024-08-16 09:26:35,414 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 13) HHH000204: Processing PersistenceUnitInfo [
+2024-08-13 15:58:06,778 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 10) ISPN000128: Infinispan version: Infinispan 'Taedonggang' 12.1.7.Final
+2024-08-13 15:58:06,831 INFO  [io.jaegertracing.internal.JaegerTracer] (MSC service thread 1-6) No shutdown hook registered: Please call close() manually on application shutdown.
+2024-08-13 15:58:06,838 INFO  [org.wildfly.microprofile.opentracing.smallrye] (MSC service thread 1-6) WFLYTRAC0001: Tracer initialized: JaegerTracer(version=Java-1.6.0, serviceName=JaviCook-1.0-SNAPSHOT.war, reporter=RemoteReporter(sender=org.wildfly.extension.microprofile.opentracing.spi.sender.WildFlySender@1340046b, closeEnqueueTimeout=1000), sampler=ConstSampler(decision=true, tags={sampler.type=const, sampler.param=true}), tags={hostname=LAPTOP-E5RPR3KK, jaeger.version=Java-1.6.0, ip=172.29.224.1}, zipkinSharedRpcSpan=false, expandExceptionLogs=false, useTraceId128Bit=false)
+2024-08-13 15:58:06,994 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 10) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'JaviCook-1.0-SNAPSHOT#recetaDS'
+2024-08-13 15:58:07,054 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 10) HHH000204: Processing PersistenceUnitInfo [
 	name: recetaDS
 	...]
-2024-08-16 09:26:35,659 INFO  [io.jaegertracing.internal.JaegerTracer] (MSC service thread 1-7) No shutdown hook registered: Please call close() manually on application shutdown.
-2024-08-16 09:26:35,665 INFO  [org.wildfly.microprofile.opentracing.smallrye] (MSC service thread 1-7) WFLYTRAC0001: Tracer initialized: JaegerTracer(version=Java-1.6.0, serviceName=JaviCook-1.0-SNAPSHOT.war, reporter=RemoteReporter(sender=org.wildfly.extension.microprofile.opentracing.spi.sender.WildFlySender@280f37a6, closeEnqueueTimeout=1000), sampler=ConstSampler(decision=true, tags={sampler.type=const, sampler.param=true}), tags={hostname=LAPTOP-E5RPR3KK, jaeger.version=Java-1.6.0, ip=192.168.0.178}, zipkinSharedRpcSpan=false, expandExceptionLogs=false, useTraceId128Bit=false)
-2024-08-16 09:26:35,682 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 13) HHH000412: Hibernate Core {5.3.23.Final}
-2024-08-16 09:26:35,688 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 13) HHH000206: hibernate.properties not found
-2024-08-16 09:26:35,948 INFO  [org.infinispan.CONFIG] (MSC service thread 1-5) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
-2024-08-16 09:26:35,951 INFO  [org.infinispan.CONFIG] (MSC service thread 1-5) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
-2024-08-16 09:26:36,088 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 78) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.spi.marshalling.InfinispanProtoStreamMarshaller'
-2024-08-16 09:26:36,300 INFO  [org.jipijapa] (MSC service thread 1-4) JIPIORMV53020253: Second level cache enabled for JaviCook-1.0-SNAPSHOT#recetaDS
-2024-08-16 09:26:36,473 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 78) ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
-2024-08-16 09:26:36,536 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 13) HCANN000001: Hibernate Commons Annotations {5.0.5.Final}
-2024-08-16 09:26:36,575 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 78) WFLYCLINF0002: Started http-remoting-connector cache from ejb container
-2024-08-16 09:26:36,639 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0005: Deploying non-JDBC-compliant driver class com.mysql.cj.jdbc.Driver (version 8.0)
-2024-08-16 09:26:36,711 INFO  [org.jboss.weld.Version] (MSC service thread 1-4) WELD-000900: 3.1.8 (Final)
-2024-08-16 09:26:36,898 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) WFLYJCA0018: Started Driver service with driver-name = JaviCook-1.0-SNAPSHOT.war_com.mysql.cj.jdbc.Driver_8_0
-2024-08-16 09:26:37,493 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 13) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'JaviCook-1.0-SNAPSHOT#recetaDS'
-2024-08-16 09:26:38,073 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 13) HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2024-08-16 09:26:38,194 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 13) Envers integration enabled? : true
-2024-08-16 09:26:40,961 WARN  [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] (ServerService Thread Pool -- 13) GenerationTarget encountered exception accepting command : Error executing DDL "alter table comentario add constraint FKk1d9f48uo7h7clegbnx1slqd9 foreign key (receta_id) references receta (id)" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table comentario add constraint FKk1d9f48uo7h7clegbnx1slqd9 foreign key (receta_id) references receta (id)" via JDBC Statement
+2024-08-13 15:58:07,319 INFO  [org.infinispan.CONFIG] (MSC service thread 1-4) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2024-08-13 15:58:07,322 INFO  [org.infinispan.CONFIG] (MSC service thread 1-4) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+2024-08-13 15:58:07,373 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 10) HHH000412: Hibernate Core {5.3.23.Final}
+2024-08-13 15:58:07,380 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 10) HHH000206: hibernate.properties not found
+2024-08-13 15:58:07,485 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 4) ISPN000556: Starting user marshaller 'org.wildfly.clustering.infinispan.spi.marshalling.InfinispanProtoStreamMarshaller'
+2024-08-13 15:58:07,620 INFO  [org.jipijapa] (MSC service thread 1-1) JIPIORMV53020253: Second level cache enabled for JaviCook-1.0-SNAPSHOT#recetaDS
+2024-08-13 15:58:08,221 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-1) WFLYJCA0005: Deploying non-JDBC-compliant driver class com.mysql.cj.jdbc.Driver (version 8.0)
+2024-08-13 15:58:08,277 INFO  [org.infinispan.CONTAINER] (ServerService Thread Pool -- 4) ISPN000025: wakeUpInterval is <= 0, not starting expired purge thread
+2024-08-13 15:58:08,316 INFO  [org.jboss.weld.Version] (MSC service thread 1-1) WELD-000900: 3.1.8 (Final)
+2024-08-13 15:58:08,487 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 4) WFLYCLINF0002: Started http-remoting-connector cache from ejb container
+2024-08-13 15:58:08,644 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-8) WFLYJCA0018: Started Driver service with driver-name = JaviCook-1.0-SNAPSHOT.war_com.mysql.cj.jdbc.Driver_8_0
+2024-08-13 15:58:08,842 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 10) HCANN000001: Hibernate Commons Annotations {5.0.5.Final}
+2024-08-13 15:58:10,245 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 10) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'JaviCook-1.0-SNAPSHOT#recetaDS'
+2024-08-13 15:58:11,232 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 10) HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2024-08-13 15:58:11,497 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 10) Envers integration enabled? : true
+2024-08-13 15:58:16,161 WARN  [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] (ServerService Thread Pool -- 10) GenerationTarget encountered exception accepting command : Error executing DDL "alter table comentario add constraint FKk1d9f48uo7h7clegbnx1slqd9 foreign key (receta_id) references receta (id)" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table comentario add constraint FKk1d9f48uo7h7clegbnx1slqd9 foreign key (receta_id) references receta (id)" via JDBC Statement
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:559)
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:504)
@@ -236,7 +236,7 @@ Caused by: java.sql.SQLException: Can't create table `recetas`.`comentario` (err
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
 	... 22 more
 
-2024-08-16 09:26:40,988 WARN  [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] (ServerService Thread Pool -- 13) GenerationTarget encountered exception accepting command : Error executing DDL "alter table comentario add constraint FKixspmid2pb85o8ypsd20jakxg foreign key (usuario_id) references usuario (id)" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table comentario add constraint FKixspmid2pb85o8ypsd20jakxg foreign key (usuario_id) references usuario (id)" via JDBC Statement
+2024-08-13 15:58:16,207 WARN  [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] (ServerService Thread Pool -- 10) GenerationTarget encountered exception accepting command : Error executing DDL "alter table comentario add constraint FKixspmid2pb85o8ypsd20jakxg foreign key (usuario_id) references usuario (id)" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table comentario add constraint FKixspmid2pb85o8ypsd20jakxg foreign key (usuario_id) references usuario (id)" via JDBC Statement
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:559)
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:504)
@@ -274,7 +274,7 @@ Caused by: java.sql.SQLException: Can't create table `recetas`.`comentario` (err
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
 	... 22 more
 
-2024-08-16 09:26:41,017 WARN  [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] (ServerService Thread Pool -- 13) GenerationTarget encountered exception accepting command : Error executing DDL "alter table pasos_receta add constraint FKna4jbb5khhwv763fgmt0pps5b foreign key (RECETA_ID) references receta (id)" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table pasos_receta add constraint FKna4jbb5khhwv763fgmt0pps5b foreign key (RECETA_ID) references receta (id)" via JDBC Statement
+2024-08-13 15:58:16,256 WARN  [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] (ServerService Thread Pool -- 10) GenerationTarget encountered exception accepting command : Error executing DDL "alter table pasos_receta add constraint FKna4jbb5khhwv763fgmt0pps5b foreign key (RECETA_ID) references receta (id)" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table pasos_receta add constraint FKna4jbb5khhwv763fgmt0pps5b foreign key (RECETA_ID) references receta (id)" via JDBC Statement
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:559)
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:504)
@@ -312,7 +312,7 @@ Caused by: java.sql.SQLException: Can't create table `recetas`.`pasos_receta` (e
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
 	... 22 more
 
-2024-08-16 09:26:41,067 WARN  [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] (ServerService Thread Pool -- 13) GenerationTarget encountered exception accepting command : Error executing DDL "alter table receta_ingrediente add constraint FKola73sxe45b3oyhcbddrapwi4 foreign key (id_ingrediente) references ingrediente (id)" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table receta_ingrediente add constraint FKola73sxe45b3oyhcbddrapwi4 foreign key (id_ingrediente) references ingrediente (id)" via JDBC Statement
+2024-08-13 15:58:16,325 WARN  [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] (ServerService Thread Pool -- 10) GenerationTarget encountered exception accepting command : Error executing DDL "alter table receta_ingrediente add constraint FKola73sxe45b3oyhcbddrapwi4 foreign key (id_ingrediente) references ingrediente (id)" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table receta_ingrediente add constraint FKola73sxe45b3oyhcbddrapwi4 foreign key (id_ingrediente) references ingrediente (id)" via JDBC Statement
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:559)
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:504)
@@ -350,7 +350,7 @@ Caused by: java.sql.SQLException: Can't create table `recetas`.`receta_ingredien
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
 	... 22 more
 
-2024-08-16 09:26:41,087 WARN  [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] (ServerService Thread Pool -- 13) GenerationTarget encountered exception accepting command : Error executing DDL "alter table receta_ingrediente add constraint FKblhf7nm4vdsnsqw94tm2onqmm foreign key (id_receta) references receta (id)" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table receta_ingrediente add constraint FKblhf7nm4vdsnsqw94tm2onqmm foreign key (id_receta) references receta (id)" via JDBC Statement
+2024-08-13 15:58:16,351 WARN  [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] (ServerService Thread Pool -- 10) GenerationTarget encountered exception accepting command : Error executing DDL "alter table receta_ingrediente add constraint FKblhf7nm4vdsnsqw94tm2onqmm foreign key (id_receta) references receta (id)" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table receta_ingrediente add constraint FKblhf7nm4vdsnsqw94tm2onqmm foreign key (id_receta) references receta (id)" via JDBC Statement
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:559)
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:504)
@@ -388,7 +388,7 @@ Caused by: java.sql.SQLException: Can't create table `recetas`.`receta_ingredien
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
 	... 22 more
 
-2024-08-16 09:26:41,116 WARN  [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] (ServerService Thread Pool -- 13) GenerationTarget encountered exception accepting command : Error executing DDL "alter table receta_ingredientes_cantidades add constraint FKeshgjdftwwoy4tqcimtqhhfgf foreign key (RECETA_ID) references receta (id)" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table receta_ingredientes_cantidades add constraint FKeshgjdftwwoy4tqcimtqhhfgf foreign key (RECETA_ID) references receta (id)" via JDBC Statement
+2024-08-13 15:58:16,395 WARN  [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] (ServerService Thread Pool -- 10) GenerationTarget encountered exception accepting command : Error executing DDL "alter table receta_ingredientes_cantidades add constraint FKeshgjdftwwoy4tqcimtqhhfgf foreign key (RECETA_ID) references receta (id)" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table receta_ingredientes_cantidades add constraint FKeshgjdftwwoy4tqcimtqhhfgf foreign key (RECETA_ID) references receta (id)" via JDBC Statement
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:559)
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:504)
@@ -426,7 +426,7 @@ Caused by: java.sql.SQLException: Can't create table `recetas`.`receta_ingredien
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
 	... 22 more
 
-2024-08-16 09:26:41,145 WARN  [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] (ServerService Thread Pool -- 13) GenerationTarget encountered exception accepting command : Error executing DDL "alter table usuario_favorito_receta add constraint FKc6p99nb9so5diwlwy43pn0db1 foreign key (receta_id) references receta (id)" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table usuario_favorito_receta add constraint FKc6p99nb9so5diwlwy43pn0db1 foreign key (receta_id) references receta (id)" via JDBC Statement
+2024-08-13 15:58:16,437 WARN  [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] (ServerService Thread Pool -- 10) GenerationTarget encountered exception accepting command : Error executing DDL "alter table usuario_favorito_receta add constraint FKc6p99nb9so5diwlwy43pn0db1 foreign key (receta_id) references receta (id)" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table usuario_favorito_receta add constraint FKc6p99nb9so5diwlwy43pn0db1 foreign key (receta_id) references receta (id)" via JDBC Statement
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:559)
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:504)
@@ -464,7 +464,7 @@ Caused by: java.sql.SQLException: Can't create table `recetas`.`usuario_favorito
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
 	... 22 more
 
-2024-08-16 09:26:41,174 WARN  [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] (ServerService Thread Pool -- 13) GenerationTarget encountered exception accepting command : Error executing DDL "alter table usuario_favorito_receta add constraint FKo25lybfrlwrdboucjn4ypoewi foreign key (usuario_id) references usuario (id)" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table usuario_favorito_receta add constraint FKo25lybfrlwrdboucjn4ypoewi foreign key (usuario_id) references usuario (id)" via JDBC Statement
+2024-08-13 15:58:16,493 WARN  [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] (ServerService Thread Pool -- 10) GenerationTarget encountered exception accepting command : Error executing DDL "alter table usuario_favorito_receta add constraint FKo25lybfrlwrdboucjn4ypoewi foreign key (usuario_id) references usuario (id)" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table usuario_favorito_receta add constraint FKo25lybfrlwrdboucjn4ypoewi foreign key (usuario_id) references usuario (id)" via JDBC Statement
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:559)
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:504)
@@ -502,7 +502,7 @@ Caused by: java.sql.SQLException: Can't create table `recetas`.`usuario_favorito
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
 	... 22 more
 
-2024-08-16 09:26:41,214 WARN  [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] (ServerService Thread Pool -- 13) GenerationTarget encountered exception accepting command : Error executing DDL "alter table valoracion_usuario add constraint FKb868rqmgkugpab7ca4if9rtbe foreign key (id_receta) references receta (id)" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table valoracion_usuario add constraint FKb868rqmgkugpab7ca4if9rtbe foreign key (id_receta) references receta (id)" via JDBC Statement
+2024-08-13 15:58:16,534 WARN  [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] (ServerService Thread Pool -- 10) GenerationTarget encountered exception accepting command : Error executing DDL "alter table valoracion_usuario add constraint FKb868rqmgkugpab7ca4if9rtbe foreign key (id_receta) references receta (id)" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table valoracion_usuario add constraint FKb868rqmgkugpab7ca4if9rtbe foreign key (id_receta) references receta (id)" via JDBC Statement
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:559)
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:504)
@@ -540,7 +540,7 @@ Caused by: java.sql.SQLException: Can't create table `recetas`.`valoracion_usuar
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
 	... 22 more
 
-2024-08-16 09:26:41,253 WARN  [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] (ServerService Thread Pool -- 13) GenerationTarget encountered exception accepting command : Error executing DDL "alter table valoracion_usuario add constraint FKd3bgh0jpnpfbbiq7najysbudr foreign key (id_usuario) references usuario (id)" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table valoracion_usuario add constraint FKd3bgh0jpnpfbbiq7najysbudr foreign key (id_usuario) references usuario (id)" via JDBC Statement
+2024-08-13 15:58:16,576 WARN  [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] (ServerService Thread Pool -- 10) GenerationTarget encountered exception accepting command : Error executing DDL "alter table valoracion_usuario add constraint FKd3bgh0jpnpfbbiq7najysbudr foreign key (id_usuario) references usuario (id)" via JDBC Statement: org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table valoracion_usuario add constraint FKd3bgh0jpnpfbbiq7najysbudr foreign key (id_usuario) references usuario (id)" via JDBC Statement
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:559)
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:504)
@@ -578,17 +578,19 @@ Caused by: java.sql.SQLException: Can't create table `recetas`.`valoracion_usuar
 	at org.hibernate@5.3.23.Final//org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
 	... 22 more
 
-2024-08-16 09:26:41,272 INFO  [org.hibernate.hql.internal.QueryTranslatorFactoryInitiator] (ServerService Thread Pool -- 13) HHH000397: Using ASTQueryTranslatorFactory
-2024-08-16 09:26:41,980 WARN  [org.jboss.weld.Bootstrap] (MSC service thread 1-7) WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType<?>) used for class com.sun.faces.flow.FlowDiscoveryCDIHelper is deprecated from CDI 1.1!
-2024-08-16 09:26:44,348 INFO  [javax.enterprise.resource.webcontainer.jsf.config] (ServerService Thread Pool -- 59) Inicializando Mojarra 2.3.14.SP04 para el contexto '/JaviCook-1.0-SNAPSHOT'
-2024-08-16 09:26:47,038 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 59) WFLYUT0021: Registered web context: '/JaviCook-1.0-SNAPSHOT' for server 'default-server'
-2024-08-16 09:26:47,191 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "JaviCook-1.0-SNAPSHOT" (runtime-name : "JaviCook-1.0-SNAPSHOT.war")
-2024-08-16 09:26:50,933 INFO  [stdout] (default task-1) Token no proporcionado.
-2024-08-16 09:26:52,568 INFO  [stdout] (default task-1) Token no proporcionado.
-2024-08-16 09:27:09,445 INFO  [stdout] (default task-1) 16/08/2024 09:27
-2024-08-16 09:29:55,183 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0019: Stopped Driver service with driver-name = JaviCook-1.0-SNAPSHOT.war_com.mysql.cj.jdbc.Driver_8_0
-2024-08-16 09:29:55,209 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 65) WFLYUT0022: Unregistered web context: '/JaviCook-1.0-SNAPSHOT' from server 'default-server'
-2024-08-16 09:29:55,234 WARNING [javax.enterprise.resource.webcontainer.jsf.config] (ServerService Thread Pool -- 65) Unexpected state during contextDestroyed: no ConfigManager instance in current ServletContext but one is expected to exist.
-2024-08-16 09:29:55,368 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 114) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'JaviCook-1.0-SNAPSHOT#recetaDS'
-2024-08-16 09:29:55,372 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 114) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@6f04355b
-2024-08-16 09:29:55,390 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 114) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'JaviCook-1.0-SNAPSHOT#recetaDS'
+2024-08-13 15:58:16,597 INFO  [org.hibernate.hql.internal.QueryTranslatorFactoryInitiator] (ServerService Thread Pool -- 10) HHH000397: Using ASTQueryTranslatorFactory
+2024-08-13 15:58:17,370 WARN  [org.jboss.weld.Bootstrap] (MSC service thread 1-2) WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType<?>) used for class com.sun.faces.flow.FlowDiscoveryCDIHelper is deprecated from CDI 1.1!
+2024-08-13 15:58:20,131 INFO  [javax.enterprise.resource.webcontainer.jsf.config] (ServerService Thread Pool -- 81) Inicializando Mojarra 2.3.14.SP04 para el contexto '/JaviCook-1.0-SNAPSHOT'
+2024-08-13 15:58:22,627 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 81) WFLYUT0021: Registered web context: '/JaviCook-1.0-SNAPSHOT' for server 'default-server'
+2024-08-13 15:58:22,739 INFO  [org.jboss.as.server] (management-handler-thread - 1) WFLYSRV0010: Deployed "JaviCook-1.0-SNAPSHOT" (runtime-name : "JaviCook-1.0-SNAPSHOT.war")
+2024-08-13 15:58:24,901 INFO  [stdout] (default task-1) Token no proporcionado.
+2024-08-13 15:58:26,118 INFO  [stdout] (default task-1) Token no proporcionado.
+2024-08-13 16:02:40,485 INFO  [stdout] (default task-2) 13/08/2024 16:02
+2024-08-13 17:12:20,845 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-8) WFLYJCA0019: Stopped Driver service with driver-name = JaviCook-1.0-SNAPSHOT.war_com.mysql.cj.jdbc.Driver_8_0
+2024-08-13 17:12:20,848 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 85) WFLYUT0022: Unregistered web context: '/JaviCook-1.0-SNAPSHOT' from server 'default-server'
+2024-08-13 17:12:20,856 WARNING [javax.enterprise.resource.webcontainer.jsf.config] (ServerService Thread Pool -- 85) Unexpected state during contextDestroyed: no ConfigManager instance in current ServletContext but one is expected to exist.
+2024-08-13 17:12:20,889 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 143) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'JaviCook-1.0-SNAPSHOT#recetaDS'
+2024-08-13 17:12:20,893 INFO  [org.hibernate.orm.beans] (ServerService Thread Pool -- 143) HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerExtendedAccessImpl@73775adc
+2024-08-13 17:12:20,900 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 143) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'JaviCook-1.0-SNAPSHOT#recetaDS'
+2024-08-13 17:12:20,905 ERROR [stderr] (MSC service thread 1-6) Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver'. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.
+2024-08-13 17:12:20,947 INFO  [org.infinispan.manager.DefaultCacheManager] (ServerService Thread Pool -- 143) Stopping cache manager null on null
