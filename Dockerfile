@@ -16,9 +16,11 @@ COPY wildfly-25.0.1.Final/modules/system/layers/base/com/mysql/main/mysql-connec
 # Copiar el standalone.xml personalizado
 COPY wildfly-25.0.1.Final/standalone/configuration/standalone.xml $CONFIGURATION_DIR
 
+# Copiar el script de inicialización
+COPY sync-images.sh /opt/jboss/
 
 # Exponer el puerto 8080 para acceder a la app
 EXPOSE 8080
 
-# Comando para ejecutar WildFly
-CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0"]
+# Cambiar el comando para ejecutar WildFly usando el script de inicialización
+CMD ["/opt/jboss/sync-images.sh"]

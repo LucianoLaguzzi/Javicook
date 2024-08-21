@@ -5,12 +5,10 @@ services:
     image: javicook:1.0
     container_name: wildfly
     ports:
-      - "8081:8080" 
+      - "8081:8080"
     volumes:
       - ./wildfly-25.0.1.Final/standalone/configuration/standalone.xml:/opt/jboss/wildfly/standalone/configuration/standalone.xml
       - ./wildfly-25.0.1.Final/modules/system/layers/base:/opt/jboss/wildfly/modules/system/layers/base
-      - ./deployments:/opt/jboss/wildfly/standalone/deployments
-      - ./target/JaviCook-1.0-SNAPSHOT/img/fotos:/opt/jboss/src/main/webapp/img/fotos  # Volumen para las imágenes subidas en el sv
       - img-data:/opt/jboss/src/main/webapp/img/fotos  # Volumen persistente para imágenes
     environment:
       - MYSQL_HOST=mysql
