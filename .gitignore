@@ -1,7 +1,13 @@
-target/
+# Ignorar el directorio target
+target/*
+
+# Permitir el archivo WAR específico
+!target/JaviCook-1.0-SNAPSHOT.war
+
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
