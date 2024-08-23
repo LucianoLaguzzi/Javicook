@@ -11,10 +11,10 @@ RUN mkdir -p /opt/jboss/src/main/webapp/img/fotos/
 COPY target/JaviCook-1.0-SNAPSHOT.war $DEPLOYMENT_DIR
 
 # Copiar el archivo JAR del controlador JDBC
-COPY wildfly-25.0.1.Final/modules/system/layers/base/com/mysql/main/mysql-connector-java-5.1.48.jar /opt/jboss/wildfly/modules/com/mysql/jdbc/main/
+COPY wildfly-25.0.1.Final/modules/system/layers/base/com/mysql/main/mysql-connector-java-5.1.48.jar /opt/jboss/wildfly/modules/com/mysql/main/
 
 # Copiar el archivo module.xml
-COPY wildfly-25.0.1.Final/modules/system/layers/base/com/mysql/main/module.xml /opt/jboss/wildfly/modules/com/mysql/jdbc/main/
+COPY wildfly-25.0.1.Final/modules/system/layers/base/com/mysql/main/module.xml /opt/jboss/wildfly/modules/com/mysql/main/
 
 # Copiar el standalone.xml personalizado
 COPY wildfly-25.0.1.Final/standalone/configuration/standalone.xml $CONFIGURATION_DIR
