@@ -132,7 +132,7 @@
           </security>
         </datasource>
         <datasource jndi-name="java:jboss/datasources/recetaDS" pool-name="recetaDS" enabled="true" use-java-context="true">
-          <connection-url>jdbc:mysql://localhost:3306/recetas</connection-url>
+         <connection-url>jdbc:mysql://localhost:3306/recetas</connection-url>
           <driver>mysql-new2</driver>
           <security>
             <user-name>root</user-name>
