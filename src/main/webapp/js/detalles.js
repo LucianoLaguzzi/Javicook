@@ -17,14 +17,6 @@ function mostrarMensajeConfirmacion() {
     }, 10000); //
 }
 
-function confirmarEliminar(event) {
-    event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
-    if (confirm('¿Estás seguro de que quieres eliminar esta receta?')) {
-        document.querySelector('.boton-eliminar-receta').click(); // Simular el clic en el botón oculto
-    }
-}
-
-
 
 
 function mostrarInput() {
@@ -377,4 +369,46 @@ function autoResizeTextAreaIngredientes(textareaIngredientes) {
 
 
 
+function confirmarEliminar(event) {
+    event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+    if (confirm('¿Estás seguro de que quieres eliminar esta receta?')) {
+        document.querySelector('.boton-eliminar-receta').click(); // Simular el clic en el botón oculto
+    }
+}
 
+function manejarResultadoEliminarReceta(event) {
+    if (event.status === "success") {
+        let resultadoElement = document.querySelector('.resultado-eliminar');
+        if (resultadoElement) {
+            let resultado = resultadoElement.textContent.trim();
+            console.log("Resultado: " + resultado);
+
+            if (resultado === "favoritos") {
+                Swal.fire({
+                    title: 'Error',
+                    text: 'No puedes eliminar esta receta porque está en tu lista de favoritas.',
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                });
+            } else if (resultado === "exito") {
+                Swal.fire({
+                    title: 'Éxito',
+                    text: 'Receta eliminada exitosamente.',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                }).then(() => {
+                    window.location.href = 'index.xhtml'; // Redirigir a la página de inicio u otra página
+                });
+            } else if (resultado === "error") {
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Ocurrió un error al intentar eliminar la receta.',
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                });
+            }
+        } else {
+            console.error("No se encontró el elemento con la clase 'resultado-eliminar'.");
+        }
+    }
+}

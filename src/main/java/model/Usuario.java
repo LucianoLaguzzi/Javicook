@@ -5,6 +5,7 @@ import controller.UsuarioBacking;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -60,6 +61,7 @@ public class Usuario extends AbstractEntity implements Serializable {
 
     public Usuario(){
         this.imagenPerfil = "img/default-image.jpg";
+        this.recetasFavoritas = new ArrayList<>();
     }
 
     public Usuario(String nombre, String contrasenia, String email, String imagenPerfil) {

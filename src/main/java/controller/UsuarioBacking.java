@@ -90,6 +90,10 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
             System.out.println("Token no proporcionado.");
         }
 
+
+
+        obtenerFavoritas();
+
     }
 
 
@@ -575,6 +579,31 @@ public class UsuarioBacking  extends AbstractBacking<Usuario>{
             e.printStackTrace();
         }
     }
+
+
+
+
+    public void obtenerFavoritas() {
+        try {
+            FacesContext context = FacesContext.getCurrentInstance();
+            ExternalContext externalContext = context.getExternalContext();
+            HttpServletRequest request = (HttpServletRequest) externalContext.getRequest();
+            HttpSession session = request.getSession(false);
+
+            // Obtener el usuario actualmente autenticado desde la sesión
+            Usuario usuarioAutenticado = (Usuario) session.getAttribute("usuario");
+            if (usuarioAutenticado != null) {
+                usuarioAutenticado.setRecetasFavoritas(usuarioDAO.findRecetasFavoritasByUsuario(usuarioAutenticado.getId()));
+            }else {
+                System.out.println("No hay usuario activo");
+            }
+
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
 
 
 

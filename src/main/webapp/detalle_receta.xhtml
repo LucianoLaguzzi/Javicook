@@ -29,6 +29,9 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,500;1,400&amp;family=Poppins:ital,wght@0,300;0,400;1,300&amp;family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     </h:head>
 
@@ -207,13 +210,22 @@
                         <hr class="divider"/>
 
 
-                            <!-- Botón oculto para eliminar (sin mostrar visualmente) -->
-                            <h:commandButton styleClass="boton-eliminar-receta" id="btnEliminarReceta"  style="display:none;" action="#{detalleRecetaBacking.eliminarReceta(detalleRecetaBacking.receta.id)}" onclick="return confirm('Si apretas en aceptar, tu receta se borrará!');" />
-                            <!-- Botón visible con icono Font Awesome, mostrado condicionalmente -->
-                            <h:outputLink styleClass="link-eliminar-receta" rendered="#{detalleRecetaBacking.esPropietarioReceta()}" onclick="return confirmarEliminar(event)">
-                                <i class="fas fa-trash-alt" title="Eliminar receta"></i>
-                            </h:outputLink>
+                        <!-- Componente para capturar el resultado de la eliminación -->
+                        <h:outputText id="resultadoEliminar" styleClass="resultado-eliminar" value="#{detalleRecetaBacking.resultadoEliminar}" style="display:none;"/>
 
+                        <!-- Botón oculto para eliminar -->
+                        <h:commandButton styleClass="boton-eliminar-receta" id="btnEliminarReceta"
+                                         style="display:none;"
+                                         action="#{detalleRecetaBacking.eliminarReceta(detalleRecetaBacking.receta.id)}">
+                            <!-- Usamos f:ajax para manejar la respuesta y ejecutar JS -->
+                            <f:ajax execute="@this" render="resultadoEliminar" onevent="manejarResultadoEliminarReceta" />
+                        </h:commandButton>
+
+                        <!-- Botón visible con icono Font Awesome -->
+                        <h:outputLink styleClass="link-eliminar-receta" rendered="#{detalleRecetaBacking.esPropietarioReceta()}"
+                                      onclick="return confirmarEliminar(event)">
+                            <i class="fas fa-trash-alt" title="Eliminar receta"></i>
+                        </h:outputLink>
 
 
                         <div class="detalles-comentarios">

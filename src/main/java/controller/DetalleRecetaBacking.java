@@ -50,6 +50,8 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
     private String nuevoComentario;
     private List<Comentario> comentarios= new ArrayList<>();
 
+    private String resultadoEliminar;
+
 
     public DetalleRecetaBacking() {
         receta = new Receta();
@@ -324,31 +326,34 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
     }
 
 
+
     public String eliminarReceta(Long idReceta) {
         try {
             Usuario usuarioAutenticado = obtenerUsuarioActual();
+            usuarioAutenticado = usuarioDAO.findByIdWithRecetasFavoritas(usuarioAutenticado.getId());
+
             if (usuarioAutenticado == null) {
-                System.out.println("Usuario no autenticado.");
-                return null;
+                resultadoEliminar = "error";
+                return null; // Cambia esto si necesitas redirigir a una página específica
             }
 
-            System.out.println("Usuario autenticado: " + usuarioAutenticado.getId());
-            // Eliminar la receta de la base de datos
+            if (usuarioAutenticado.getRecetasFavoritas().contains(receta)) {
+                resultadoEliminar = "favoritos";
+                return null; // Cambia esto si necesitas redirigir a una página específica
+            }
+
             eliminarImagenReceta(receta);
-            // Eliminar los comentarios asociados a la receta
             comentarioDAO.eliminarComentariosDeReceta(idReceta);
-//            Eliminar antes de la lista de favoritos
-            eliminarFavoritoEnReceta(usuarioAutenticado,receta);
-
-//            Eliminar valoracion en valoracion_usuario
-            eliminarValoracionDelUsuario(usuarioAutenticado,receta);
-
+            eliminarFavoritoEnReceta(usuarioAutenticado, receta);
+            eliminarValoracionDelUsuario(usuarioAutenticado, receta);
             recetaDAO.eliminarReceta(idReceta);
-            System.out.println("Receta eliminada: " + idReceta);
-            return "index.xhtml?faces-redirect=true";
+
+            resultadoEliminar = "exito";
+            return "index.xhtml?faces-redirect=true"; // Cambia esto si necesitas redirigir a una página específica
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
+            resultadoEliminar = "error";
+            return null; // Cambia esto si necesitas redirigir a una página específica
         }
     }
 
@@ -405,7 +410,6 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
             System.out.println("La receta" + receta + " fue removida de la lista de favoritos" );
         }
     }
-
 
     public void eliminarValoracionDelUsuario (Usuario usuarioAutenticado, Receta receta) throws Exception {
         usuarioAutenticado = usuarioDAO.findByIdWithRecetasFavoritas(usuarioAutenticado.getId());
@@ -638,7 +642,13 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
         this.pasosReceta = pasosReceta;
     }
 
+    public String getResultadoEliminar() {
+        return resultadoEliminar;
+    }
 
+    public void setResultadoEliminar(String resultadoEliminar) {
+        this.resultadoEliminar = resultadoEliminar;
+    }
 
 
 }

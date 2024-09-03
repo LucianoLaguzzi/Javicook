@@ -2,6 +2,7 @@ package controller;
 
 import dao.IngredienteDAO;
 import dao.RecetaDAO;
+import dao.UsuarioDAO;
 import datamodel.GenericDataModel;
 import model.Ingrediente;
 import model.Receta;
@@ -41,6 +42,8 @@ public class RecetaBacking  extends AbstractBacking<Receta>{
 
     @EJB
     IngredienteDAO ingredienteDAO;
+
+
     private GenericDataModel<Receta> dataModel;
     private Receta receta;
 
@@ -63,8 +66,6 @@ public class RecetaBacking  extends AbstractBacking<Receta>{
     private List<Receta> top3Recetas = new ArrayList<>();
 
 
-
-
     public RecetaBacking() {
         receta = new Receta();
     }
@@ -78,7 +79,6 @@ public class RecetaBacking  extends AbstractBacking<Receta>{
         cantidadRecetasCargadas = 0;
         obtenerRecetas();
         cargarTop3Recetas();
-
     }
 
     @Override
@@ -361,5 +361,6 @@ public void registrarReceta() throws Exception {
     public void setTop3Recetas(List<Receta> top3Recetas) {
         this.top3Recetas = top3Recetas;
     }
+
 
 }

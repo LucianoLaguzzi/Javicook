@@ -5,7 +5,6 @@ import model.Receta;
 import model.Usuario;
 
 import javax.ejb.Stateless;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -56,6 +55,21 @@ public class UsuarioDAO extends AbstractEntityDAO<Usuario> {
         return resultados.isEmpty() ? null : resultados.get(0);
     }
 
+
+    public List<Receta> findRecetasFavoritasByUsuario(Long usuarioId) {
+        TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u LEFT JOIN FETCH u.recetasFavoritas WHERE u.id = :id", Usuario.class);
+        query.setParameter("id", usuarioId);
+        Usuario usuario = query.getSingleResult();
+        return usuario.getRecetasFavoritas(); // Esto ahora debería devolver las recetas favoritas inicializadas
+    }
+
+
+//    public Usuario findByIdSumadoFavoritos(Long usuarioId) {
+//        TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u LEFT JOIN FETCH u.recetasFavoritas WHERE u.id = :id", Usuario.class);
+//        query.setParameter("id", usuarioId);
+//        List<Usuario> resultados = query.getResultList();
+//        return resultados.isEmpty() ? null : resultados.get(0);
+//    }
 
 
     @Override
