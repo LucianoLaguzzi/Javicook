@@ -25,6 +25,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import javax.mail.internet.MimeUtility;
 
 
 @ManagedBean(name="detalleRecetaBacking")
@@ -424,6 +425,8 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
 
 
     // Método para enviar correo de confirmación
+
+
     private void enviarCorreoConfirmacion(String emailDestinatario, Comentario comentario) {
         // Configuración de JavaMail para enviar correo electrónico
         String host = "smtp.gmail.com";
@@ -435,9 +438,7 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
         props.put("mail.smtp.host", host);
         props.put("mail.smtp.port", port);
         props.put("mail.smtp.auth", "true");
-
-        // Habilitar TLS
-        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.starttls.enable", "true"); // Habilitar TLS
 
         // Crear la sesión de JavaMail
         Session session = Session.getInstance(props, new Authenticator() {
@@ -449,10 +450,15 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
         try {
             // Preparar el mensaje de correo
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(username)); // Dirección del remitente (tu dirección de Gmail)
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailDestinatario)); // Destinatario del correo
-            message.setSubject("Confirmación de Comentario");
+            message.setFrom(new InternetAddress(username)); // Dirección del remitente
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailDestinatario)); // Destinatario
+
+            // Establecer el asunto con codificación UTF-8
+            message.setSubject(MimeUtility.encodeText("Confirmación de Comentario", "UTF-8", "B"));
+
+            // Establecer el contenido del correo en texto plano con codificación UTF-8
             message.setText("Hola,\n\nTu comentario ha sido registrado correctamente en nuestra aplicación.");
+            message.setHeader("Content-Type", "text/plain; charset=UTF-8");
 
             // Enviar el correo
             Transport.send(message);
@@ -461,11 +467,13 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
 
         } catch (SendFailedException e) {
             System.out.println("Error: Dirección de correo no válida o no puede recibir correos: " + emailDestinatario);
-            // Aquí puedes manejar el error, por ejemplo, notificando al usuario
         } catch (MessagingException e) {
             System.out.println("Error al enviar correo de confirmación: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error inesperado: " + e.getMessage());
         }
     }
+
 
 
 
