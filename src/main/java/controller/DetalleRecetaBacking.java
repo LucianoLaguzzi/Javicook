@@ -457,7 +457,7 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
             message.setSubject(MimeUtility.encodeText("Confirmación de Comentario", "UTF-8", "B"));
 
             // Establecer el contenido del correo en texto plano con codificación UTF-8
-            message.setText(MimeUtility.encodeText("Hola,\n\nTu comentario ha sido registrado correctamente en nuestra aplicación."));
+            message.setText("Hola,\n\nTu comentario ha sido registrado correctamente en nuestra app.");
             message.setHeader("Content-Type", "text/plain; charset=UTF-8");
 
             // Enviar el correo
