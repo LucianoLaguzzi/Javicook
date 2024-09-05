@@ -343,6 +343,11 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
                 return null; // Cambia esto si necesitas redirigir a una página específica
             }
 
+
+            // Eliminar la receta de la lista de favoritos de otros usuarios
+            eliminarRecetaDeFavoritos(idReceta);
+
+
             eliminarImagenReceta(receta);
             comentarioDAO.eliminarComentariosDeReceta(idReceta);
             eliminarFavoritoEnReceta(usuarioAutenticado, receta);
@@ -408,7 +413,7 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
         }else {
             usuarioAutenticado.getRecetasFavoritas().remove(receta);
             usuarioDAO.update(usuarioAutenticado);
-            System.out.println("La receta" + receta + " fue removida de la lista de favoritos" );
+            System.out.println("La receta " + receta + " fue removida de la lista de favoritos" );
         }
     }
 
@@ -421,6 +426,22 @@ public class DetalleRecetaBacking extends AbstractBacking<Receta> {
         }
 
     }
+
+
+
+    private void eliminarRecetaDeFavoritos(Long idReceta) throws Exception {
+        List<Usuario> usuariosConFavorito = usuarioDAO.findUsuariosConRecetaFavorita(idReceta);
+        for (Usuario usuario : usuariosConFavorito) {
+            usuario = usuarioDAO.findByIdWithRecetasFavoritas(usuario.getId());
+            usuario.getRecetasFavoritas().removeIf(receta -> receta.getId().equals(idReceta));
+            usuarioDAO.update(usuario); // Actualizar el usuario sin la receta en favoritos
+        }
+        System.out.println("Receta eliminada de la lista de favoritos de todos los usuarios.");
+    }
+
+
+
+
 
 
 

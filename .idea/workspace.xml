@@ -9,7 +9,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ab3445e-8bbd-4b14-b439-e445561f677d" name="Changes" comment="" />
+    <list default="true" id="6ab3445e-8bbd-4b14-b439-e445561f677d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DetalleRecetaBacking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/DetalleRecetaBacking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/UsuarioDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240805-101555806/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240805-101555806/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240805-115215281/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240805-115215281/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240805-145210086/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240805-145210086/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240805-145210086/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240805-145210086/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240805-161224195/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240805-161224195/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240805-161224195/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240805-161224195/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240805-170248036/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240805-170248036/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240805-170248036/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240805-170248036/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240806-122000753/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240806-122000753/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240806-122000753/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240806-122000753/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240806-155307976/standalone.v1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240806-155307976/standalone.v2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240806-155307976/standalone.v3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/20240806-155307976/standalone.v4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/current/standalone.v1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/current/standalone.v1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/standalone.boot.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/configuration/standalone_xml_history/standalone.boot.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/log/server.log" beforeDir="false" afterPath="$PROJECT_DIR$/wildfly-25.0.1.Final/standalone/log/server.log" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -363,7 +395,7 @@
       <workItem from="1725369602288" duration="9887000" />
       <workItem from="1725387110156" duration="8537000" />
       <workItem from="1725455740472" duration="7573000" />
-      <workItem from="1725543049392" duration="4260000" />
+      <workItem from="1725543049392" duration="9974000" />
     </task>
     <servers />
   </component>
@@ -388,6 +420,29 @@
           <properties class="java.net.ConnectException" package="java.net" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/DetalleRecetaBacking.java</url>
+          <line>347</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/DetalleRecetaBacking.java</url>
+          <line>330</line>
+          <properties class="controller.DetalleRecetaBacking" method="eliminarReceta">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/DetalleRecetaBacking.java</url>
+          <line>431</line>
+          <properties class="controller.DetalleRecetaBacking" method="eliminarRecetaDeFavoritos">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

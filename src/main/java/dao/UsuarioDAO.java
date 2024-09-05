@@ -64,12 +64,11 @@ public class UsuarioDAO extends AbstractEntityDAO<Usuario> {
     }
 
 
-//    public Usuario findByIdSumadoFavoritos(Long usuarioId) {
-//        TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u LEFT JOIN FETCH u.recetasFavoritas WHERE u.id = :id", Usuario.class);
-//        query.setParameter("id", usuarioId);
-//        List<Usuario> resultados = query.getResultList();
-//        return resultados.isEmpty() ? null : resultados.get(0);
-//    }
+    public List<Usuario> findUsuariosConRecetaFavorita(Long idReceta) {
+        return em.createQuery("SELECT u FROM Usuario u JOIN u.recetasFavoritas r WHERE r.id = :idReceta", Usuario.class)
+                .setParameter("idReceta", idReceta)
+                .getResultList();
+    }
 
 
     @Override
